@@ -40,9 +40,9 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
 
     private static final ItemStack OSCILLATOR_INFO = new CustomItem(
             Material.CYAN_STAINED_GLASS_PANE,
-            "&bOscillator Slot",
-            "&7Place a quarry oscillator to",
-            "&7boost certain material's rates!"
+            "&b采集器槽",
+            "&7把采集器放到这里",
+            "&7提高对应的材料产出率!"
     );
     private static final int[] OUTPUT_SLOTS = {
             9, 10, 11, 12, 13, 14, 15, 16, 17,
@@ -138,10 +138,10 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
     @Nonnull
     @Override
     public String getRecipeSectionLabel(@Nonnull Player p) {
-        return "&7Mines:";
+        return "&7采矿:";
     }
 
-    private static final ItemStack MINING = new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&aMining...");
+    private static final ItemStack MINING = new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a采矿中...");
 
     @Override
     protected boolean process(@Nonnull BlockMenu inv, @Nonnull Block b) {

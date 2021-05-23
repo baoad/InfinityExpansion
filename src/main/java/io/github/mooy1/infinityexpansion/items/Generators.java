@@ -33,9 +33,9 @@ public final class Generators {
     public static final SlimefunItemStack INFINITY_REACTOR = new SlimefunItemStack(
             "INFINITY_REACTOR",
             Material.BEACON,
-            "&bInfinity Reactor",
-            "&7Generates power through the compression",
-            "&7of &8Void &7and &bInfinity &7Ingots",
+            "&b无尽反应堆",
+            "&7通过两者碰撞产生电量",
+            "&7需要&8虚空&7锭和&b无尽&7锭",
             "",
             LorePreset.energyBuffer(INFINITY_REACTOR_ENERGY * 1000),
             LorePreset.energyPerSecond(INFINITY_REACTOR_ENERGY)
@@ -43,8 +43,8 @@ public final class Generators {
     public static final SlimefunItemStack HYDRO = new SlimefunItemStack(
             "HYDRO_GENERATOR",
             Material.PRISMARINE_WALL,
-            "&9Hydro Generator",
-            "&7Generates energy from the movement of water",
+            "&9水力发电机",
+            "&7从水的运动中产生能量",
             "",
             LorePreset.energyBuffer(HYDRO_ENERGY * 100),
             LorePreset.energyPerSecond(HYDRO_ENERGY)
@@ -52,9 +52,9 @@ public final class Generators {
     public static final SlimefunItemStack REINFORCED_HYDRO = new SlimefunItemStack(
             "REINFORCED_HYDRO_GENERATOR",
             Material.END_STONE_BRICK_WALL,
-            "&fReinforced &9Hydro Gen",
-            "&7Generates large amounts of energy",
-            "&7from the movement of water",
+            "&f加强&9水力发电机",
+            "&7生产更多的电力",
+            "&7需要在水里面运行",
             "",
             LorePreset.energyBuffer(ADVANCED_HYDRO_ENERGY * 100),
             LorePreset.energyPerSecond(ADVANCED_HYDRO_ENERGY)
@@ -62,8 +62,8 @@ public final class Generators {
     public static final SlimefunItemStack GEOTHERMAL = new SlimefunItemStack(
             "GEOTHERMAL_GENERATOR",
             Material.MAGMA_BLOCK,
-            "&cGeothermal Generator",
-            "&7Generates energy from the heat of the world",
+            "&c地热发电机",
+            "&7从地底发出的热量产生电力",
             "",
             LorePreset.energyBuffer(GEO_ENERGY * 100),
             LorePreset.energyPerSecond(GEO_ENERGY)
@@ -71,9 +71,9 @@ public final class Generators {
     public static final SlimefunItemStack REINFORCED_GEOTHERMAL = new SlimefunItemStack(
             "REINFORCED_GEOTHERMAL_GENERATOR",
             Material.SHROOMLIGHT,
-            "&fReinforced &cGeothermal Gen",
-            "&7Generates large amounts of energy",
-            "&7from the heat of the world",
+            "&f加强&c地热发电机",
+            "&7生产更多的电力",
+            "&7从地底发出的热量产生电力",
             "",
             LorePreset.energyBuffer(ADVANCED_GEO_ENERGY * 100),
             LorePreset.energyPerSecond(ADVANCED_GEO_ENERGY)
@@ -81,8 +81,8 @@ public final class Generators {
     public static final SlimefunItemStack BASIC_PANEL = new SlimefunItemStack(
             "BASIC_PANEL",
             Material.BLUE_GLAZED_TERRACOTTA,
-            "&9Basic Solar Panel",
-            "&7Generates energy from the sun",
+            "&9基础太阳能板",
+            "&7来自太阳的能量",
             "",
             LorePreset.energyBuffer(BASIC_SOLAR_ENERGY * 100),
             LorePreset.energyPerSecond(BASIC_SOLAR_ENERGY)
@@ -90,8 +90,8 @@ public final class Generators {
     public static final SlimefunItemStack ADVANCED_PANEL = new SlimefunItemStack(
             "ADVANCED_PANEL",
             Material.RED_GLAZED_TERRACOTTA,
-            "&cAdvanced Solar Panel",
-            "&7Generates energy from the sun",
+            "&c高级太阳能板",
+            "&7来自太阳的能量",
             "",
             LorePreset.energyBuffer(ADVANCED_SOLAR_ENERGY * 100),
             LorePreset.energyPerSecond(ADVANCED_SOLAR_ENERGY)
@@ -99,8 +99,8 @@ public final class Generators {
     public static final SlimefunItemStack CELESTIAL_PANEL = new SlimefunItemStack(
             "CELESTIAL_PANEL",
             Material.YELLOW_GLAZED_TERRACOTTA,
-            "&eCelestial Panel",
-            "&7Generates energy from the sun",
+            "&e加强太阳能板",
+            "&7来自太阳的能量",
             "",
             LorePreset.energyBuffer(CELESTIAL_ENERGY * 100),
             LorePreset.energyPerSecond(CELESTIAL_ENERGY)
@@ -108,8 +108,8 @@ public final class Generators {
     public static final SlimefunItemStack VOID_PANEL = new SlimefunItemStack(
             "VOID_PANEL",
             Material.LIGHT_GRAY_GLAZED_TERRACOTTA,
-            "&8Void Panel",
-            "&7Generates energy from darkness",
+            "&8虚空太阳能板",
+            "&7来自虚空的能量",
             "",
             LorePreset.energyBuffer(VOID_ENERGY * 100),
             LorePreset.energyPerSecond(VOID_ENERGY)
@@ -117,8 +117,8 @@ public final class Generators {
     public static final SlimefunItemStack INFINITE_PANEL = new SlimefunItemStack(
             "INFINITE_PANEL",
             Material.LIGHT_BLUE_GLAZED_TERRACOTTA,
-            "&bInfinity Panel",
-            "&7Generates energy from the cosmos",
+            "&b无尽太阳能板",
+            "&7吸取着日月精华",
             "",
             LorePreset.energyBuffer(INFINITY_ENERGY * 100),
             LorePreset.energyPerSecond(INFINITY_ENERGY)
