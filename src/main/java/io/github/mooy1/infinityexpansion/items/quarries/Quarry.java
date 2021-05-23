@@ -1,4 +1,4 @@
-package io.github.mooy1.infinityexpansion.items.quarries;
+package io.github.mooy1.infinityexpansion.items.machines;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,7 @@ import org.bukkit.inventory.ItemStack;
 
 import io.github.mooy1.infinityexpansion.InfinityExpansion;
 import io.github.mooy1.infinityexpansion.items.abstracts.AbstractMachine;
+import io.github.mooy1.infinityexpansion.items.materials.Oscillator;
 import io.github.mooy1.infinitylib.presets.MenuPreset;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
@@ -34,15 +35,15 @@ import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
  * @author Mooy1
  */
 public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
-
+    
     private static final boolean ALLOW_NETHER_IN_OVERWORLD = InfinityExpansion.inst().getConfig().getBoolean("quarry-options.output-nether-materials-in-overworld");
     private static final int INTERVAL = InfinityExpansion.inst().getConfig().getInt("quarry-options.ticks-per-output", 1, 100);
 
     private static final ItemStack OSCILLATOR_INFO = new CustomItem(
-            Material.CYAN_STAINED_GLASS_PANE,
-            "&b采集器槽",
-            "&7把采集器放到这里",
-            "&7提高对应的材料产出率!"
+            Material.CYAN_STAINED_GLASS_PANE, 
+            "&b振荡器槽",
+            "&7放置一个采石机",
+            "&7提高某些材料的利率！"
     );
     private static final int[] OUTPUT_SLOTS = {
             9, 10, 11, 12, 13, 14, 15, 16, 17,
@@ -52,16 +53,16 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
     };
     private static final int OSCILLATOR_SLOT = 49;
     private static final int STATUS_SLOT = 4;
-
+    
     private final int speed;
     private final int chance;
     private final int energy;
     private final Material[] outputs;
-
+    
     public Quarry(Category category, SlimefunItemStack item, RecipeType type, ItemStack[] recipe,
                   int energy, int speed, int chance, Material... outputs) {
         super(category, item, type, recipe);
-
+        
         this.speed = speed;
         this.chance = chance;
         this.outputs = outputs;
@@ -87,7 +88,7 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
             if (i == OSCILLATOR_SLOT - 1) {
                 blockMenuPreset.addItem(i, OSCILLATOR_INFO, ChestMenuUtils.getEmptyClickHandler());
                 blockMenuPreset.addItem(i + 2, OSCILLATOR_INFO, ChestMenuUtils.getEmptyClickHandler());
-                i += 3;
+                i+=3;
             }
             blockMenuPreset.addItem(i, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler());
         }
@@ -116,7 +117,7 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
     public void onNewInstance(@Nonnull BlockMenu menu, @Nonnull Block b) {
 
     }
-
+    
     @Override
     public int getCapacity() {
         return this.energy * 2;
@@ -140,19 +141,19 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
     public String getRecipeSectionLabel(@Nonnull Player p) {
         return "&7采矿:";
     }
-
+    
     private static final ItemStack MINING = new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a采矿中...");
-
+    
     @Override
     protected boolean process(@Nonnull BlockMenu inv, @Nonnull Block b) {
         if (inv.hasViewer()) {
             inv.replaceExistingItem(STATUS_SLOT, MINING);
         }
-
+        
         if ((InfinityExpansion.inst().getGlobalTick() % INTERVAL) != 0) {
             return true;
         }
-
+        
         ItemStack outputItem;
 
         if (ThreadLocalRandom.current().nextInt(this.chance) == 0) {
@@ -172,14 +173,14 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
         } else {
             outputItem = new ItemStack(Material.COBBLESTONE, this.speed);
         }
-
+        
         if (!inv.fits(outputItem, OUTPUT_SLOTS)) {
             if (inv.hasViewer()) {
                 inv.replaceExistingItem(STATUS_SLOT, MenuPreset.NO_ROOM);
             }
             return false;
         }
-
+        
         inv.pushItem(outputItem, OUTPUT_SLOTS);
         return true;
     }

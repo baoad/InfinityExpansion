@@ -36,13 +36,13 @@ public final class Blocks {
             "INFINITY_FORGE",
             Material.RESPAWN_ANCHOR,
             "&6无尽工作台",
-            "&7用于制造无尽科技的物品",
+            "&7用于制造无尽贪婪的物品",
             "",
             LorePreset.energy(10000000) + "每次使用"
     );
-
+    
     public static void setup(InfinityExpansion plugin) {
-        new StrainerBase(Categories.BASIC_MACHINES, STRAINER_BASE, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+        new StrainerBase(Categories.BASIC_MACHINES, STRAINER_BASE, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
                 new ItemStack(Material.STICK), new ItemStack(Material.STRING), new ItemStack(Material.STICK),
                 new ItemStack(Material.STICK), new ItemStack(Material.STRING), new ItemStack(Material.STICK),
                 Materials.MAGSTEEL, Materials.MAGSTEEL, Materials.MAGSTEEL,
@@ -58,5 +58,5 @@ public final class Blocks {
                 Materials.VOID_INGOT, Materials.MACHINE_PLATE, Materials.VOID_INGOT
         }, 10000000).register(plugin);
     }
-
+    
 }

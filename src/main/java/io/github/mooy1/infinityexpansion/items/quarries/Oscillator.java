@@ -1,4 +1,4 @@
-package io.github.mooy1.infinityexpansion.items.quarries;
+package io.github.mooy1.infinityexpansion.items.materials;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -30,15 +30,15 @@ public final class Oscillator extends SlimefunItem {
 
     public Oscillator(Material material) {
         super(Categories.MAIN_MATERIALS, new SlimefunItemStack(
-                "QUARRY_OSCILLATOR_" + material.name(),
-                material,
-                "&b" + StackUtils.getDisplayName(new ItemStack(material)) + "采集器",
-                "&7把此物品放进矿机内",
-                "&750%的几率会开采出对应的材料"
+                "QUARRY_OSCILLATOR_" + material.name(), 
+                material, 
+                "&b" + StackUtils.getInternalName(new ItemStack(material)) + "振荡器",
+                "&7把他放在采石机",
+                "&750%的几率会开采这种材料"
         ), RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 Materials.MACHINE_PLATE, SlimefunItems.BLISTERING_INGOT_3, Materials.MACHINE_PLATE,
                 SlimefunItems.BLISTERING_INGOT_3, new ItemStack(material), SlimefunItems.BLISTERING_INGOT_3,
-                Materials.MACHINE_PLATE, SlimefunItems.BLISTERING_INGOT_3, Materials.MACHINE_PLATE
+                Materials.MACHINE_PLATE,SlimefunItems.BLISTERING_INGOT_3, Materials.MACHINE_PLATE
         });
         OSCILLATORS.put(getId(), material);
     }

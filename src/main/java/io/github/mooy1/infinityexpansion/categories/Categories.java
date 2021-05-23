@@ -14,7 +14,7 @@ import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
  * @author Mooy1
  */
 public final class Categories {
-
+    
     public static final Category INFINITY_CATEGORY = new InfinityCategory(InfinityExpansion.inst().getKey("infinity_recipes"),
             new CustomItem(Material.RESPAWN_ANCHOR, "&b无尽&7配方"), 3
     );
@@ -37,17 +37,17 @@ public final class Categories {
             new CustomItem(Material.NETHERITE_BLOCK, "&b无尽&a奇点")
     );
     public static final Category MAIN_CATEGORY = new MultiCategory(InfinityExpansion.inst().getKey("main"),
-            new CustomItem(Material.NETHER_STAR, "&b无尽&7科技"), 3,
+            new CustomItem(Material.NETHER_STAR, "&bInfinity &7Expansion(&b无尽&7贪婪）"), 3,
             MAIN_MATERIALS, BASIC_MACHINES, ADVANCED_MACHINES, STORAGE, MOB_SIMULATION, INFINITY_MATERIALS, INFINITY_CATEGORY
     );
     public static final Category INFINITY_CHEAT = new SubCategory(InfinityExpansion.inst().getKey("infinity_cheat"),
-            new CustomItem(Material.RESPAWN_ANCHOR, "&b无尽&7配方")
+            new CustomItem(Material.RESPAWN_ANCHOR, "&b无尽&7配方 &c- INCORRECT RECIPES")
     );
-
+    
     public static void setup(InfinityExpansion inst) {
         INFINITY_CATEGORY.register(inst);
         MAIN_CATEGORY.register(inst);
         INFINITY_CHEAT.register(inst);
     }
-
+    
 }
