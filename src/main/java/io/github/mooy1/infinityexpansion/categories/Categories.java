@@ -41,7 +41,7 @@ public final class Categories {
             MAIN_MATERIALS, BASIC_MACHINES, ADVANCED_MACHINES, STORAGE, MOB_SIMULATION, INFINITY_MATERIALS, INFINITY_CATEGORY
     );
     public static final Category INFINITY_CHEAT = new SubCategory(InfinityExpansion.inst().getKey("infinity_cheat"),
-            new CustomItem(Material.RESPAWN_ANCHOR, "&b无尽&7配方 &c- INCORRECT RECIPES")
+            new CustomItem(Material.RESPAWN_ANCHOR, "&b无尽&7配方")
     );
     
     public static void setup(InfinityExpansion inst) {
