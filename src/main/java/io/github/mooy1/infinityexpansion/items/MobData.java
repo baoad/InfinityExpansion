@@ -28,22 +28,22 @@ public final class MobData {
     public static final SlimefunItemStack EMPTY_DATA_CARD = new SlimefunItemStack(
             "EMPTY_DATA_CARD",
             Material.CHAINMAIL_CHESTPLATE,
-            "&8Empty Data Card",
-            "&7Infuse with a mob's items to fill"
+            "&8空置的模拟器",
+            "&7用生物物品填充"
     );
     public static final SlimefunItemStack INFUSER = new SlimefunItemStack(
             "DATA_INFUSER",
             Material.LODESTONE,
-            "&8Mob Data Infuser",
-            "&7Infused empty data cards with mob items",
+            "&8模拟器合成机",
+            "&7可以让模拟器和生物物品融合",
             "",
-            LorePreset.energy(INFUSER_ENERGY) + "per use"
+            LorePreset.energy(INFUSER_ENERGY) + "每次使用"
     );
     public static final SlimefunItemStack CHAMBER = new SlimefunItemStack(
             "MOB_SIMULATION_CHAMBER",
             Material.GILDED_BLACKSTONE,
-            "&8Mob Simulation Chamber",
-            "&7Use mob data cards to activate",
+            "&8模拟空间",
+            "&7让模拟器可运行",
             "",
             LorePreset.energyBuffer(CHAMBER_BUFFER),
             LorePreset.energyPerSecond(CHAMBER_ENERGY)

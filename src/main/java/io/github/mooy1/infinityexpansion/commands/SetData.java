@@ -19,18 +19,18 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 public final class SetData extends AbstractCommand {
 
     public SetData() {
-        super("setdata", "Set slimefun block data of the block you are looking at", true);
+        super("setdata", "正在设置并查看Slimefun方块数据", true);
     }
 
     @Override
     public void onExecute(@Nonnull CommandSender commandSender, @Nonnull String[] strings) {
         if (!(commandSender instanceof Player)) {
-            commandSender.sendMessage("Only players can use this!");
+            commandSender.sendMessage("只有玩家才能使用这个!");
             return;
         }
 
         if (strings.length != 3) {
-            commandSender.sendMessage(ChatColor.RED + "You must specify a key and value to set!");
+            commandSender.sendMessage(ChatColor.RED + "你必须设置值!");
             return;
         }
 
@@ -39,27 +39,27 @@ public final class SetData extends AbstractCommand {
         Block target = p.getTargetBlockExact(8, FluidCollisionMode.NEVER);
 
         if (target == null || target.getType() == Material.AIR) {
-            p.sendMessage(ChatColor.RED + "You need to target a block to use this command!");
+            p.sendMessage(ChatColor.RED + "你需要瞄准物品来使用此命令!");
             return;
         }
 
         String id = BlockStorage.getLocationInfo(target.getLocation(), "id");
 
         if (id == null) {
-            p.sendMessage(ChatColor.RED + "You need to target a slimefun block to use this command!");
+            p.sendMessage(ChatColor.RED + "你不能更改这个SF方块ID 他可能会导致出现问题!");
             return;
         }
 
         if (strings[1].equals("id")) {
-            p.sendMessage(ChatColor.RED + "You cannot change the id of this block, it could cause internal issues!");
+            p.sendMessage(ChatColor.RED + "你需要瞄准物品来使用此命令!");
             return;
         }
 
         if (strings[2].equals("\\remove")) {
-            p.sendMessage(ChatColor.GREEN + "Successfully removed value of key '" + strings[1] + "' in " + id);
+            p.sendMessage(ChatColor.GREEN + "成功删除 '" + strings[1] + "' in " + id);
             BlockStorage.addBlockInfo(target, strings[1], null);
         } else {
-            p.sendMessage(ChatColor.GREEN + "Successfully set key '" + strings[1] + "' to value '" + strings[2] + "' in " + id);
+            p.sendMessage(ChatColor.GREEN + "成功设置 '" + strings[1] + "' to value '" + strings[2] + "' in " + id);
             BlockStorage.addBlockInfo(target, strings[1], strings[2]);
         }
 

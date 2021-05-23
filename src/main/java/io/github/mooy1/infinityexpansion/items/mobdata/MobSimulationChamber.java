@@ -32,7 +32,7 @@ public final class MobSimulationChamber extends AbstractTickingContainer impleme
 
     static final double XP_MULTIPLIER = InfinityExpansion.inst().getConfig().getDouble("mob-simulation-options.xp-multiplier", 0, 1000);
 
-    private static final ItemStack NO_CARD = new CustomItem(Material.BARRIER, "&cInput a Mob Data Card!");
+    private static final ItemStack NO_CARD = new CustomItem(Material.BARRIER, "&c需要空置的模拟器!");
     private static final int CARD_SLOT = MenuPreset.INPUT + 27;
     private static final int STATUS_SLOT = MenuPreset.INPUT;
     private static final int[] OUTPUT_SLOTS = Util.LARGE_OUTPUT;
@@ -112,7 +112,7 @@ public final class MobSimulationChamber extends AbstractTickingContainer impleme
     }
 
     private static ItemStack makeXpItem(int stored) {
-        return new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&aStored xp: " + stored, "", "&a> Click to claim");
+        return new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a模拟值: " + stored, "", "&a> 点击取消");
     }
 
     @Override
@@ -147,7 +147,7 @@ public final class MobSimulationChamber extends AbstractTickingContainer impleme
 
         if (inv.hasViewer()) {
             inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE,
-                    "&aSimulating... (" + LorePreset.formatEnergy(energy) + " J/s)")
+                    "&a正在模拟... (" + LorePreset.formatEnergy(energy) + " J/s)")
             );
             inv.replaceExistingItem(XP_SLOT, makeXpItem(xp));
         }
