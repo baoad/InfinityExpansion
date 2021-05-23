@@ -40,7 +40,7 @@ public final class MobDataInfuser extends AbstractCrafter implements EnergyNetCo
     @Nonnull
     @Override
     public String preCraftMessage(@Nonnull Location l, @Nonnull BlockMenu inv) {
-        return ChatColor.RED + "Not enough energy!";
+        return ChatColor.RED + "没有能量!";
     }
 
     @Nonnull

@@ -37,85 +37,85 @@ public final class Gear {
     public static final SlimefunItemStack ENDER_FLAME = new SlimefunItemStack(
             "ENDER_FLAME",
             Material.ENCHANTED_BOOK,
-            "&cEnder Flame"
+            "&c末影火焰"
     );
     public static final SlimefunItemStack CROWN = new SlimefunItemStack(
             "INFINITY_CROWN",
             Material.NETHERITE_HELMET,
-            "&bInfinity Crown",
-            "&7Night Vision I",
-            "&7Conduit Power I",
-            "&7Elytra Crash Immunity"
+            "&b无尽头盔",
+            "&7夜视 I",
+            "&7潮涌核心 I",
+            "&7免疫鞘翅碰撞"
     );
     public static final SlimefunItemStack CHESTPLATE = new SlimefunItemStack(
             "INFINITY_CHESTPLATE",
             Material.NETHERITE_CHESTPLATE,
-            "&bInfinity Chestplate",
-            "&7Strength II",
-            "&7Resistance I",
-            "&7Fire Resistance I",
-            "&7Bee Sting Immunity"
+            "&b无尽胸甲",
+            "&7力量 II",
+            "&7抗性提升 I",
+            "&7防火 I",
+            "&7免疫蜜蜂伤害"
     );
     public static final SlimefunItemStack LEGGINGS = new SlimefunItemStack(
             "INFINITY_LEGGINGS",
             Material.NETHERITE_LEGGINGS,
-            "&bInfinity Leggings",
-            "&7Haste III",
-            "&7Regeneration I",
-            "&7Saturation I",
-            "&7Radiation Immunity"
+            "&b无尽护腿",
+            "&7急迫 III",
+            "&7生命恢复 I",
+            "&7饱和 I",
+            "&7免疫辐射"
     );
     public static final SlimefunItemStack BOOTS = new SlimefunItemStack(
             "INFINITY_BOOTS",
             Material.NETHERITE_BOOTS,
-            "&bInfinity Boots",
-            "&7Speed III",
-            "&7Dolphins Grace I"
+            "&b无尽靴子",
+            "&7速度 III",
+            "&7海豚的恩惠 I"
     );
     public static final SlimefunItemStack INFINITY_MATRIX = new SlimefunItemStack(
             "INFINITY_MATRIX",
             Material.NETHER_STAR,
-            "&fInfinity Matrix",
-            "&6Gives Unlimited Flight",
-            "&7Right-Click to enable/disable and claim",
-            "&7Crouch and Right-Click to remove ownership",
-            "&bSoulbound"
+            "&f无尽鞘翅核心",
+            "&6给予你飞行",
+            "&7右键启动/关闭",
+            "&7蹲下右键取消灵魂绑定",
+            "&b灵魂绑定"
     );
     public static final SlimefunItemStack SHIELD = new SlimefunItemStack(
             "INFINITY_SHIELD",
             Material.SHIELD,
-            "&bCosmic Aegis"
+            "&b宇宙之盾"
     );
     public static final SlimefunItemStack BLADE = new SlimefunItemStack(
             "INFINITY_BLADE",
             Material.NETHERITE_SWORD,
-            "&bBlade of the Cosmos"
+            "&b寰宇支配之剑"
     );
     public static final SlimefunItemStack PICKAXE = new SlimefunItemStack(
             "INFINITY_PICKAXE",
             Material.NETHERITE_PICKAXE,
-            "&9World Breaker"
+            "&9世界崩解之镐"
     );
     public static final SlimefunItemStack AXE = new SlimefunItemStack(
             "INFINITY_AXE",
             Material.NETHERITE_AXE,
-            "&4Nature's Ruin"
+            "&4自然荒芜之斧"
     );
     public static final SlimefunItemStack SHOVEL = new SlimefunItemStack(
             "INFINITY_SHOVEL",
             Material.NETHERITE_SHOVEL,
-            "&aMountain Eater"
+            "&a星球吞噬之铲"
     );
     public static final SlimefunItemStack BOW = new SlimefunItemStack(
             "INFINITY_BOW",
             Material.BOW,
-            "&6Sky Piercer"
+            "&6天堂陨落长弓"
     );
     public static final SlimefunItemStack VEIN_MINER_RUNE = new SlimefunItemStack(
             "VEIN_MINER_RUNE",
             Material.DIAMOND,
-            "&bVein Miner Rune",
-            "&7Upgrades a tool to vein-mine certain materials"
+            "&b矿脉矿工符文",
+            "&7提高工具对矿物挖出数量"
     );
     
     public static void setup(InfinityExpansion plugin) {
@@ -259,7 +259,7 @@ public final class Gear {
             } else {
                 lore = new ArrayList<>();
             }
-            lore.add(ChatColor.AQUA + "Soulbound");
+            lore.add(ChatColor.AQUA + "灵魂绑定");
             meta.setLore(lore);
 
             // find path
