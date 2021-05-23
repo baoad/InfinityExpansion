@@ -73,8 +73,8 @@ public final class EnergyGenerator extends AbstractContainer implements EnergyNe
             if (inv.hasViewer()) {
                 inv.replaceExistingItem(4, new CustomItem(
                         Material.GREEN_STAINED_GLASS_PANE,
-                        "&cNot generating",
-                        "&7Stored: &6" + LorePreset.format(getCharge(l)) + " J"
+                        "&c不生成",
+                        "&7储存: &6" + LorePreset.format(getCharge(l)) + " J"
                 ));
             }
             return 0;
@@ -83,10 +83,10 @@ public final class EnergyGenerator extends AbstractContainer implements EnergyNe
             if (inv.hasViewer()) {
                 inv.replaceExistingItem(4, new CustomItem(
                         Material.GREEN_STAINED_GLASS_PANE,
-                        "&aGeneration",
-                        "&7Type: &6" + type.status,
-                        "&7Generating: &6" + LorePreset.format(gen * TickerUtils.TPS) + " J/s ",
-                        "&7Stored: &6" + LorePreset.format(getCharge(l)) + " J"
+                        "&a发生",
+                        "&7类型: &6" + type.status,
+                        "&7生产中: &6" + LorePreset.format(gen * TickerUtils.TPS) + " J/s ",
+                        "&7储存: &6" + LorePreset.format(getCharge(l)) + " J"
                 ));
             }
             return gen;

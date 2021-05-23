@@ -32,7 +32,7 @@ import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 
 public final class MobSimulationChamber extends TickingContainer implements EnergyNetComponent {
     
-    private static final ItemStack NO_CARD = new CustomItem(Material.BARRIER, "&cInput a Mob Data Card!");
+    private static final ItemStack NO_CARD = new CustomItem(Material.BARRIER, "&c需要空置的模拟器!");
     private static final int CARD_SLOT = MenuPreset.slot1 + 27;
     private static final int STATUS_SLOT = MenuPreset.slot1;
     private static final int[] OUTPUT_SLOTS = Util.largeOutput;
@@ -112,7 +112,7 @@ public final class MobSimulationChamber extends TickingContainer implements Ener
     }
     
     private static ItemStack makeXpItem(int stored) {
-        return new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&aStored xp: " + stored, "", "&a> Click to claim");
+        return new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a模拟值: " + stored, "", "&a> 点击取消");
     }
 
     @Override
@@ -147,7 +147,7 @@ public final class MobSimulationChamber extends TickingContainer implements Ener
         
         if (inv.hasViewer()) {
             inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE,
-                    "&aSimulating... (" + LorePreset.format(energy * TickerUtils.TPS) + " J/s)")
+                    "&a正在模拟... (" + LorePreset.format(energy * TickerUtils.TPS) + " J/s)")
             );
             inv.replaceExistingItem(XP_SLOT, makeXpItem(xp));
         }

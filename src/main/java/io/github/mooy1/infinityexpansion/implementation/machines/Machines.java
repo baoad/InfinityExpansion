@@ -23,16 +23,16 @@ public final class Machines {
     public static final SlimefunItemStack RESOURCE_SYNTHESIZER = new SlimefunItemStack(
             "RESOURCE_SYNTHESIZER",
             Material.LODESTONE,
-            "&6Resource Synthesizer",
-            "&7Creates resources by combining 2 Singularities",
+            "&6物品转换器(粘液)",
+            "&7结合2个奇点来创造资源",
             "",
-            LorePreset.energy(RESOURCE_SYNTH_ENERGY) + "per use"
+            LorePreset.energy(RESOURCE_SYNTH_ENERGY) + "每次使用"
     );
     public static final SlimefunItemStack BASIC_GROWER = new SlimefunItemStack(
             "BASIC_VIRTUAL_FARM",
             Material.GRASS_BLOCK,
-            "&9Basic &aVirtual Farm",
-            "&7Automatically grows, harvests, and replants crops",
+            "&9基础&a微型农场",
+            "&7自动种植,收获和重新种植植物",
             "",
             LorePreset.speed(1),
             LorePreset.energyPerSecond(18)
@@ -40,8 +40,8 @@ public final class Machines {
     public static final SlimefunItemStack ADVANCED_GROWER = new SlimefunItemStack(
             "ADVANCED_VIRTUAL_FARM",
             Material.CRIMSON_NYLIUM,
-            "&cAdvanced &aVirtual Farm",
-            "&7Automatically grows, harvests, and replants crops",
+            "&c高级&a微型农场",
+            "&7自动种植,收获和重新种植植物",
             "",
             LorePreset.speed(5),
             LorePreset.energyPerSecond(90)
@@ -49,8 +49,8 @@ public final class Machines {
     public static final SlimefunItemStack INFINITY_GROWER = new SlimefunItemStack(
             "INFINITY_VIRTUAL_FARM",
             Material.WARPED_NYLIUM,
-            "&bInfinity &aVirtual Farm",
-            "&7Automatically grows, harvests, and replants crops",
+            "&b无尽&a微型农场",
+            "&7自动种植,收获和重新种植植物",
             "",
             LorePreset.speed(25),
             LorePreset.energyPerSecond(900)
@@ -58,8 +58,8 @@ public final class Machines {
     public static final SlimefunItemStack BASIC_TREE = new SlimefunItemStack(
             "BASIC_TREE_GROWER",
             Material.STRIPPED_OAK_WOOD,
-            "&9Basic &2Tree Grower",
-            "&7Automatically grows, harvests, and replants trees",
+            "&9基础&2植树机",
+            "&7自动生长,收获和植树",
             "",
             LorePreset.speed(1),
             LorePreset.energyPerSecond(36)
@@ -67,8 +67,8 @@ public final class Machines {
     public static final SlimefunItemStack ADVANCED_TREE = new SlimefunItemStack(
             "ADVANCED_TREE_GROWER",
             Material.STRIPPED_ACACIA_WOOD,
-            "&cAdvanced &2Tree Grower",
-            "&7Automatically grows, harvests, and replants trees",
+            "&c高级&2植树机",
+            "&7自动生长,收获和植树",
             "",
             LorePreset.speed(5),
             LorePreset.energyPerSecond(180)
@@ -76,8 +76,8 @@ public final class Machines {
     public static final SlimefunItemStack INFINITY_TREE = new SlimefunItemStack(
             "INFINITY_TREE_GROWER",
             Material.STRIPPED_WARPED_HYPHAE,
-            "&bInfinity &2Tree Grower",
-            "&7Automatically grows, harvests, and replants trees",
+            "&b无尽&2植树机",
+            "&7自动生长,收获和植树",
             "",
             LorePreset.speed(25),
             LorePreset.energyPerSecond(1800)
@@ -86,9 +86,9 @@ public final class Machines {
     public static final SlimefunItemStack POWERED_BEDROCK = new SlimefunItemStack(
             "POWERED_BEDROCK",
             Material.NETHERITE_BLOCK,
-            "&4Powered Bedrock",
-            "&7When powered, transforms into a bedrock",
-            "&7Will revert once unpowered or broken",
+            "&4动力基岩",
+            "&7充能变为基岩",
+            "&7没电将变回原形",
             "",
             LorePreset.energyPerSecond(BEDROCK_ENERGY)
     );
@@ -97,24 +97,24 @@ public final class Machines {
     public static final SlimefunItemStack GEO_QUARRY = new SlimefunItemStack(
             "GEO_QUARRY",
             Material.QUARTZ_BRICKS,
-            "&fGeo Quarry",
-            "&7Slowly harvests geo resources from the void using power",
-            "",
+            "&f特级GEO矿机",
+            "&7利用电力挖取物品",
+            "&7不需要GEO组件",
             LorePreset.energyPerSecond(GEO_QUARRY_ENERGY)
     );
     public static final SlimefunItemStack EXTREME_FREEZER = new SlimefunItemStack(
             "EXTREME_FREEZER",
             Material.LIGHT_BLUE_CONCRETE,
-            "&bExtreme Freezer",
-            "&7Converts ice into coolant",
+            "&b高级冷却机",
+            "&7将冰冷却为冷却剂",
             "",
             LorePreset.energyPerSecond(90)
     );
     public static final SlimefunItemStack DUST_EXTRACTOR = new SlimefunItemStack(
             "DUST_EXTRACTOR",
             Material.FURNACE,
-            "&8Dust Extractor",
-            "&7Converts cobble into dusts",
+            "&8粉末制造机",
+            "&7圆石变为粉末",
             "",
             LorePreset.speed(1),
             LorePreset.energyPerSecond(240)
@@ -122,8 +122,8 @@ public final class Machines {
     public static final SlimefunItemStack INFINITY_DUST_EXTRACTOR = new SlimefunItemStack(
             "INFINITY_DUST_EXTRACTOR",
             Material.FURNACE,
-            "&bInfinity &8Dust Extractor",
-            "&7Converts cobble into dusts",
+            "&b无尽&8粉末制造机",
+            "&7圆石变为粉末",
             "",
             LorePreset.speed(16),
             LorePreset.energyPerSecond(7200)
@@ -131,8 +131,8 @@ public final class Machines {
     public static final SlimefunItemStack INGOT_FORMER = new SlimefunItemStack(
             "INGOT_FORMER",
             Material.FURNACE,
-            "&8Ingot Former",
-            "&7Forms ingots from dusts",
+            "&8成锭机",
+            "&7粉末变为锭",
             "",
             LorePreset.speed(1),
             LorePreset.energyPerSecond(240)
@@ -140,8 +140,8 @@ public final class Machines {
     public static final SlimefunItemStack INFINITY_INGOT_FORMER = new SlimefunItemStack(
             "INFINITY_INGOT_FORMER",
             Material.FURNACE,
-            "&bInfinity &8Ingot Former",
-            "&7Forms ingots from dusts",
+            "&b无尽&8成锭机",
+            "&7粉末变为锭",
             "",
             LorePreset.speed(16),
             LorePreset.energyPerSecond(7200)
@@ -149,16 +149,16 @@ public final class Machines {
     public static final SlimefunItemStack URANIUM_EXTRACTOR = new SlimefunItemStack(
             "URANIUM_EXTRACTOR",
             Material.LIME_CONCRETE,
-            "&aUranium Extractor",
-            "&7Converts cobble into uranium",
+            "&a铀提取器",
+            "&7圆石变为铀",
             "",
             LorePreset.energyPerSecond(240)
     );
     public static final SlimefunItemStack DECOMPRESSOR = new SlimefunItemStack(
             "DECOMPRESSOR",
             Material.TARGET,
-            "&7Decompressor",
-            "&7Reduces blocks to their base material",
+            "&7分解器",
+            "&7方块变为个体",
             "",
             LorePreset.energyPerSecond(60)
     );
@@ -166,15 +166,15 @@ public final class Machines {
     public static final SlimefunItemStack GEAR_TRANSFORMER = new SlimefunItemStack(
             "GEAR_TRANSFORMER",
             Material.EMERALD_BLOCK,
-            "&7Gear Transformer",
-            "&7Changes the material of vanilla tools and gear",
+            "&7物品转换器",
+            "&7可以将工具/装备转换成不同等级",
             "",
-            LorePreset.energy(GEAR_TRANSFORMER_ENERGY) + "Per Use"
+            LorePreset.energy(GEAR_TRANSFORMER_ENERGY) + "每次使用"
     );
     public static final SlimefunItemStack BASIC_COBBLE = new SlimefunItemStack(
             "BASIC_COBBLE_GEN",
             Material.SMOOTH_STONE,
-            "&9Basic &8Cobble Generator",
+            "&9基础&8圆石发生器",
             "",
             LorePreset.speed(1),
             LorePreset.energyPerSecond(24)
@@ -182,7 +182,7 @@ public final class Machines {
     public static final SlimefunItemStack ADVANCED_COBBLE = new SlimefunItemStack(
             "ADVANCED_COBBLE_GEN",
             Material.SMOOTH_STONE,
-            "&cAdvanced &8Cobble Generator",
+            "&c高级&8圆石发生器",
             "",
             LorePreset.speed(4),
             LorePreset.energyPerSecond(120)
@@ -190,7 +190,7 @@ public final class Machines {
     public static final SlimefunItemStack INFINITY_COBBLE = new SlimefunItemStack(
             "INFINITY_COBBLE_GEN",
             Material.SMOOTH_STONE,
-            "&cInfinity &8Cobble Generator",
+            "&c无尽&8圆石发生器",
             "",
             LorePreset.speed(64),
             LorePreset.energyPerSecond(800)
@@ -198,7 +198,7 @@ public final class Machines {
     public static final SlimefunItemStack BASIC_OBSIDIAN = new SlimefunItemStack(
             "BASIC_OBSIDIAN_GEN",
             Material.SMOOTH_STONE,
-            "&8Obsidian Generator",
+            "&8黑耀石发生器",
             "",
             LorePreset.speed(1),
             LorePreset.energyPerSecond(240)
@@ -206,8 +206,8 @@ public final class Machines {
     public static final SlimefunItemStack BASIC_QUARRY = new SlimefunItemStack(
             "BASIC_QUARRY",
             Material.CHISELED_SANDSTONE,
-            "&9Basic Quarry",
-            "&7Automatically mines overworld ores",
+            "&9基础矿机",
+            "&7自动挖矿",
             "",
             LorePreset.speed(1),
             LorePreset.energyPerSecond(300)
@@ -215,8 +215,8 @@ public final class Machines {
     public static final SlimefunItemStack ADVANCED_QUARRY = new SlimefunItemStack(
             "ADVANCED_QUARRY",
             Material.CHISELED_RED_SANDSTONE,
-            "&cAdvanced Quarry",
-            "&7Automatically mines overworld and nether ores",
+            "&c高级矿机",
+            "&7自动挖矿",
             "",
             LorePreset.speed(2),
             LorePreset.energyPerSecond(900)
@@ -224,8 +224,8 @@ public final class Machines {
     public static final SlimefunItemStack VOID_QUARRY = new SlimefunItemStack(
             "VOID_QUARRY",
             Material.CHISELED_NETHER_BRICKS,
-            "&8Void Quarry",
-            "&7Automatically mines overworld and nether ores",
+            "&8虚空矿机",
+            "&7自动挖矿",
             "",
             LorePreset.speed(6),
             LorePreset.energyPerSecond(3600)
@@ -233,8 +233,8 @@ public final class Machines {
     public static final SlimefunItemStack INFINITY_QUARRY = new SlimefunItemStack(
             "INFINITY_QUARRY",
             Material.CHISELED_POLISHED_BLACKSTONE,
-            "&bInfinity Quarry",
-            "&7Automatically mines overworld and nether ores",
+            "&b无尽矿机",
+            "&7自动挖矿",
             "",
             LorePreset.speed(64),
             LorePreset.energyPerSecond(36000)
@@ -242,8 +242,8 @@ public final class Machines {
     public static final SlimefunItemStack SINGULARITY_CONSTRUCTOR = new SlimefunItemStack(
             "SINGULARITY_CONSTRUCTOR",
             Material.QUARTZ_BRICKS,
-            "&fSingularity Constructor",
-            "&7Condenses large amounts of resources",
+            "&f奇点构造机",
+            "&7凝聚了大量资源",
             "",
             LorePreset.speed(1),
             LorePreset.energyPerSecond(120)
@@ -251,8 +251,8 @@ public final class Machines {
     public static final SlimefunItemStack INFINITY_CONSTRUCTOR = new SlimefunItemStack(
             "INFINITY_CONSTRUCTOR",
             Material.CHISELED_QUARTZ_BLOCK,
-            "&bInfinity &fConstructor",
-            "&7Quickly condenses large amounts of resources",
+            "&b无尽&f奇点构造机",
+            "&7凝聚了大量资源",
             "",
             LorePreset.speed(64),
             LorePreset.energyPerSecond(1200)
@@ -260,16 +260,16 @@ public final class Machines {
     public static final SlimefunItemStack STONEWORKS_FACTORY = new SlimefunItemStack(
             "STONEWORKS_FACTORY",
             Material.BLAST_FURNACE,
-            "&8Stoneworks Factory",
-            "&7Generates cobblestone and processes it into various materials",
+            "&8石制品制作机",
+            "&7发生圆石并将其加工成各种材料",
             "",
             LorePreset.energyPerSecond(240)
     );
     public static final SlimefunItemStack VOID_HARVESTER = new SlimefunItemStack(
             "VOID_HARVESTER",
             Material.OBSIDIAN,
-            "&8Void Harvester",
-            "&7Slowly harvests &8Void &7Bits from nothing...",
+            "&8虚空微粒发生器",
+            "&7在&8虚空&7里寻找微小的物品...",
             "",
             LorePreset.speed(1),
             LorePreset.energyPerSecond(120)
@@ -277,8 +277,8 @@ public final class Machines {
     public static final SlimefunItemStack INFINITE_VOID_HARVESTER = new SlimefunItemStack(
             "INFINITE_VOID_HARVESTER",
             Material.CRYING_OBSIDIAN,
-            "&bInfinite &8Void Harvester",
-            "&7Harvests &8Void &7Bits from nothing...",
+            "&b无尽&8虚空微粒发生器",
+            "&7在&8虚空&7里寻找微小的物品...",
             "",
             LorePreset.speed(64),
             LorePreset.energyPerSecond(12000)

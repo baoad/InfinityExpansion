@@ -40,8 +40,8 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
     private static final int STATUS_SLOT = 9;
     private static final int[] CHOICE_SLOTS = {11, 13, 15};
     private static final int[] PROCESS_SLOTS = {10, 12, 14};
-    private static final ItemStack COBBLE_GEN = new CustomItem(Material.GRAY_CONCRETE, "&8Cobblegen");
-    private static final ItemStack PROCESSING = new CustomItem(Material.GRAY_STAINED_GLASS_PANE, "&7Processing");
+    private static final ItemStack COBBLE_GEN = new CustomItem(Material.GRAY_CONCRETE, "&8圆石...");
+    private static final ItemStack PROCESSING = new CustomItem(Material.GRAY_STAINED_GLASS_PANE, "&7处理中");
 
     private final int energy;
     
@@ -214,23 +214,23 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
 
     @AllArgsConstructor
     private enum Choice {
-        NONE(new CustomItem(Material.BARRIER, "&cNone", "", "&7 > Click to cycle"),
+        NONE(new CustomItem(Material.BARRIER, "&c无", "", "&7 > 点击开始"),
                 new Material[0],
                 new Material[0]
         ),
-        FURNACE(new CustomItem(Material.FURNACE, "&8Smelting", "", "&7 > Click to cycle"),
+        FURNACE(new CustomItem(Material.FURNACE, "&8冶炼", "", "&7 > 点击开始"),
                 new Material[]{Material.COBBLESTONE, Material.SAND},
                 new Material[]{Material.STONE, Material.GLASS}
         ),
-        CRUSH(new CustomItem(Material.DIAMOND_PICKAXE, "&8Crushing", "", "&7 > Click to cycle"),
+        CRUSH(new CustomItem(Material.DIAMOND_PICKAXE, "&8粉碎", "", "&7 > 点击开始"),
                 new Material[]{Material.COBBLESTONE, Material.GRAVEL},
                 new Material[]{Material.GRAVEL, Material.SAND}
         ),
-        COMPACT(new CustomItem(Material.PISTON, "&8Compacting", "", "&7 > Click to cycle"),
+        COMPACT(new CustomItem(Material.PISTON, "&8压缩中", "", "&7 > 点击开始"),
                 new Material[]{Material.STONE, Material.GRANITE, Material.DIORITE, Material.ANDESITE},
                 new Material[]{Material.STONE_BRICKS, Material.POLISHED_GRANITE, Material.POLISHED_DIORITE, Material.POLISHED_ANDESITE}
         ),
-        TRANSFORM(new CustomItem(Material.ANDESITE, "&8Transforming", "", "&7 > Click to cycle"),
+        TRANSFORM(new CustomItem(Material.ANDESITE, "&8改造中", "", "&7 > 点击开始"),
                 new Material[]{Material.COBBLESTONE, Material.ANDESITE, Material.DIORITE},
                 new Material[]{Material.ANDESITE, Material.DIORITE, Material.GRANITE}
         );

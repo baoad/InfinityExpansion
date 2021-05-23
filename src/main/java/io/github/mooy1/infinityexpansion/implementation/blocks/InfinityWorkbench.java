@@ -60,7 +60,7 @@ public final class InfinityWorkbench extends AbstractEnergyCrafter {
         RECIPES.put(new MultiInput(stacks), item);
         ITEMS.put(item.getItemId(), new Pair<>(item, stacks));
         IDS.add(item.getItemId());
-    }, "", "&cUse the infinity recipes category to see the correct recipe!");
+    }, "", "&c请在无尽配方内查看配方!");
     
     public InfinityWorkbench(Category category, SlimefunItemStack item, RecipeType type, ItemStack[] recipe, int energy) {
         super(category, item, type, recipe, energy, STATUS_SLOT);
@@ -80,7 +80,7 @@ public final class InfinityWorkbench extends AbstractEnergyCrafter {
         for (int i : STATUS_BORDER) {
             blockMenuPreset.addItem(i, MenuPreset.borderItemStatus, ChestMenuUtils.getEmptyClickHandler());
         }
-        blockMenuPreset.addItem(RECIPE_SLOT, new CustomItem(Material.BOOK, "&6Recipes"), ChestMenuUtils.getEmptyClickHandler());
+        blockMenuPreset.addItem(RECIPE_SLOT, new CustomItem(Material.BOOK, "&6配方"), ChestMenuUtils.getEmptyClickHandler());
         blockMenuPreset.addItem(STATUS_SLOT, MenuPreset.invalidInput, ChestMenuUtils.getEmptyClickHandler());
     }
     
@@ -101,8 +101,8 @@ public final class InfinityWorkbench extends AbstractEnergyCrafter {
          
         if (charge < this.energy) { //not enough energy
             p.sendMessage( new String[] {
-                    ChatColor.RED + "Not enough energy!",
-                    ChatColor.GREEN + "Charge: " + ChatColor.RED + charge + ChatColor.GREEN + "/" + this.energy + " J"
+                    ChatColor.RED + "没有足够的能量!",
+                    ChatColor.GREEN + "所需能量: " + ChatColor.RED + charge + ChatColor.GREEN + "/" + this.energy + " J"
             });
             return;
         }
@@ -110,12 +110,12 @@ public final class InfinityWorkbench extends AbstractEnergyCrafter {
         ItemStack output = RECIPES.get(new MultiInput(inv, INPUT_SLOTS));
         
         if (output == null) { //invalid
-            p.sendMessage( ChatColor.RED + "Invalid Recipe!");
+            p.sendMessage( ChatColor.RED + "无效配方!");
             return;
         }
             
         if (!inv.fits(output, OUTPUT_SLOTS)) { //not enough room
-            p.sendMessage( ChatColor.GOLD + "Not enough room!");
+            p.sendMessage( ChatColor.GOLD + "空间不足!");
             return;
         }
 
@@ -125,7 +125,7 @@ public final class InfinityWorkbench extends AbstractEnergyCrafter {
             }
         }
 
-        p.sendMessage( ChatColor.GREEN + "Successfully crafted: " + ChatColor.WHITE + output.getItemMeta().getDisplayName());
+        p.sendMessage( ChatColor.GREEN + "制作成功: " + ChatColor.WHITE + output.getItemMeta().getDisplayName());
 
         inv.pushItem(output.clone(), OUTPUT_SLOTS);
         setCharge(b.getLocation(), 0);

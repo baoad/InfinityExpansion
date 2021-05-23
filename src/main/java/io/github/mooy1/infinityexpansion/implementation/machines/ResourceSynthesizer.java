@@ -179,7 +179,7 @@ public final class ResourceSynthesizer extends AbstractMachine implements Recipe
             inv.consumeItem(INPUT_SLOT2, 1);
 
             if (inv.hasViewer()) {
-                inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&aResource Synthesized!"));
+                inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a资源合成!"));
             }
             return true;
 

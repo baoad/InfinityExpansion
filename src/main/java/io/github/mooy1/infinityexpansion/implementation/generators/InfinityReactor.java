@@ -70,11 +70,11 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
         }
         for (int i : MenuPreset.slotChunk3) {
             blockMenuPreset.addItem(i, new CustomItem(
-                    Material.BLACK_STAINED_GLASS_PANE, "&8Void Ingot Input"), ChestMenuUtils.getEmptyClickHandler());
+                    Material.BLACK_STAINED_GLASS_PANE, "&8放入虚空锭"), ChestMenuUtils.getEmptyClickHandler());
         }
         for (int i : MenuPreset.slotChunk1) {
             blockMenuPreset.addItem(i, new CustomItem(
-                    Material.WHITE_STAINED_GLASS_PANE, "&fInfinity Ingot Input"), ChestMenuUtils.getEmptyClickHandler());
+                    Material.WHITE_STAINED_GLASS_PANE, "&f放入无尽锭"), ChestMenuUtils.getEmptyClickHandler());
         }
         blockMenuPreset.addItem(STATUS_SLOT, MenuPreset.loadingItemRed, ChestMenuUtils.getEmptyClickHandler());
     }
@@ -106,7 +106,7 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
             if (infinityInput == null || !Materials.INFINITE_INGOT.getItemId().equals(StackUtils.getID(infinityInput))) { //wrong input
 
                 if (inv.hasViewer()) {
-                    inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&cInput more &fInfinity Ingots"));
+                    inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&c放入更多的&f无尽锭"));
                 }
                 return 0;
 
@@ -115,7 +115,7 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
             if (voidInput == null || !Materials.VOID_INGOT.getItemId().equals(StackUtils.getID(voidInput))) { //wrong input
 
                 if (inv.hasViewer()) {
-                    inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&cInput more &8Void Ingots"));
+                    inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&c放入更多的&8虚空锭"));
                 }
                 return 0;
 
@@ -124,9 +124,9 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
             //correct input
             if (inv.hasViewer()) {
                 inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE,
-                                "&aStarting Generation",
-                                "&aTime until infinity ingot needed: " + INFINITY_INTERVAL,
-                                "&aTime until void ingot needed: " + VOID_INTERVAL
+                                "&a开始",
+                                "&a直到需要无尽锭: " + INFINITY_INTERVAL,
+                                "&a直到需要虚空锭: " + VOID_INTERVAL
                         ));
             }
             inv.consumeItem(INPUT_SLOTS[0]);
@@ -139,7 +139,7 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
         if (progress >= INFINITY_INTERVAL) { //done
 
             if (inv.hasViewer()) {
-                inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&aFinished Generation"));
+                inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE, " "));
             }
             BlockStorage.addBlockInfo(l, "progress", "0");
             return this.gen;
@@ -151,7 +151,7 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
             if (voidInput == null || !Materials.VOID_INGOT.getItemId().equals(StackUtils.getID(voidInput))) { //wrong input
 
                 if (inv.hasViewer()) {
-                    inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&cInput more &8Void Ingots"));
+                    inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&c放入更多的&8虚空锭"));
                 }
                 return 0;
 
@@ -160,9 +160,9 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
             //right input
             if (inv.hasViewer()) {
                 inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE,
-                                "&aGenerating...",
-                                "&aTime until infinity ingot needed: " + (INFINITY_INTERVAL - progress),
-                                "&aTime until void ingot needed: " + (VOID_INTERVAL - Math.floorMod(progress, VOID_INTERVAL))
+                                "&a碰撞中...",
+                                "&a直到无尽锭耗尽: " + (INFINITY_INTERVAL - progress),
+                                "&a直到虚空锭耗尽: " + (VOID_INTERVAL - Math.floorMod(progress, VOID_INTERVAL))
                         ));
             }
             BlockStorage.addBlockInfo(l, "progress", String.valueOf(progress + 1));
@@ -175,9 +175,9 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
 
         if (inv.hasViewer()) {
             inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE,
-                            "&aGenerating...",
-                            "&aTime until infinity ingot needed: " + (INFINITY_INTERVAL - progress),
-                            "&aTime until void ingot needed: " + (VOID_INTERVAL - Math.floorMod(progress, VOID_INTERVAL))
+                            "&a碰撞中...",
+                            "&a直到无尽锭耗尽: " + (INFINITY_INTERVAL - progress),
+                            "&a直到虚空锭耗尽: " + (VOID_INTERVAL - Math.floorMod(progress, VOID_INTERVAL))
                     )
             );
         }
@@ -196,12 +196,12 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
         List<ItemStack> items = new ArrayList<>();
 
         ItemStack item = Materials.INFINITE_INGOT.clone();
-        StackUtils.addLore(item, "", ChatColor.GOLD + "Lasts for 1 day");
+        StackUtils.addLore(item, "", ChatColor.GOLD + "持续一天");
         items.add(item);
         items.add(null);
 
         item = Materials.VOID_INGOT.clone();
-        StackUtils.addLore(item, "", ChatColor.GOLD + "Lasts for 4 hours");
+        StackUtils.addLore(item, "", ChatColor.GOLD + "持续四小时");
         items.add(item);
         items.add(null);
 

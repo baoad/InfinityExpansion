@@ -104,8 +104,8 @@ public final class AdvancedAnvil extends AbstractEnergyCrafter {
         Location l = b.getLocation();
         if (getCharge(l) < this.energy) { //not enough energy
             p.sendMessage(new String[] {
-                    ChatColor.RED + "Not enough energy!",
-                    ChatColor.GREEN + "Charge: " + ChatColor.RED + getCharge(l) + ChatColor.GREEN + "/" + this.energy + " J"
+                    ChatColor.RED + "没有足够的电量!",
+                    ChatColor.GREEN + "所需能量: " + ChatColor.RED + getCharge(l) + ChatColor.GREEN + "/" + this.energy + " J"
             });
             return;
         }
@@ -114,19 +114,19 @@ public final class AdvancedAnvil extends AbstractEnergyCrafter {
         ItemStack item2 = inv.getItemInSlot(INPUT_SLOT2);
 
         if (item1 == null || item2 == null || (item2.getType() != Material.ENCHANTED_BOOK && item1.getType() != item2.getType())) {
-            p.sendMessage(ChatColor.RED + "Invalid items!");
+            p.sendMessage(ChatColor.RED + "无效物品!");
             return;
         }
 
         ItemStack output = getOutput(item1, item2);
 
         if (output == null) {
-            p.sendMessage(ChatColor.RED + "No upgrades!");
+            p.sendMessage(ChatColor.RED + "不可升级!");
             return;
         }
 
         if (!inv.fits(output, OUTPUT_SLOTS)) {
-            p.sendMessage(ChatColor.GOLD + "Not enough room!");
+            p.sendMessage(ChatColor.GOLD + "空间不足!");
             return;
         }
 

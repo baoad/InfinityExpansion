@@ -110,7 +110,7 @@ public final class StrainerBase extends TickingContainer implements RecipeDispla
         
     }
     
-    private static final ItemStack POTATO = new CustomItem(Material.POTATO, "&7:&6Potatofish&7:", "&eLucky");
+    private static final ItemStack POTATO = new CustomItem(Material.POTATO, "&7:&6鱼&7:", "&e幸运");
 
     @Nonnull
     @Override
@@ -128,7 +128,7 @@ public final class StrainerBase extends TickingContainer implements RecipeDispla
     @Nonnull
     @Override
     public String getRecipeSectionLabel(@Nonnull Player p) {
-        return "&7Collects:";
+        return "&7收集:";
     }
 
     @Override
@@ -147,7 +147,7 @@ public final class StrainerBase extends TickingContainer implements RecipeDispla
         if (speed == 0) {
 
             if (inv.hasViewer()) {
-                inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.BARRIER, "&cInput a Strainer!"));
+                inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.BARRIER, "&c需要把过滤网放到里面!"));
             }
 
             return;
@@ -160,7 +160,7 @@ public final class StrainerBase extends TickingContainer implements RecipeDispla
         if (random.nextInt(this.time / speed) != 0) {
 
             if (inv.hasViewer()) {
-                inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&aCollecting..."));
+                inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a过滤中..."));
             }
 
             return;
@@ -190,7 +190,7 @@ public final class StrainerBase extends TickingContainer implements RecipeDispla
         inv.pushItem(output.clone(), OUTPUT_SLOTS);
 
         if (inv.hasViewer()) {
-            inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&aMaterial Collected!"));
+            inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a过滤到一个材料!"));
         }
 
         //reduce durability

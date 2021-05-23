@@ -43,9 +43,9 @@ import static io.github.mooy1.infinityexpansion.implementation.storage.StorageUn
 final class StorageCache {
 
     /* Menu strings */
-    private static final String EMPTY_DISPLAY_NAME = ChatColor.WHITE + "Empty";
-    private static final String VOID_EXCESS_TRUE = ChatColors.color("&7Void Excess:&e true");
-    private static final String VOID_EXCESS_FALSE = ChatColors.color("&7Void Excess:&e false");
+    private static final String EMPTY_DISPLAY_NAME = ChatColor.WHITE + "无物品";
+    private static final String VOID_EXCESS_TRUE = ChatColors.color("&7展示物品:&e 开启");
+    private static final String VOID_EXCESS_FALSE = ChatColors.color("&7展示物品:&e 关闭");
 
     /* BlockStorage keys */
     private static final String OLD_STORED_ITEM = "storeditem"; // old item key in block data
@@ -54,7 +54,7 @@ final class StorageCache {
     
     /* Menu Items */
     private static final ItemStack EMPTY_ITEM = new CustomItem(Material.BARRIER, meta -> {
-        meta.setDisplayName(ChatColor.WHITE + "Empty");
+        meta.setDisplayName(ChatColor.WHITE + "无物品");
         meta.getPersistentDataContainer().set(EMPTY_KEY, PersistentDataType.BYTE, (byte) 1);
     });
 
@@ -314,14 +314,14 @@ final class StorageCache {
             meta.setDisplayName(ChatColor.AQUA + "Status");
             List<String> lore = new ArrayList<>();
             if (this.amount == 0) {
-                lore.add(ChatColors.color("&6Stored: &e0 / " + LorePreset.format(this.storageUnit.max) + " &7(0%)"));
+                lore.add(ChatColors.color("&6已储存: &e0 / " + LorePreset.format(this.storageUnit.max) + " &7(0%)"));
             } else {
-                lore.add(ChatColors.color("&6Stored: &e" + LorePreset.format(this.amount)
+                lore.add(ChatColors.color("&6已储存: &e" + LorePreset.format(this.amount)
                         + " / " + LorePreset.format(this.storageUnit.max) + " &7(" + 100 * ((double) this.amount / this.storageUnit.max) + "%)"
                 ));
             }
             lore.add(this.voidExcess ? VOID_EXCESS_TRUE : VOID_EXCESS_FALSE);
-            lore.add(ChatColor.GRAY + "(Click to toggle)");
+            lore.add(ChatColor.GRAY + "(点击切换)");
             meta.setLore(lore);
         }), false);
     }

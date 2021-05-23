@@ -18,29 +18,29 @@ import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 public final class GiveRecipe extends AbstractCommand {
     
     public GiveRecipe() {
-        super("giverecipe", "gives all the items in a Slimefun item recipe", true);
+        super("giverecipe", "给出了一个Slimefun的配方", true);
     }
 
     @Override
     public void onExecute(@Nonnull CommandSender sender, @Nonnull String[] args) {
         if (!(sender instanceof Player)) {
-            sender.sendMessage("Only players can use this!");
+            sender.sendMessage("只有玩家才能使用这个!");
             return;
         }
         
         if (args.length != 2) {
-            sender.sendMessage("Usage: /ie giverecipe <ID>");
+            sender.sendMessage("用法: /ie giverecipe <ID>");
             return;
         }
 
         SlimefunItem sfItem = SlimefunItem.getByID(args[1].toUpperCase());
         
         if (sfItem == null || sfItem instanceof MultiBlockMachine || sfItem.getRecipeType() == RecipeType.GEO_MINER) {
-            sender.sendMessage(ChatColor.RED + "Invalid Slimefun item!");
+            sender.sendMessage(ChatColor.RED + "已经给予!");
             return;
         }
         
-        sender.sendMessage(ChatColor.GREEN + "Gave recipe for " + sfItem.getItemName());
+        sender.sendMessage(ChatColor.GREEN + "给予配方" + sfItem.getItemName());
         
         Player p = (Player) sender;
 

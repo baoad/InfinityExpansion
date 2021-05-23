@@ -163,14 +163,14 @@ public final class SingularityConstructor extends AbstractMachine implements Rec
                 if (menu.hasViewer()) {
                     menu.replaceExistingItem(STATUS_SLOT, new CustomItem(
                             Material.LIME_STAINED_GLASS_PANE,
-                            "&aConstructing " + triplet.output.getDisplayName() + "...",
-                            "&7Complete"
+                            "&a建造中 " + triplet.output.getDisplayName() + "...",
+                            "&7复合"
                     ));
                 }
             } else if (menu.hasViewer()) {
                 menu.replaceExistingItem(STATUS_SLOT, new CustomItem(
                         Material.LIME_STAINED_GLASS_PANE,
-                        "&aConstructing " + triplet.output.getDisplayName() + "...",
+                        "&a构造中 " + triplet.output.getDisplayName() + "...",
                         "&7" + progress + " / " + triplet.amount
                 ));
             }
@@ -221,7 +221,7 @@ public final class SingularityConstructor extends AbstractMachine implements Rec
     private static void invalidInput(BlockMenu menu) {
         menu.replaceExistingItem(STATUS_SLOT, new CustomItem(
                 Material.RED_STAINED_GLASS_PANE,
-                "&cInput a valid material to start"
+                "&c输入有效的材料 并开始"
         ));
     }
     

@@ -132,14 +132,14 @@ public abstract class AbstractCrafter extends TickingContainer {
         if (output == null) { //invalid
 
             inv.replaceExistingItem(STATUS_SLOT, MenuPreset.invalidRecipe);
-            p.sendMessage( ChatColor.RED + "Invalid Recipe!");
+            p.sendMessage( ChatColor.RED + "无效配方!");
 
         } else {
             
             if (!inv.fits(output.getFirstValue(), OUTPUT_SLOT)) { //not enough room
 
                 inv.replaceExistingItem(STATUS_SLOT, MenuPreset.notEnoughRoom);
-                p.sendMessage(  ChatColor.GOLD + "Not enough room!");
+                p.sendMessage(  ChatColor.GOLD + "空间不够!");
 
             } else { //enough room
 
@@ -149,7 +149,7 @@ public abstract class AbstractCrafter extends TickingContainer {
                         inv.consumeItem(INPUT_SLOTS[i], amount);
                     }
                 }
-                p.sendMessage(  ChatColor.GREEN + "Crafted: " + ItemUtils.getItemName(output.getFirstValue()));
+                p.sendMessage(  ChatColor.GREEN + "制作: " + ItemUtils.getItemName(output.getFirstValue()));
 
                 postCraft(inv.getLocation(), inv, p);
 
