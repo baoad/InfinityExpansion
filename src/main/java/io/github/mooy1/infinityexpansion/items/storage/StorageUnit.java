@@ -62,15 +62,15 @@ public final class StorageUnit extends AbstractContainer {
 
     /* Menu items */
     private static final ItemStack INTERACTION_ITEM = new CustomItem(Material.LIME_STAINED_GLASS_PANE,
-            "&aQuick Actions",
-            "&bLeft Click: &7Withdraw 1 item",
-            "&bRight Click: &7Withdraw 1 stack",
-            "&bShift Left Click: &7Deposit inventory",
-            "&bShift Right Click: &7Withdraw inventory"
+            "&a快速拿出",
+            "&b左键: &7取出1个物品",
+            "&b右键: &7取出1组物品",
+            "&b蹲下左键: &7放入全部",
+            "&b蹲下右键: &7取出全部"
     );
     private static final ItemStack LOADING_ITEM = new CustomItem(Material.CYAN_STAINED_GLASS_PANE,
-            "&bStatus",
-            "&7Loading..."
+            "&b组",
+            "&7在弄了在弄了..."
     );
 
     /* Instance constants */

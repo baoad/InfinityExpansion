@@ -128,7 +128,7 @@ public abstract class AbstractCrafter extends AbstractTickingContainer {
         if (output == null) { //invalid
 
             inv.replaceExistingItem(STATUS_SLOT, MenuPreset.INVALID_RECIPE);
-            p.sendMessage(ChatColor.RED + "Invalid Recipe!");
+            p.sendMessage(ChatColor.RED + "无效配方!");
 
         } else {
             ItemStack out = output.getOutput().clone();
@@ -137,12 +137,12 @@ public abstract class AbstractCrafter extends AbstractTickingContainer {
             if (!inv.fits(out, OUTPUT_SLOT)) { //not enough room
 
                 inv.replaceExistingItem(STATUS_SLOT, MenuPreset.NO_ROOM);
-                p.sendMessage(ChatColor.GOLD + "Not enough room!");
+                p.sendMessage(ChatColor.GOLD + "空间不足!");
 
             } else { //enough room
 
                 output.consumeInput();
-                p.sendMessage(ChatColor.GREEN + "Crafted: " + ItemUtils.getItemName(out));
+                p.sendMessage(ChatColor.GREEN + "制作: " + ItemUtils.getItemName(out));
                 postCraft(inv.getLocation(), inv, p);
                 inv.pushItem(out, OUTPUT_SLOT);
             }
