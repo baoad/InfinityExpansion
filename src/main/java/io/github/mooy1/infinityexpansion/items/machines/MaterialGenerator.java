@@ -103,7 +103,7 @@ public final class MaterialGenerator extends AbstractMachine implements RecipeDi
     @Nonnull
     @Override
     public String getRecipeSectionLabel(@Nonnull Player p) {
-        return "&7Generates";
+        return "&7生成";
     }
 
     @Override
@@ -122,7 +122,7 @@ public final class MaterialGenerator extends AbstractMachine implements RecipeDi
         inv.pushItem(output, OUTPUT_SLOTS);
 
         if (inv.hasViewer()) {
-            inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&aGenerating..."));
+            inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a生产中..."));
         }
 
         return true;

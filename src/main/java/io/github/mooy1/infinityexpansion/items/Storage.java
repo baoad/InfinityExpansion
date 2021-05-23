@@ -19,9 +19,9 @@ public final class Storage {
     public static final SlimefunItemStack STORAGE_FORGE = new SlimefunItemStack(
             "STORAGE_FORGE",
             Material.BEEHIVE,
-            "&6Storage Forge",
-            "&7Upgrades the tier of Storage Units",
-            "&7Retains stored items"
+            "&6储存单元制造机",
+            "&7提高储存单元等级",
+            "&7或者物品"
     );
 
     private static final int BASIC_AMOUNT = 6400;
@@ -33,32 +33,32 @@ public final class Storage {
     public static final SlimefunItemStack BASIC_STORAGE = new SlimefunItemStack(
             "BASIC_STORAGE",
             Material.OAK_WOOD,
-            "&9Basic &8Storage Unit",
-            "&6Capacity: &e" + LorePreset.format(BASIC_AMOUNT) + " &eitems"
+            "&9基础&8储存单元",
+            "&6可储存: &e" + LorePreset.format(BASIC_AMOUNT) + " &e物品"
     );
     public static final SlimefunItemStack ADVANCED_STORAGE = new SlimefunItemStack(
             "ADVANCED_STORAGE",
             Material.DARK_OAK_WOOD,
-            "&cAdvanced &8Storage Unit",
-            "&6Capacity: &e" + LorePreset.format(ADVANCED_AMOUNT) + " &eitems"
+            "&c高级&8储存单元",
+            "&6可储存: &e" + LorePreset.format(ADVANCED_AMOUNT) + " &e物品"
     );
     public static final SlimefunItemStack REINFORCED_STORAGE = new SlimefunItemStack(
             "REINFORCED_STORAGE",
             Material.ACACIA_WOOD,
-            "&fReinforced &8Storage Unit",
-            "&6Capacity: &e" + LorePreset.format(REINFORCED_AMOUNT) + " &eitems"
+            "&f加强&8储存单元",
+            "&6可储存: &e" + LorePreset.format(REINFORCED_AMOUNT) + " &e物品"
     );
     public static final SlimefunItemStack VOID_STORAGE = new SlimefunItemStack(
             "VOID_STORAGE",
             Material.CRIMSON_HYPHAE,
-            "&8Void &8Storage Unit",
-            "&6Capacity: &e" + LorePreset.format(VOID_AMOUNT) + " &eitems"
+            "&8虚空&8储存单元",
+            "&6可储存: &e" + LorePreset.format(VOID_AMOUNT) + " &e物品"
     );
     public static final SlimefunItemStack INFINITY_STORAGE = new SlimefunItemStack(
             "INFINITY_STORAGE",
             Material.WARPED_HYPHAE,
-            "&bInfinity &8Storage Unit",
-            "&6Capacity: &e" + LorePreset.format(INFINITY_AMOUNT) + " &eitems"
+            "&b无尽&8储存单元",
+            "&6可储存: &e" + LorePreset.format(INFINITY_AMOUNT) + " &e物品"
     );
     
     public static void setup(InfinityExpansion plugin) {

@@ -16,6 +16,7 @@ import io.github.mooy1.infinitylib.recipes.RecipeMap;
 import io.github.mooy1.infinitylib.recipes.RecipeOutput;
 import io.github.mooy1.infinitylib.slimefun.AbstractTickingContainer;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
+import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
@@ -23,6 +24,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
+import me.mrCookieSlime.Slimefun.cscorelib2.collections.Pair;
 import me.mrCookieSlime.Slimefun.cscorelib2.inventory.ItemUtils;
 
 /**
@@ -129,7 +131,7 @@ public abstract class AbstractCrafter extends AbstractTickingContainer {
         if (output == null) { //invalid
 
             inv.replaceExistingItem(STATUS_SLOT, MenuPreset.INVALID_RECIPE);
-            p.sendMessage( ChatColor.RED + "Invalid Recipe!");
+            p.sendMessage( ChatColor.RED + "无效配方!");
 
         } else {
             ItemStack out = output.getOutput().clone();
@@ -138,12 +140,12 @@ public abstract class AbstractCrafter extends AbstractTickingContainer {
             if (!inv.fits(out, OUTPUT_SLOT)) { //not enough room
 
                 inv.replaceExistingItem(STATUS_SLOT, MenuPreset.NO_ROOM);
-                p.sendMessage(  ChatColor.GOLD + "Not enough room!");
+                p.sendMessage(  ChatColor.GOLD + "空间不足!");
 
             } else { //enough room
 
                 output.consumeInput();
-                p.sendMessage(  ChatColor.GREEN + "Crafted: " + ItemUtils.getItemName(out));
+                p.sendMessage(  ChatColor.GREEN + "制作: " + ItemUtils.getItemName(out));
                 postCraft(inv.getLocation(), inv, p);
                 inv.pushItem(out, OUTPUT_SLOT);
             }
