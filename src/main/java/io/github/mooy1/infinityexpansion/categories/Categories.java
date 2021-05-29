@@ -19,7 +19,7 @@ public final class Categories {
             new CustomItem(Material.RESPAWN_ANCHOR, "&b无尽&7配方"), 3
     );
     public static final Category MAIN_MATERIALS = new SubCategory(InfinityExpansion.inst().getKey("main_materials"), 
-            new CustomItem(Material.NETHER_STAR, "&b无尽&7机器")
+            new CustomItem(Material.NETHER_STAR, "&b无尽&7材料")
     );
     public static final Category BASIC_MACHINES = new SubCategory(InfinityExpansion.inst().getKey("basic_machines"),
             new CustomItem(Material.LOOM, "&9基础&7机器")

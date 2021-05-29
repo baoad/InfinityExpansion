@@ -40,7 +40,7 @@ public abstract class AbstractEnergyCrafter extends TickingContainer implements 
                         Material.RED_STAINED_GLASS_PANE,
                         "&c没有足够的电量!",
                         "",
-                        "&a速度: " + charge + "/" + this.energy + " J",
+                        "&a所需能量: " + charge + "/" + this.energy + " J",
                         ""
                 ));
             } else {
