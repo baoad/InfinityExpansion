@@ -93,7 +93,7 @@ public final class SlimefunExtension {
     public static final SlimefunItemStack ADVANCED_NETHER_STAR_REACTOR = new SlimefunItemStack(
             "ADVANCED_NETHER_STAR_REACTOR",
             HeadTexture.NETHER_STAR_REACTOR,
-            "&c高级的下届之星汉化",
+            "&c高级的下届之星反应堆",
             "&f利用最大化",
             "&b要被水包围",
             "&b必须放入冷却剂",
