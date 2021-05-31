@@ -1,8 +1,8 @@
 # Infinity Expansion
 
-This addon aims to add a larger endgame to slimefun by adding 'Infinity Ingots' which take an extreme amount of resources and energy to create, and are used to craft powerful machines and gear.
+此插件需要Slimefun，通过添加“无尽锭”以及其他的机器来增加游戏的乐趣
 
-## Download
+## 下载
 
 https://thebusybiscuit.github.io/builds/Mooy1/InfinityExpansion/master/
 
