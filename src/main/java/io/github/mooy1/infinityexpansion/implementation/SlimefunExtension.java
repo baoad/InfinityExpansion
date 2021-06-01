@@ -88,7 +88,7 @@ public final class SlimefunExtension {
             "&7快速给你物品充电",
             "",
             LorePreset.speed(SlimefunExtension.INFINITY_CHARGER_SPEED),
-            LorePreset.energy(SlimefunExtension.INFINITY_CHARGER_ENERGY) + "per use"
+            LorePreset.energy(SlimefunExtension.INFINITY_CHARGER_ENERGY) + "每次使用"
     );
     public static final SlimefunItemStack ADVANCED_NETHER_STAR_REACTOR = new SlimefunItemStack(
             "ADVANCED_NETHER_STAR_REACTOR",
@@ -124,7 +124,7 @@ public final class SlimefunExtension {
             "&b无尽附魔机",
             "",
             LorePreset.speed(SlimefunExtension.INFINITY_EN_SPEED),
-            LorePreset.energy(SlimefunExtension.INFINITY_EN_ENERGY) + "per use"
+            LorePreset.energy(SlimefunExtension.INFINITY_EN_ENERGY) + "每次使用"
     );
     public static final SlimefunItemStack INFINITY_DISENCHANTER = new SlimefunItemStack(
             "INFINITY_DISENCHANTER",
@@ -132,7 +132,7 @@ public final class SlimefunExtension {
             "&b无尽驱魔机",
             "",
             LorePreset.speed(SlimefunExtension.INFINITY_DIS_SPEED),
-            LorePreset.energy(SlimefunExtension.INFINITY_DIS_ENERGY) + "per use"
+            LorePreset.energy(SlimefunExtension.INFINITY_DIS_ENERGY) + "每次使用"
     );
     public static final SlimefunItemStack INFINITY_CAPACITOR = new SlimefunItemStack(
             "INFINITY_CAPACITOR",
