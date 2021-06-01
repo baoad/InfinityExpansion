@@ -26,7 +26,7 @@ public final class MobData {
     public static final SlimefunItemStack EMPTY_DATA_CARD = new SlimefunItemStack(
             "EMPTY_DATA_CARD",
             Material.CHAINMAIL_CHESTPLATE,
-            "&8空置的模拟器",
+            "&8空置模拟器",
             "&7用生物物品填充"
     );
     public static final SlimefunItemStack INFUSER = new SlimefunItemStack(
