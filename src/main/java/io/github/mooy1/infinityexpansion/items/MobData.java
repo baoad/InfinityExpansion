@@ -28,7 +28,7 @@ public final class MobData {
     public static final SlimefunItemStack EMPTY_DATA_CARD = new SlimefunItemStack(
             "EMPTY_DATA_CARD",
             Material.CHAINMAIL_CHESTPLATE,
-            "&8空置的模拟器",
+            "&8空置模拟器",
             "&7用生物物品填充"
     );
     public static final SlimefunItemStack INFUSER = new SlimefunItemStack(
@@ -37,7 +37,7 @@ public final class MobData {
             "&8模拟器合成机",
             "&7可以让模拟器和生物物品融合",
             "",
-            LorePreset.energy(INFUSER_ENERGY) + "per use"
+            LorePreset.energy(INFUSER_ENERGY) + "每次使用"
     );
     public static final SlimefunItemStack CHAMBER = new SlimefunItemStack(
             "MOB_SIMULATION_CHAMBER",
