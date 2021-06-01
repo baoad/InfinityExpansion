@@ -151,7 +151,7 @@ public final class SlimefunExtension {
             HeadTexture.CAPACITOR_25,
             "&b无尽电容器",
             "&c&o储存无尽的电量",
-            "&c&o1需要连接能源网络",
+            "&c&o需要连接能源网络",
             "",
             "&8\u21E8 &e\u26A1 " + LorePreset.format(INFINITY_CAPACITY) + " &7J 能量"
     );
