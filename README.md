@@ -23,7 +23,7 @@ Make a new issue, pull request, or contact me on discord @Riley#5911
 
 ## Requirements
 
-Minecraft Version: 1.16+ (Paper recommended)
+Minecraft版本: 1.16+ (Paper recommended)
 
 Slimefun Version: DEV 950+
 
