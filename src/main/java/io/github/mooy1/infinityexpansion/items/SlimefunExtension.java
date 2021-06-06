@@ -78,8 +78,8 @@ public final class SlimefunExtension {
     public static final SlimefunItemStack ADVANCED_SMELTERY = new SlimefunItemStack(
             "ADVANCED_SMELTERY",
             Material.FURNACE,
-            "&cAdvanced &7Smeltery",
-            "&7A faster smeltery",
+            "&c高级&7冶炼厂",
+            "&7冶炼厂",
             "",
             LorePreset.speed(ADVANCED_SMELTERY_SPEED),
             LorePreset.energyPerSecond(ADVANCED_SMELTERY_ENERGY)
