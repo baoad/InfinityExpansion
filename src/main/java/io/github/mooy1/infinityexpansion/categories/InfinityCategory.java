@@ -81,10 +81,10 @@ public final class InfinityCategory extends FlexCategory {
     };
     private static final ItemStack BENCH = new CustomItem(Material.NETHER_STAR,
             "&bCreate the recipe from items in your inventory: ",
-            "&aLeft-Click to move 1 set",
-            "&aRight-Click to move as many sets as possible"
+            "&a左键单击 > 移动一个",
+            "&a右键单击 > 移动一组"
     );
-    private static final ItemStack INFO = new CustomItem(Material.CYAN_STAINED_GLASS_PANE, "&3Info");
+    private static final ItemStack INFO = new CustomItem(Material.CYAN_STAINED_GLASS_PANE, "&3查看");
     
     private static final Map<UUID, String> history = new HashMap<>();
 
@@ -114,7 +114,7 @@ public final class InfinityCategory extends FlexCategory {
             }
         }
         
-        ChestMenu menu = new ChestMenu("&bInfinity Recipes");
+        ChestMenu menu = new ChestMenu("&b无尽配方");
 
         if (entry.history != null) {
             menu.addMenuClickHandler(1, (player1, i, itemStack, clickAction) -> {

@@ -37,9 +37,9 @@ public final class InfinityExpansion extends AbstractAddon {
         if (getServer().getPluginManager().getPlugin("LiteXpansion") != null) {
             runSync(() -> log(Level.WARNING,
                     "########################################################",
-                    "LiteXpansion nerfs energy generation in this addon.",
-                    "You can disable these nerfs in the LiteXpansion config.",
-                    "Under 'options:' add 'nerf-other-addons: false'",
+                    "LiteXpansion减少了这个插件的能量生成.",
+                    "您可以在LiteXpansion的config配置中来禁用.",
+                    "在'options:' add 'nerf-other-addons: false'",
                     "########################################################"
             ));
         }
