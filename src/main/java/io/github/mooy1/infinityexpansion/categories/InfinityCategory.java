@@ -82,10 +82,10 @@ public final class InfinityCategory extends FlexCategory {
     };
     private static final ItemStack BENCH = new CustomItem(Material.NETHER_STAR,
             "&bCreate the recipe from items in your inventory: ",
-            "&aLeft-Click to move 1 set",
-            "&aRight-Click to move as many sets as possible"
+            "&a左键单击 > 移动一个",
+            "&a右键单击 > 移动一组"
     );
-    private static final ItemStack INFO = new CustomItem(Material.CYAN_STAINED_GLASS_PANE, "&3Info");
+    private static final ItemStack INFO = new CustomItem(Material.CYAN_STAINED_GLASS_PANE, "&3查看");
     private static final SlimefunGuideImplementation GUIDE = SlimefunPlugin.getRegistry().getSlimefunGuide(SlimefunGuideMode.SURVIVAL_MODE);
     private static final Map<UUID, String> HISTORY = new HashMap<>();
 
@@ -120,7 +120,7 @@ public final class InfinityCategory extends FlexCategory {
             }
         }
 
-        ChestMenu menu = new ChestMenu("&bInfinity Recipes");
+        ChestMenu menu = new ChestMenu("&b无尽配方");
 
         if (entry.bench != null) {
             menu.addMenuClickHandler(1, (player1, i, itemStack, clickAction) -> {
@@ -165,9 +165,9 @@ public final class InfinityCategory extends FlexCategory {
                         ChatColor.WHITE + ItemUtils.getItemName(sfItem.getItem()),
                         "&4&l" + SlimefunPlugin.getLocalization().getMessage(player, "guide.locked"),
                         "",
-                        "&a> Click to unlock",
+                        "&a> 点击解锁",
                         "",
-                        "&7Cost: &b" + research.getCost() + " Level(s)"
+                        "&7所需: &b" + research.getCost() + "个Level(s)"
                 );
                 menu.addItem(i, resItem, (p, slot, item1, action) -> {
                     research.unlockFromGuide(GUIDE, p, entry.profile, sfItem, Categories.INFINITY_CATEGORY, 0);
