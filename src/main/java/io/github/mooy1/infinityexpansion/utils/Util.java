@@ -44,7 +44,7 @@ public final class Util {
 
     @Nonnull
     public static ItemStack getDisplayItem(@Nonnull ItemStack output) {
-        StackUtils.addLore(output, "", "&a-------------------", "&a\u21E8 Click to craft", "&a-------------------");
+        StackUtils.addLore(output, "", "&a-------------------", "&a\u21E8 点击制造t", "&a-------------------");
         return output;
     }
 
