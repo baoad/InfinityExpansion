@@ -262,6 +262,8 @@ public final class Machines {
             LorePreset.energyPerSecond(12000)
     );
 
+
+
     public static void setup(InfinityExpansion plugin) {
         new VoidHarvester(Categories.ADVANCED_MACHINES, VOID_HARVESTER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 Materials.TITANIUM, Materials.TITANIUM, Materials.TITANIUM,
