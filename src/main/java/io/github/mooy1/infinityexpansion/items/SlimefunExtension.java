@@ -66,6 +66,9 @@ public final class SlimefunExtension {
     private static final int STAR_ENERGY = 1800;
     private static final int STAR_BUFFER = 90000;
 
+    private static final int CMM_ENERGY = 80;
+    private static final int CMM_SPEED = 8;
+
     public static final SlimefunItemStack ADVANCED_GEO_MINER = new SlimefunItemStack(
             "ADVANCED_GEO_MINER",
             HeadTexture.GEO_MINER,
@@ -162,8 +165,42 @@ public final class SlimefunExtension {
             "",
             "&8\u21E8 &e\u26A1 " + LorePreset.format(VOID_CAPACITY) + " &7J 能量"
     );
+    public static final SlimefunItemStack CONCRETE_MOLDING_MACHINE = new SlimefunItemStack(
+            "CONCRETE_MOLDING_MACHINE",
+            Material.FURNACE,
+            "&8混凝土成型机",
+            "",
+            LorePreset.speed(SlimefunExtension.CMM_SPEED),
+            LorePreset.energyPerSecond(SlimefunExtension.CMM_ENERGY)
+    );
+
 
     public static void setup(InfinityExpansion plugin) {
+
+        AContainer AMachine = new ConcreteMoldingMachine(Categories.ADVANCED_MACHINES, CONCRETE_MOLDING_MACHINE,
+               RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
+               Materials.VOID_INGOT, Materials.VOID_DUST, Materials.VOID_INGOT,
+               Materials.VOID_INGOT, SlimefunItems.FLUID_PUMP, Materials.VOID_INGOT,
+               SlimefunItems.AUTO_DRIER, SlimefunItems.BIG_CAPACITOR, SlimefunItems.AUTO_DRIER
+        })
+       .setCapacity(1024).setEnergyConsumption(80).setProcessingSpeed(8);
+        AMachine.registerRecipe(16, new ItemStack(Material.WHITE_CONCRETE_POWDER, 8),  new ItemStack(Material.WHITE_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.ORANGE_CONCRETE_POWDER, 8),  new ItemStack(Material.ORANGE_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.MAGENTA_CONCRETE_POWDER, 8),  new ItemStack(Material.MAGENTA_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.LIGHT_BLUE_CONCRETE_POWDER, 8),  new ItemStack(Material.LIGHT_BLUE_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.YELLOW_CONCRETE_POWDER, 8),  new ItemStack(Material.YELLOW_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.LIME_CONCRETE_POWDER, 8),  new ItemStack(Material.LIME_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.PINK_CONCRETE_POWDER, 8),  new ItemStack(Material.PINK_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.GRAY_CONCRETE_POWDER, 8),  new ItemStack(Material.GRAY_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.LIGHT_GRAY_CONCRETE_POWDER, 8),  new ItemStack(Material.LIGHT_GRAY_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.CYAN_CONCRETE_POWDER, 8),  new ItemStack(Material.CYAN_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.PURPLE_CONCRETE_POWDER, 8),  new ItemStack(Material.PURPLE_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.BLUE_CONCRETE_POWDER, 8),  new ItemStack(Material.BLUE_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.BROWN_CONCRETE_POWDER, 8),  new ItemStack(Material.BROWN_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.GREEN_CONCRETE_POWDER, 8),  new ItemStack(Material.GREEN_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.RED_CONCRETE_POWDER, 8),  new ItemStack(Material.RED_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.BLACK_CONCRETE_POWDER, 8),  new ItemStack(Material.BLACK_CONCRETE, 8));
+        AMachine.register(plugin);
 
         new Capacitor(Categories.INFINITY_CHEAT, INFINITY_CAPACITY, INFINITY_CAPACITOR,
                 InfinityWorkbench.TYPE, new ItemStack[] {
