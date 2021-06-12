@@ -171,7 +171,7 @@ public final class SlimefunExtension {
             "CONCRETE_MOLDING_MACHINE",
             Material.FURNACE,
             "&8混凝土成型机",
-            "",
+            "&7全自动给混凝土成型",
             LorePreset.speed(SlimefunExtension.CMM_SPEED),
             LorePreset.energyPerSecond(SlimefunExtension.CMM_ENERGY)
     );
