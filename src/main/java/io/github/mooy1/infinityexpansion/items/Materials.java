@@ -286,7 +286,7 @@ public final class Materials {
             "GEO_COLLECTION",
             HeadTexture.GEO_MINER,
            "&8GEO采集装置",
-            "&7特级geo的机械方块"
+            "&7特级GEO的机械方块"
     );
     
     public static void setup(InfinityExpansion plugin) {
