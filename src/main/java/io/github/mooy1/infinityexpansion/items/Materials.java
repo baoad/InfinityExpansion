@@ -2,6 +2,7 @@ package io.github.mooy1.infinityexpansion.items;
 
 import java.util.Arrays;
 
+import io.github.thebusybiscuit.slimefun4.utils.HeadTexture;
 import lombok.experimental.UtilityClass;
 
 import org.bukkit.Material;
@@ -281,8 +282,20 @@ public final class Materials {
             "",
             LoreBuilder.speed(20)
     );
+    public static final SlimefunItemStack GEO_COLLECTION = new SlimefunItemStack(
+            "GEO_COLLECTION",
+            HeadTexture.GEO_MINER,
+           "&8GEO采集装置",
+            "&7特级geo的机械方块"
+    );
     
     public static void setup(InfinityExpansion plugin) {
+        new Strainer(GEO_COLLECTION, new ItemStack[] {
+        Materials.MAGSTEEL_PLATE, Materials.MAGSTEEL_PLATE, Materials.MAGSTEEL_PLATE,
+                SlimefunItems.COBALT_PICKAXE, SlimefunItems.GEO_MINER, SlimefunItems.COBALT_PICKAXE,
+                Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
+        },20).register(plugin);
+
         new EnderEssence(Categories.MAIN_MATERIALS, ENDER_ESSENCE, plugin.getKey("ender_essence")).register(plugin);
         registerEnhanced(COBBLE_1, new ItemStack[] {
                 new ItemStack(Material.COBBLESTONE), new ItemStack(Material.COBBLESTONE), new ItemStack(Material.COBBLESTONE),
