@@ -12,6 +12,7 @@ import io.github.mooy1.infinityexpansion.categories.Categories;
 import io.github.mooy1.infinityexpansion.items.blocks.InfinityWorkbench;
 import io.github.mooy1.infinityexpansion.items.machines.VoidHarvester;
 import io.github.mooy1.infinityexpansion.items.materials.EnderEssence;
+import io.github.mooy1.infinityexpansion.items.materials.Oscillator;
 import io.github.mooy1.infinityexpansion.items.materials.Singularity;
 import io.github.mooy1.infinityexpansion.items.materials.Strainer;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
