@@ -170,7 +170,7 @@ final class StorageCache {
 
         ItemStack drop = this.storageUnit.getItem().clone();
         drop.setItemMeta(StorageUnit.saveToStack(drop.getItemMeta(), this.menu.getItemInSlot(DISPLAY_SLOT), this.displayName, this.amount));
-        e.getPlayer().sendMessage(ChatColor.GREEN + "Stored items transferred to dropped item");
+        e.getPlayer().sendMessage(ChatColor.GREEN + "物品已经储存到储存单元中");
         e.getBlock().getWorld().dropItemNaturally(l, drop);
     }
 

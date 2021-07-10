@@ -36,7 +36,7 @@ public final class Blocks {
             "INFINITY_FORGE",
             Material.RESPAWN_ANCHOR,
             "&6无尽工作台",
-            "&7用于制造无尽贪婪的物品",
+            "&7用于制造无尽科技的物品",
             "",
             LorePreset.energy(10000000) + "每次使用"
     );

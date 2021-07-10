@@ -63,7 +63,7 @@ public final class InfinityWorkbench extends AbstractEnergyCrafter {
         RECIPES.put(stacks, item);
         ITEMS.put(item.getItemId(), new Pair<>(item, stacks));
         IDS.add(item.getItemId());
-    }, "", "&c请在无尽配方内查看配方!");
+    }, "", "&c请在无尽配方内查看正确配方!");
     
     public InfinityWorkbench(Category category, SlimefunItemStack item, RecipeType type, ItemStack[] recipe, int energy) {
         super(category, item, type, recipe, energy, STATUS_SLOT);
