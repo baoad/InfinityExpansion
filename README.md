@@ -1,47 +1,36 @@
 # Infinity Expansion
 
-此插件需要Slimefun插件，通过添加“无尽锭”以及其他的机器来增加游戏的乐趣
+此插件需要Slimefun
+通过添加“无尽锭”以及其他的机器来增加游戏的乐趣
 
-## 下载
+## 中文版下载
 
-https://thebusybiscuit.github.io/builds/Mooy1/InfinityExpansion/master/
+https://github.com/baoad/InfinityExpansion/releases
 
-[![Build Status](https://thebusybiscuit.github.io/builds/Mooy1/InfinityExpansion/master/badge.svg)](https://thebusybiscuit.github.io/builds/Mooy1/InfinityExpansion/master)
 
-## Bugs/Suggestions
 
-Make a new issue, pull request, or contact me on discord @Riley#5911
+## 错误/建议
 
-<p>
-  <a href="https://discord.gg/slimefun">
-    <img src="https://discordapp.com/api/guilds/565557184348422174/widget.png?style=banner3" alt="Discord Invite"/>
-  </a>
-  <a href="https://discord.gg/SqD3gg5SAU">
-    <img src="https://discordapp.com/api/guilds/809178621424041997/widget.png?style=banner3" alt="Discord Invite"/>
-  </a>
-</p>
+请到issus板块来发问错误/建议
 
-## Requirements
 
-Minecraft版本: 1.16+ (Paper recommended)
+## 需求
+
+Minecraft版本: 1.16+ (建议使用Paper)
 
 Slimefun版本: DEV 925+
 
-[![Build Status](https://thebusybiscuit.github.io/builds/TheBusyBiscuit/Slimefun4/master/badge.svg)](https://thebusybiscuit.github.io/builds/TheBusyBiscuit/Slimefun4/master/)
+推荐您用StarWishsama汉化的最新的Slimefun插件
 
-If you would like to make your own local server, check out my guide here:
+## 材质包
 
-https://github.com/Mooy1/InfinityExpansion/wiki/How-to-make-a-Slimefun-Server
-
-## Texture Pack
-
-Texture Pack that adds texture for most items in this addon, requires optifine:
+材质包多数在这个项目内，需要optifine:
 
 https://github.com/Mooy1/InfinityExpansion/releases/tag/v1
 
-## Changelog
+## 更新列表
 
-| Version | Changes     |
+| 版本 | 内容     |
 | --------| ----------- |
 | 104 | Added Quarry oscillators, witch and villager data card, and fixed a bunch of bugs. |
 | 105 | Fixed small issues with 104. |
