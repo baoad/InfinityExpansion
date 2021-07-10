@@ -181,7 +181,7 @@ public final class Machines {
     public static final SlimefunItemStack GEAR_TRANSFORMER = new SlimefunItemStack(
             "GEAR_TRANSFORMER",
             Material.EMERALD_BLOCK,
-            "&7物品转换器",
+            "&7物品转级器",
             "&7可以将工具/装备转换成不同等级",
             "",
             LorePreset.energy(GEAR_TRANSFORMER_ENERGY) + "每次使用"
