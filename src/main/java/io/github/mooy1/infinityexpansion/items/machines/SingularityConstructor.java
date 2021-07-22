@@ -225,7 +225,7 @@ public final class SingularityConstructor extends AbstractMachine implements Rec
     private static void invalidInput(BlockMenu menu) {
         menu.replaceExistingItem(STATUS_SLOT, new CustomItem(
                 Material.RED_STAINED_GLASS_PANE,
-                "&c输入有效的材料 并开始"
+                "&c输入有效的材料并开始"
         ));
     }
 
