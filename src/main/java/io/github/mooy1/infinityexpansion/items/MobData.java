@@ -44,7 +44,7 @@ public final class MobData {
             Material.GILDED_BLACKSTONE,
             "&8模拟空间",
             "&7让模拟器可运行",
-            "",
+            "&7会产出对应物品",
             LorePreset.energyBuffer(CHAMBER_BUFFER),
             LorePreset.energyPerSecond(CHAMBER_ENERGY)
     );
