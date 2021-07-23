@@ -68,16 +68,16 @@ public final class EnergyGenerator extends AbstractContainer implements EnergyNe
             if (gen == 0) {
                 inv.replaceExistingItem(4, new CustomItem(
                         Material.GREEN_STAINED_GLASS_PANE,
-                        "&cNot generating",
-                        "&7Stored: &6" + LorePreset.format(getCharge(l)) + " J"
+                        "&c无法发电",
+                        "&7电量储存: &6" + LorePreset.format(getCharge(l)) + " J"
                 ));
             } else {
                 inv.replaceExistingItem(4, new CustomItem(
                         Material.GREEN_STAINED_GLASS_PANE,
-                        "&aGeneration",
-                        "&7Type: &6" + this.type.getName(),
-                        "&7Generating: &6" + LorePreset.formatEnergy(gen) + " J/s ",
-                        "&7Stored: &6" + LorePreset.format(getCharge(l)) + " J"
+                        "&a列表",
+                        "&7类型: &6" + this.type.getName(),
+                        "&7生产中: &6" + LorePreset.formatEnergy(gen) + " J/s ",
+                        "&7电量储存: &6" + LorePreset.format(getCharge(l)) + " J"
                 ));
             }
         }
