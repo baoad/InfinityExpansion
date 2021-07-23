@@ -17,7 +17,10 @@ import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 
 @UtilityClass
-public final class Generators {
+public final class
+
+
+Generators {
 
     private static final int HYDRO_ENERGY = 5;
     private static final int ADVANCED_HYDRO_ENERGY = 45;
