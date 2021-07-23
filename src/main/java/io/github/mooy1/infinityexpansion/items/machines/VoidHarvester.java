@@ -156,7 +156,7 @@ public final class VoidHarvester extends AbstractMachine implements RecipeDispla
     @Nonnull
     @Override
     public String getRecipeSectionLabel(@Nonnull Player p) {
-        return "&7获取:";
+        return "&7已获取:";
     }
 
 }
