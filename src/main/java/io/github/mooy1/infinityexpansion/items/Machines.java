@@ -645,7 +645,7 @@ public final class Machines {
         }, GEAR_TRANSFORMER_ENERGY).register(plugin);
         new GeoQuarry(Categories.ADVANCED_MACHINES, GEO_QUARRY, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 Materials.MACHINE_PLATE, Materials.VOID_INGOT, Materials.MACHINE_PLATE,
-                Materials.VOID_INGOT, Materials.GEO_COLLECTION, Materials.VOID_INGOT,
+                Materials.VOID_INGOT, SlimefunExtension.ADVANCED_GEO_MINER, Materials.VOID_INGOT,
                 Materials.MACHINE_PLATE, Materials.VOID_INGOT, Materials.MACHINE_PLATE,
         }, GEO_QUARRY_ENERGY, GEO_QUARRY_INTERVAL).register(plugin);
     }
