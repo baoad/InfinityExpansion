@@ -28,8 +28,8 @@ public final class Quarries {
     public static final SlimefunItemStack BASIC_QUARRY = new SlimefunItemStack(
             "BASIC_QUARRY",
             Material.CHISELED_SANDSTONE,
-            "&9Basic Quarry",
-            "&7Automatically mines overworld ores",
+            "&9基础矿机",
+            "&7自动挖矿",
             "",
             LorePreset.speed(1),
             LorePreset.energyPerSecond(300)
@@ -37,8 +37,8 @@ public final class Quarries {
     public static final SlimefunItemStack ADVANCED_QUARRY = new SlimefunItemStack(
             "ADVANCED_QUARRY",
             Material.CHISELED_RED_SANDSTONE,
-            "&cAdvanced Quarry",
-            "&7Automatically mines overworld and nether ores",
+            "&c高级矿机",
+            "&7自动挖矿",
             "",
             LorePreset.speed(2),
             LorePreset.energyPerSecond(900)
@@ -46,8 +46,8 @@ public final class Quarries {
     public static final SlimefunItemStack VOID_QUARRY = new SlimefunItemStack(
             "VOID_QUARRY",
             Material.CHISELED_NETHER_BRICKS,
-            "&8Void Quarry",
-            "&7Automatically mines overworld and nether ores",
+            "&8虚空矿机",
+            "&7自动挖矿",
             "",
             LorePreset.speed(6),
             LorePreset.energyPerSecond(3600)
@@ -55,8 +55,8 @@ public final class Quarries {
     public static final SlimefunItemStack INFINITY_QUARRY = new SlimefunItemStack(
             "INFINITY_QUARRY",
             Material.CHISELED_POLISHED_BLACKSTONE,
-            "&bInfinity Quarry",
-            "&7Automatically mines overworld and nether ores",
+            "&b无尽矿机",
+            "&7自动挖矿",
             "",
             LorePreset.speed(64),
             LorePreset.energyPerSecond(36000)
