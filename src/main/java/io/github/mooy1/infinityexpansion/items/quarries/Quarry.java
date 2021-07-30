@@ -40,7 +40,7 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
 
     private static final ItemStack OSCILLATOR_INFO = new CustomItem(
             Material.CYAN_STAINED_GLASS_PANE,
-            "&b震荡器槽",
+            "&b提取物槽",
             "&7把震荡器放入这里",
             "&750%几率挖出对应的物品!"
     );

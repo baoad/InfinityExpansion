@@ -110,7 +110,7 @@ public final class StrainerBase extends AbstractTickingContainer implements Reci
         
     }
     
-    private static final ItemStack POTATO = new CustomItem(Material.POTATO, "&7:&6鱼&7:", "&e幸运");
+    private static final ItemStack POTATO = new CustomItem(Material.POTATO, "&7:&6土豆鱼?!&7:", "&e你真幸运");
 
     @Nonnull
     @Override
