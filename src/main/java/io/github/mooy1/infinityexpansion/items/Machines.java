@@ -1,5 +1,6 @@
 package io.github.mooy1.infinityexpansion.items;
 
+import io.github.mooy1.infinityexpansion.items.quarries.Quarry;
 import lombok.experimental.UtilityClass;
 
 import org.bukkit.Material;
@@ -14,7 +15,6 @@ import io.github.mooy1.infinityexpansion.items.machines.GeoQuarry;
 import io.github.mooy1.infinityexpansion.items.machines.GrowingMachine;
 import io.github.mooy1.infinityexpansion.items.machines.MaterialGenerator;
 import io.github.mooy1.infinityexpansion.items.machines.PoweredBedrock;
-import io.github.mooy1.infinityexpansion.items.machines.Quarry;
 import io.github.mooy1.infinityexpansion.items.machines.ResourceSynthesizer;
 import io.github.mooy1.infinityexpansion.items.machines.SingularityConstructor;
 import io.github.mooy1.infinityexpansion.items.machines.StoneworksFactory;
