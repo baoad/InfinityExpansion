@@ -282,6 +282,7 @@ public final class Materials {
     );
 
     public static void setup(InfinityExpansion plugin) {
+
         new EnderEssence(Categories.MAIN_MATERIALS, ENDER_ESSENCE, plugin.getKey("ender_essence")).register(plugin);
         registerEnhanced(COBBLE_1, new ItemStack[] {
                 new ItemStack(Material.COBBLESTONE), new ItemStack(Material.COBBLESTONE), new ItemStack(Material.COBBLESTONE),

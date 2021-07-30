@@ -34,7 +34,7 @@ public final class Oscillator extends SlimefunItem {
                 material,
                 "&b" + StackUtils.getDisplayName(new ItemStack(material)) + "提取物",
                 "&7此物品需要放到矿机内",
-                "&750%的几率会挖出这种材料"
+                "&750%几率挖出对应的物品"
         ), RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 Materials.MACHINE_PLATE, SlimefunItems.BLISTERING_INGOT_3, Materials.MACHINE_PLATE,
                 SlimefunItems.BLISTERING_INGOT_3, new ItemStack(material), SlimefunItems.BLISTERING_INGOT_3,

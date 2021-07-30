@@ -142,7 +142,7 @@ public abstract class AbstractCrafter extends AbstractTickingContainer {
             } else { //enough room
 
                 output.consumeInput();
-                p.sendMessage(ChatColor.GREEN + "制作: " + ItemUtils.getItemName(out));
+                p.sendMessage(  ChatColor.GREEN + "制作: " + ItemUtils.getItemName(out));
                 postCraft(inv.getLocation(), inv, p);
                 inv.pushItem(out, OUTPUT_SLOT);
             }

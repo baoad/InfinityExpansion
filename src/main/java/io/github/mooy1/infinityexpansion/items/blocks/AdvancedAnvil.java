@@ -106,7 +106,7 @@ public final class AdvancedAnvil extends AbstractEnergyCrafter {
         if (getCharge(l) < this.energy) { //not enough energy
             p.sendMessage(new String[] {
                     ChatColor.RED + "没有足够的电量!",
-                    ChatColor.GREEN + "所需能量: " + ChatColor.RED + getCharge(l) + ChatColor.GREEN + "/" + this.energy + " J"
+                    ChatColor.GREEN + "所需电量: " + ChatColor.RED + getCharge(l) + ChatColor.GREEN + "/" + this.energy + " J"
             });
             return;
         }

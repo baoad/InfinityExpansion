@@ -2,8 +2,10 @@ package io.github.mooy1.infinityexpansion.items;
 
 import javax.annotation.Nonnull;
 
+import io.github.mooy1.infinityexpansion.items.machines.ConcreteMoldingMachine;
 import lombok.experimental.UtilityClass;
 
+import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.abstractItems.AContainer;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
@@ -35,7 +37,7 @@ import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 
 @UtilityClass
 public final class SlimefunExtension {
-
+    
     private static final int INFINITY_CAPACITY = 2000000000;
     private static final int VOID_CAPACITY = 16000000;
 
@@ -66,11 +68,14 @@ public final class SlimefunExtension {
     private static final int STAR_ENERGY = 1800;
     private static final int STAR_BUFFER = 90000;
 
+    private static final int CMM_ENERGY = 80;
+    private static final int CMM_SPEED = 8;
+    
     public static final SlimefunItemStack ADVANCED_GEO_MINER = new SlimefunItemStack(
             "ADVANCED_GEO_MINER",
             HeadTexture.GEO_MINER,
             "&c高级 &fGeo矿机",
-            "&7高级的 geo-矿机",
+            "&7高级的Geo-矿机",
             "",
             LorePreset.speed(SlimefunExtension.ADVANCED_GEO_SPEED),
             LorePreset.energyPerSecond(SlimefunExtension.ADVANCED_GEO_ENERGY)
@@ -162,8 +167,42 @@ public final class SlimefunExtension {
             "",
             "&8\u21E8 &e\u26A1 " + LorePreset.format(VOID_CAPACITY) + " &7J 能量"
     );
+    public static final SlimefunItemStack CONCRETE_MOLDING_MACHINE = new SlimefunItemStack(
+            "CONCRETE_MOLDING_MACHINE",
+            Material.FURNACE,
+            "&8混凝土成型机",
+            "&7全自动给混凝土成型",
+            LorePreset.speed(SlimefunExtension.CMM_SPEED),
+            LorePreset.energyPerSecond(SlimefunExtension.CMM_ENERGY)
+    );
+
 
     public static void setup(InfinityExpansion plugin) {
+
+        AContainer AMachine = new ConcreteMoldingMachine(Categories.ADVANCED_MACHINES, CONCRETE_MOLDING_MACHINE,
+               RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
+               Materials.VOID_INGOT, Materials.VOID_DUST, Materials.VOID_INGOT,
+               Materials.VOID_INGOT, SlimefunItems.FLUID_PUMP, Materials.VOID_INGOT,
+               SlimefunItems.AUTO_DRIER, SlimefunItems.BIG_CAPACITOR, SlimefunItems.AUTO_DRIER
+        })
+       .setCapacity(1024).setEnergyConsumption(80).setProcessingSpeed(8);
+        AMachine.registerRecipe(16, new ItemStack(Material.WHITE_CONCRETE_POWDER, 8),  new ItemStack(Material.WHITE_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.ORANGE_CONCRETE_POWDER, 8),  new ItemStack(Material.ORANGE_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.MAGENTA_CONCRETE_POWDER, 8),  new ItemStack(Material.MAGENTA_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.LIGHT_BLUE_CONCRETE_POWDER, 8),  new ItemStack(Material.LIGHT_BLUE_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.YELLOW_CONCRETE_POWDER, 8),  new ItemStack(Material.YELLOW_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.LIME_CONCRETE_POWDER, 8),  new ItemStack(Material.LIME_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.PINK_CONCRETE_POWDER, 8),  new ItemStack(Material.PINK_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.GRAY_CONCRETE_POWDER, 8),  new ItemStack(Material.GRAY_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.LIGHT_GRAY_CONCRETE_POWDER, 8),  new ItemStack(Material.LIGHT_GRAY_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.CYAN_CONCRETE_POWDER, 8),  new ItemStack(Material.CYAN_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.PURPLE_CONCRETE_POWDER, 8),  new ItemStack(Material.PURPLE_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.BLUE_CONCRETE_POWDER, 8),  new ItemStack(Material.BLUE_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.BROWN_CONCRETE_POWDER, 8),  new ItemStack(Material.BROWN_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.GREEN_CONCRETE_POWDER, 8),  new ItemStack(Material.GREEN_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.RED_CONCRETE_POWDER, 8),  new ItemStack(Material.RED_CONCRETE, 8));
+        AMachine.registerRecipe(16, new ItemStack(Material.BLACK_CONCRETE_POWDER, 8),  new ItemStack(Material.BLACK_CONCRETE, 8));
+        AMachine.register(plugin);
 
         new Capacitor(Categories.INFINITY_CHEAT, INFINITY_CAPACITY, INFINITY_CAPACITOR,
                 InfinityWorkbench.TYPE, new ItemStack[] {
@@ -176,13 +215,13 @@ public final class SlimefunExtension {
         }).register(plugin);
 
         new Capacitor(Categories.ADVANCED_MACHINES, VOID_CAPACITY, VOID_CAPACITOR,
-                RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+                RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
                 Materials.VOID_INGOT, Materials.REDSTONE_SINGULARITY, Materials.VOID_INGOT,
                 Materials.VOID_INGOT, SlimefunItems.ENERGIZED_CAPACITOR, Materials.VOID_INGOT,
                 Materials.VOID_INGOT, Materials.REDSTONE_SINGULARITY, Materials.VOID_INGOT
         }).register(plugin);
 
-        new AutoEnchanter(Categories.ADVANCED_MACHINES, ADVANCED_ENCHANTER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+        new AutoEnchanter(Categories.ADVANCED_MACHINES, ADVANCED_ENCHANTER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
                 Materials.MAGSTEEL, Materials.MAGSTEEL, Materials.MAGSTEEL,
                 Materials.MAGSTEEL_PLATE, SlimefunItems.AUTO_ENCHANTER, Materials.MAGSTEEL_PLATE,
                 Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
@@ -193,7 +232,7 @@ public final class SlimefunExtension {
             }
         }.setCapacity(ADVANCED_EN_ENERGY).setEnergyConsumption(ADVANCED_EN_ENERGY).setProcessingSpeed(ADVANCED_EN_SPEED).register(plugin);
 
-        new AutoDisenchanter(Categories.ADVANCED_MACHINES, ADVANCED_DISENCHANTER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+        new AutoDisenchanter(Categories.ADVANCED_MACHINES, ADVANCED_DISENCHANTER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
                 Materials.MAGSTEEL, Materials.MAGSTEEL, Materials.MAGSTEEL,
                 Materials.MAGSTEEL_PLATE, SlimefunItems.AUTO_DISENCHANTER, Materials.MAGSTEEL_PLATE,
                 Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
@@ -232,7 +271,7 @@ public final class SlimefunExtension {
             }
         }.setCapacity(INFINITY_DIS_ENERGY).setEnergyConsumption(INFINITY_DIS_ENERGY).setProcessingSpeed(INFINITY_DIS_SPEED).register(plugin);
 
-        new ChargingBench(Categories.ADVANCED_MACHINES, ADVANCED_CHARGER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+        new ChargingBench(Categories.ADVANCED_MACHINES, ADVANCED_CHARGER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
                 Materials.MAGSTEEL_PLATE, Materials.MACHINE_CIRCUIT, Materials.MAGSTEEL_PLATE,
                 Materials.MACHINE_CIRCUIT, SlimefunItems.CHARGING_BENCH, Materials.MACHINE_CIRCUIT,
                 Materials.MAGSTEEL_PLATE, Materials.MACHINE_CORE, Materials.MAGSTEEL_PLATE,
@@ -257,7 +296,7 @@ public final class SlimefunExtension {
                 SlimefunItems.WITHER_PROOF_GLASS, SlimefunItems.WITHER_PROOF_GLASS, SlimefunItems.WITHER_PROOF_GLASS,
                 Materials.MACHINE_CIRCUIT, SlimefunItems.NETHER_STAR_REACTOR, Materials.MACHINE_CIRCUIT,
                 SlimefunItems.WITHER_PROOF_OBSIDIAN, SlimefunItems.WITHER_PROOF_OBSIDIAN, SlimefunItems.WITHER_PROOF_OBSIDIAN,
-        }) {
+        }){
 
             @Override
             public int getCapacity() {
@@ -276,7 +315,7 @@ public final class SlimefunExtension {
 
             @Override
             public void extraTick(@Nonnull Location l) {
-                if ((InfinityExpansion.inst().getGlobalTick() & 3) != 0) {
+                if ((InfinityExpansion.inst().getGlobalTick()  & 3) != 0) {
                     return;
                 }
                 InfinityExpansion.inst().runSync(() -> {
@@ -306,7 +345,7 @@ public final class SlimefunExtension {
                 });
             }
         }.register(plugin);
-
+        
         new ElectricSmeltery(Categories.ADVANCED_MACHINES, ADVANCED_SMELTERY, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 SlimefunItems.ELECTRIC_SMELTERY_2, SlimefunItems.ELECTRIC_SMELTERY_2, SlimefunItems.ELECTRIC_SMELTERY_2,
                 SlimefunItems.ELECTRIC_SMELTERY_2, SlimefunItems.ELECTRIC_SMELTERY_2, SlimefunItems.ELECTRIC_SMELTERY_2,

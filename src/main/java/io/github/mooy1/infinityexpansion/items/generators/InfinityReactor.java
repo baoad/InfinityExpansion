@@ -36,7 +36,7 @@ import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
  * @author Mooy1
  */
 public final class InfinityReactor extends AbstractContainer implements EnergyNetProvider, RecipeDisplayItem {
-
+    
     private static final int INFINITY_INTERVAL = 196000;
     private static final int VOID_INTERVAL = 32000;
     private static final int[] INPUT_SLOTS = {
@@ -45,7 +45,7 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
     private static final int STATUS_SLOT = MenuPreset.STATUS;
 
     private final int gen;
-
+    
     public InfinityReactor(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int gen) {
         super(category, item, recipeType, recipe);
         this.gen = gen;
@@ -78,7 +78,7 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
         }
         blockMenuPreset.addItem(STATUS_SLOT, MenuPreset.LOADING, ChestMenuUtils.getEmptyClickHandler());
     }
-
+    
     @Nonnull
     @Override
     public int[] getTransportSlots(@Nonnull DirtyChestMenu menu, @Nonnull ItemTransportFlow flow, @Nonnull ItemStack item) {
@@ -93,7 +93,7 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
 
         return new int[0];
     }
-
+    
     @Override
     public int getGeneratedOutput(@Nonnull Location l, @Nonnull Config config) {
         BlockMenu inv = BlockStorage.getInventory(l);
@@ -112,7 +112,7 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
                 return 0;
 
             }
-
+            
             if (voidInput == null || !Materials.VOID_INGOT.getItemId().equals(StackUtils.getID(voidInput))) { //wrong input
 
                 if (inv.hasViewer()) {
@@ -120,23 +120,23 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
                 }
                 return 0;
 
-            }
-
+            } 
+            
             //correct input
             if (inv.hasViewer()) {
                 inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE,
-                        "&a无尽反应堆(关闭)",
-                        "&a无尽锭剩余碰撞时间: " + INFINITY_INTERVAL,
-                        "&a虚空锭剩余碰撞时间: " + VOID_INTERVAL
-                ));
+                                "&a无尽反应堆(关闭)",
+                                "&a无尽锭碰撞剩余时间: " + INFINITY_INTERVAL,
+                                "&a虚空锭碰撞剩余时间: " + VOID_INTERVAL
+                        ));
             }
             inv.consumeItem(INPUT_SLOTS[0]);
             inv.consumeItem(INPUT_SLOTS[1]);
             BlockStorage.addBlockInfo(l, "progress", "1");
             return this.gen;
-
+            
         }
-
+        
         if (progress >= INFINITY_INTERVAL) { //done
 
             if (inv.hasViewer()) {
@@ -145,40 +145,40 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
             BlockStorage.addBlockInfo(l, "progress", "0");
             return this.gen;
 
-        }
-
+        } 
+        
         if (Math.floorMod(progress, VOID_INTERVAL) == 0) { //need void
 
             if (voidInput == null || !Materials.VOID_INGOT.getItemId().equals(StackUtils.getID(voidInput))) { //wrong input
 
                 if (inv.hasViewer()) {
-                    inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&c请放入&8虚空锭"));
+                    inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.RED_STAINED_GLASS_PANE, "&c放入更多的&8虚空锭"));
                 }
                 return 0;
 
             }
-
+            
             //right input
             if (inv.hasViewer()) {
                 inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE,
-                        "&a碰撞中...",
-                        "&a无尽锭剩余碰撞时间: " + (INFINITY_INTERVAL - progress),
-                        "&a虚空锭剩余碰撞时间: " + (VOID_INTERVAL - Math.floorMod(progress, VOID_INTERVAL))
-                ));
+                                "&a碰撞中...",
+                                "&a无尽锭碰撞剩余时间: " + (INFINITY_INTERVAL - progress),
+                                "&a虚空锭碰撞剩余时间: " + (VOID_INTERVAL - Math.floorMod(progress, VOID_INTERVAL))
+                        ));
             }
             BlockStorage.addBlockInfo(l, "progress", String.valueOf(progress + 1));
             inv.consumeItem(INPUT_SLOTS[1]);
             return this.gen;
 
-        }
-
+        } 
+        
         //generate
 
         if (inv.hasViewer()) {
             inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.LIME_STAINED_GLASS_PANE,
                             "&a碰撞中...",
-                            "&a无尽锭剩余碰撞时间: " + (INFINITY_INTERVAL - progress),
-                            "&a虚空锭剩余碰撞时间: " + (VOID_INTERVAL - Math.floorMod(progress, VOID_INTERVAL))
+                            "&a无尽锭碰撞剩余时间: " + (INFINITY_INTERVAL - progress),
+                            "&a虚空锭碰撞剩余时间: " + (VOID_INTERVAL - Math.floorMod(progress, VOID_INTERVAL))
                     )
             );
         }
@@ -197,12 +197,12 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
         List<ItemStack> items = new ArrayList<>();
 
         ItemStack item = Materials.INFINITE_INGOT.clone();
-        StackUtils.addLore(item, "", ChatColor.GOLD + "Lasts for 1 day");
+        StackUtils.addLore(item, "", ChatColor.GOLD + "持续碰撞一天");
         items.add(item);
         items.add(null);
 
         item = Materials.VOID_INGOT.clone();
-        StackUtils.addLore(item, "", ChatColor.GOLD + "Lasts for 4 hours");
+        StackUtils.addLore(item, "", ChatColor.GOLD + "持续碰撞四小时");
         items.add(item);
         items.add(null);
 

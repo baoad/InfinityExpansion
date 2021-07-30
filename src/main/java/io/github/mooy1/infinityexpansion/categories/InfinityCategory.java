@@ -80,7 +80,7 @@ public final class InfinityCategory extends FlexCategory {
             7, 16, 17
     };
     private static final ItemStack BENCH = new CustomItem(Material.NETHER_STAR,
-            "&bCreate the recipe from items in your inventory: ",
+            "&b根据里面的已有的物品配方创建物品: ",
             "&a左键单击 > 移动一个",
             "&a右键单击 > 移动一组"
     );

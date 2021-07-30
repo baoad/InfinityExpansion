@@ -33,7 +33,7 @@ public final class Singularity extends UnplaceableBlock {
     private static ItemStack[] makeRecipe(String id, int amount) {
         ItemStack item = StackUtils.getItemByIDorType(id);
 
-        Validate.notNull(item, "Failed to make singularity recipe with " + id);
+        Validate.notNull(item, "无法做出配方 " + id);
 
         List<ItemStack> recipe = new ArrayList<>();
 
