@@ -136,7 +136,7 @@ public final class GeoQuarry extends AbstractMachine implements RecipeDisplayIte
 
         inv.pushItem(output.clone(), OUTPUT_SLOTS);
         if (inv.hasViewer()) {
-            inv.replaceExistingItem(STATUS, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a发现了!"));
+            inv.replaceExistingItem(STATUS, new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a发现物品!"));
         }
         return true;
     }
