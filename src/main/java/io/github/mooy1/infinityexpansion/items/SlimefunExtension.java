@@ -75,7 +75,7 @@ public final class SlimefunExtension {
             "ADVANCED_GEO_MINER",
             HeadTexture.GEO_MINER,
             "&c高级 &fGeo矿机",
-            "&7高级的 geo-矿机",
+            "&7高级的Geo-矿机",
             "",
             LorePreset.speed(SlimefunExtension.ADVANCED_GEO_SPEED),
             LorePreset.energyPerSecond(SlimefunExtension.ADVANCED_GEO_ENERGY)
