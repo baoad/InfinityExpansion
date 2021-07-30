@@ -42,7 +42,7 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
             Material.CYAN_STAINED_GLASS_PANE,
             "&b提取物槽",
             "&7把震荡器放入这里",
-            "&750%几率挖出对应的物品!"
+            "&750%几率挖出对应物品!"
     );
     private static final int[] OUTPUT_SLOTS = {
             9, 10, 11, 12, 13, 14, 15, 16, 17,
