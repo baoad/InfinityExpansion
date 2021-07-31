@@ -219,11 +219,11 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
                 new Material[0],
                 new Material[0]
         ),
-        FURNACE(new CustomItem(Material.FURNACE, "&8冶炼", "", "&7 > 点击开始"),
+        FURNACE(new CustomItem(Material.FURNACE, "&8冶炼中", "", "&7 > 点击开始"),
                 new Material[]{Material.COBBLESTONE, Material.SAND},
                 new Material[]{Material.STONE, Material.GLASS}
         ),
-        CRUSH(new CustomItem(Material.DIAMOND_PICKAXE, "&8粉碎", "", "&7 > 点击开始"),
+        CRUSH(new CustomItem(Material.DIAMOND_PICKAXE, "&8粉碎中", "", "&7 > 点击开始"),
                 new Material[]{Material.COBBLESTONE, Material.GRAVEL},
                 new Material[]{Material.GRAVEL, Material.SAND}
         ),

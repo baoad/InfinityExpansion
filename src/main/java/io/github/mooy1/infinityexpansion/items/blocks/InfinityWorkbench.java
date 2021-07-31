@@ -104,8 +104,8 @@ public final class InfinityWorkbench extends AbstractEnergyCrafter {
          
         if (charge < this.energy) { //not enough energy
             p.sendMessage( new String[] {
-                    ChatColor.RED + "没有足够的能量!",
-                    ChatColor.GREEN + "所需能量: " + ChatColor.RED + charge + ChatColor.GREEN + "/" + this.energy + " J"
+                    ChatColor.RED + "电量不足!",
+                    ChatColor.GREEN + "所需电量: " + ChatColor.RED + charge + ChatColor.GREEN + "/" + this.energy + " J"
             });
             return;
         }
@@ -123,7 +123,7 @@ public final class InfinityWorkbench extends AbstractEnergyCrafter {
         }
 
         output.consumeInput();
-        p.sendMessage( ChatColor.GREEN + "制作成功: " + ChatColor.WHITE + output.getOutput().getDisplayName());
+        p.sendMessage( ChatColor.GREEN + "点击制作: " + ChatColor.WHITE + output.getOutput().getDisplayName());
 
         inv.pushItem(output.getOutput().clone(), OUTPUT_SLOTS);
         setCharge(b.getLocation(), 0);
