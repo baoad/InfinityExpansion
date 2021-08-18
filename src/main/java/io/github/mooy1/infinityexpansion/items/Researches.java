@@ -43,10 +43,10 @@ public final class Researches {
                 Materials.EARTH_SINGULARITY, Materials.FORTUNE_SINGULARITY, Materials.MAGIC_SINGULARITY,
                 Materials.METAL_SINGULARITY, Materials.INFINITE_INGOT, Blocks.INFINITY_FORGE
         );
-        create(4, "harvesting_end", "末地最终物品", 20,
+        create(4, "harvesting_end", "末地的最终物品", 20,
                 Materials.ENDER_ESSENCE, Gear.ENDER_FLAME, Gear.VEIN_MINER_RUNE
         );
-        create(5, "mob_data", "怪物模拟农场", 30,
+        create(5, "mob_data", "生物模拟农场", 30,
                 MobData.CHAMBER, MobData.EMPTY_DATA_CARD, MobData.INFUSER,
                 MobData.COW, MobData.SHEEP, MobData.CHICKEN
         );
