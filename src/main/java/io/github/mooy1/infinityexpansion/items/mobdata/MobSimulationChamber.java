@@ -112,7 +112,7 @@ public final class MobSimulationChamber extends AbstractTickingContainer impleme
     }
 
     private static ItemStack makeXpItem(int stored) {
-        return new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a模拟值: " + stored, "", "&a> 点击取消");
+        return new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a死亡经验值: " + stored, "", "&a> 点击获取");
     }
 
     @Override
