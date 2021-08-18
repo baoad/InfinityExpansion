@@ -167,7 +167,7 @@ public final class InfinityCategory extends FlexCategory {
                         "",
                         "&a> 点击解锁",
                         "",
-                        "&7所需: &b" + research.getCost() + "个Level(s)"
+                        "&7所需: &b" + research.getCost() + "经验(s)"
                 );
                 menu.addItem(i, resItem, (p, slot, item1, action) -> {
                     research.unlockFromGuide(GUIDE, p, entry.profile, sfItem, Categories.INFINITY_CATEGORY, 0);
