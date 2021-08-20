@@ -25,6 +25,6 @@ jobs:
       uses: actions/upload-artifact@v2
       if: success()
       with:
-        name: InfinityExpansion v119 zh-CN
+        name: InfinityExpansion zh-CN
         path: target/InfinityExpansion v119 zh-CN.jar
 # 注意要和打包出来的一致
