@@ -38,7 +38,7 @@ public final class StorageForge extends AbstractCrafter {
 
     @Override
     public void postCraft(@Nonnull Location l, @Nonnull BlockMenu inv, @Nonnull Player p) {
-        p.sendMessage(ChatColor.GREEN + "已将储存单元里的物品转移到已制作的储存单元中");
+        p.sendMessage(ChatColor.GREEN + "已将储存单元里的物品转移到新制作的储存单元中");
     }
 
 }
