@@ -37,7 +37,7 @@ public final class Gear {
     public static final SlimefunItemStack ENDER_FLAME = new SlimefunItemStack(
             "ENDER_FLAME",
             Material.ENCHANTED_BOOK,
-            "&c末影火焰"
+            "&c末影火焰之书"
     );
     public static final SlimefunItemStack CROWN = new SlimefunItemStack(
             "INFINITY_CROWN",
