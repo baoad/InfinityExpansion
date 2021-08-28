@@ -197,12 +197,12 @@ public final class InfinityReactor extends AbstractContainer implements EnergyNe
         List<ItemStack> items = new ArrayList<>();
 
         ItemStack item = Materials.INFINITE_INGOT.clone();
-        StackUtils.addLore(item, "", ChatColor.GOLD + "Lasts for 1 day");
+        StackUtils.addLore(item, "", ChatColor.GOLD + "持续碰撞一天");
         items.add(item);
         items.add(null);
 
         item = Materials.VOID_INGOT.clone();
-        StackUtils.addLore(item, "", ChatColor.GOLD + "Lasts for 4 hours");
+        StackUtils.addLore(item, "", ChatColor.GOLD + "持续碰撞四小时");
         items.add(item);
         items.add(null);
 

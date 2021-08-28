@@ -218,7 +218,7 @@ public final class GearTransformer extends AbstractEnergyCrafter implements Reci
 
         if (inputItem == null) { //no input
 
-            inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.BLUE_STAINED_GLASS_PANE, "&9左边放入工具/装备 右边放入材料"));
+            inv.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.BLUE_STAINED_GLASS_PANE, "&9左边放入工具/装备,右边放入材料"));
             return;
 
         }

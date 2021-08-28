@@ -110,14 +110,14 @@ public final class VeinMinerRune extends SlimefunItem implements Listener, NotPl
                         setVeinMiner(itemStack, true);
                         l.getWorld().dropItemNaturally(l, itemStack);
 
-                        p.sendMessage(ChatColor.GREEN + "给工具添加了采矿器!");
+                        p.sendMessage(ChatColor.GREEN + "已成功给工具添加了矿脉矿工符文!");
                     } else {
-                        p.sendMessage(ChatColor.RED + "没有添加矿脉矿工符文!");
+                        p.sendMessage(ChatColor.RED + "添加矿脉矿工符文时失败!");
                     }
                 }, 10L);
 
             } else {
-                p.sendMessage(ChatColor.RED + "没有添加矿脉矿工符文!");
+                p.sendMessage(ChatColor.RED + "添加矿脉矿工符文时失败!");
             }
         }
     }
@@ -184,7 +184,7 @@ public final class VeinMinerRune extends SlimefunItem implements Listener, NotPl
         }
 
         if (p.getFoodLevel() == 0) {
-            p.sendMessage(ChatColor.GOLD + "过于劳累 不能使用!");
+            p.sendMessage(ChatColor.GOLD + "您过于劳累,不能再次使用!");
             return;
         }
 
@@ -197,7 +197,7 @@ public final class VeinMinerRune extends SlimefunItem implements Listener, NotPl
         if (BlockStorage.hasBlockInfo(l)) return;
 
         if (!this.cooldowns.checkAndReset(p.getUniqueId())) {
-            p.sendMessage(ChatColor.GOLD + "你必须等待1秒再使用!");
+            p.sendMessage(ChatColor.GOLD + "你必须待会再次使用!");
             return;
         }
 

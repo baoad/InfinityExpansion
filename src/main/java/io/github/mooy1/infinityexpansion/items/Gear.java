@@ -115,6 +115,7 @@ public final class Gear {
             "VEIN_MINER_RUNE",
             Material.DIAMOND,
             "&b矿脉矿工符文",
+            "将它与工具结合",
             "&7提高工具对矿物挖出数量"
     );
 
