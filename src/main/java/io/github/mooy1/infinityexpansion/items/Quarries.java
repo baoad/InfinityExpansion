@@ -120,7 +120,7 @@ public final class Quarries {
                 Materials.MAGSTEEL_PLATE, SlimefunItems.CARBONADO_EDGED_CAPACITOR, Materials.MAGSTEEL_PLATE,
                 new ItemStack(Material.IRON_PICKAXE), SlimefunItems.GEO_MINER, new ItemStack(Material.IRON_PICKAXE),
                 Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
-        }, 300, 1, 6, outputs.toArray(new Material[0]));
+        }, 300, 1, 6, outputs.toArray(new Material[0])).register(plugin);
 
         if (section.getBoolean("quartz")) {
             new Oscillator(QUARTZ_OSCILLATOR).register(plugin);
@@ -141,7 +141,7 @@ public final class Quarries {
                 Materials.MACHINE_PLATE, SlimefunItems.ENERGIZED_CAPACITOR, Materials.MACHINE_PLATE,
                 new ItemStack(Material.DIAMOND_PICKAXE), BASIC_QUARRY, new ItemStack(Material.DIAMOND_PICKAXE),
                 Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
-        }, 900, 2, 4, outputs.toArray(new Material[0]));
+        }, 900, 2, 4, outputs.toArray(new Material[0])).register(plugin);
 
         if (coal) {
             outputs.add(Material.COAL);
@@ -151,7 +151,7 @@ public final class Quarries {
                 Materials.VOID_INGOT, SlimefunExtension.VOID_CAPACITOR, Materials.VOID_INGOT,
                 new ItemStack(Material.NETHERITE_PICKAXE), ADVANCED_QUARRY, new ItemStack(Material.NETHERITE_PICKAXE),
                 Materials.MACHINE_CIRCUIT, Materials.MACHINE_CORE, Materials.MACHINE_CIRCUIT
-        }, 3600, 6, 2, outputs.toArray(new Material[0]));
+        }, 3600, 6, 2, outputs.toArray(new Material[0])).register(plugin);
 
         if (coal) {
             outputs.add(Material.COAL);
@@ -164,7 +164,7 @@ public final class Quarries {
                 Materials.VOID_INGOT, null, Materials.INFINITE_INGOT, Materials.INFINITE_INGOT, null, Materials.VOID_INGOT,
                 Materials.VOID_INGOT, null, Materials.INFINITE_INGOT, Materials.INFINITE_INGOT, null, Materials.VOID_INGOT,
                 Materials.VOID_INGOT, null, Materials.INFINITE_INGOT, Materials.INFINITE_INGOT, null, Materials.VOID_INGOT
-        }, 36000, 64, 1, outputs.toArray(new Material[0]));
+        }, 36000, 64, 1, outputs.toArray(new Material[0])).register(plugin);
     }
 
 }
