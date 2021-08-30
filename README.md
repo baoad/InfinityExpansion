@@ -5,7 +5,7 @@
 
 ## 中文版下载
 
-https://github.com/baoad/InfinityExpansion/releases
+https://github.com/baoad/InfinityExpansion/Actions
 
 
 
