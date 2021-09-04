@@ -12,18 +12,18 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import io.github.mooy1.infinityexpansion.items.storage.StorageUnit;
-import io.github.mooy1.infinitylib.commands.AbstractCommand;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import io.github.mooy1.infinitylib.commands.SubCommand;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 
-public final class SetData extends AbstractCommand {
+public final class SetData extends SubCommand {
 
     public SetData() {
         super("setdata", "正在设置并查看Slimefun方块数据", true);
     }
 
     @Override
-    public void onExecute(@Nonnull CommandSender commandSender, @Nonnull String[] strings) {
+    protected void execute(@Nonnull CommandSender commandSender, @Nonnull String[] strings) {
         if (!(commandSender instanceof Player)) {
             commandSender.sendMessage("只有玩家才能使用这个!");
             return;
@@ -39,7 +39,7 @@ public final class SetData extends AbstractCommand {
         Block target = p.getTargetBlockExact(8, FluidCollisionMode.NEVER);
 
         if (target == null || target.getType() == Material.AIR) {
-            p.sendMessage(ChatColor.RED + "你需要瞄准物品来使用此命令!");
+            p.sendMessage(ChatColor.RED + "You need to target a block to use this command!");
             return;
         }
 
@@ -58,8 +58,9 @@ public final class SetData extends AbstractCommand {
         if (strings[2].equals("\\remove")) {
             p.sendMessage(ChatColor.GREEN + "成功删除 '" + strings[1] + "' in " + id);
             BlockStorage.addBlockInfo(target, strings[1], null);
-        } else {
-            p.sendMessage(ChatColor.GREEN + "成功设置 '" + strings[1] + "' to value '" + strings[2] + "' in " + id);
+        }
+        else {
+            p.sendMessage(ChatColor.GREEN + "Successfully set key '" + strings[1] + "' to value '" + strings[2] + "' in " + id);
             BlockStorage.addBlockInfo(target, strings[1], strings[2]);
         }
 

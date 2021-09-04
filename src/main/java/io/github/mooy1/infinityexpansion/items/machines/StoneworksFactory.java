@@ -21,7 +21,7 @@ import io.github.thebusybiscuit.slimefun4.core.attributes.NotHopperable;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
+import me.mrCookieSlime.Slimefun.Objects.ItemGroup;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
@@ -34,19 +34,19 @@ import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
  * Turns cobble into stuff
  */
 public final class StoneworksFactory extends AbstractMachine implements RecipeDisplayItem, NotHopperable {
-    
-    private static final int[] PROCESS_BORDER = {0, 1, 2, 3, 4, 5, 18, 19, 20, 21, 22, 23};
-    private static final int[] OUT_BORDER = {6, 7, 8, 17, 24, 25, 26};
-    private static final int[] OUTPUT_SLOTS = {16};
+
+    private static final int[] PROCESS_BORDER = { 0, 1, 2, 3, 4, 5, 18, 19, 20, 21, 22, 23 };
+    private static final int[] OUT_BORDER = { 6, 7, 8, 17, 24, 25, 26 };
+    private static final int[] OUTPUT_SLOTS = { 16 };
     private static final int STATUS_SLOT = 9;
-    private static final int[] CHOICE_SLOTS = {11, 13, 15};
-    private static final int[] PROCESS_SLOTS = {10, 12, 14};
-    private static final ItemStack COBBLE_GEN = new CustomItem(Material.GRAY_CONCRETE, "&8圆石...");
-    private static final ItemStack PROCESSING = new CustomItem(Material.GRAY_STAINED_GLASS_PANE, "&7处理中");
+    private static final int[] CHOICE_SLOTS = { 11, 13, 15 };
+    private static final int[] PROCESS_SLOTS = { 10, 12, 14 };
+    private static final ItemStack COBBLE_GEN = new CustomItem(Material.GRAY_CONCRETE, "&8Cobblegen");
+    private static final ItemStack PROCESSING = new CustomItem(Material.GRAY_STAINED_GLASS_PANE, "&7Processing");
 
     private final int energy;
-    
-    public StoneworksFactory(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int energy) {
+
+    public StoneworksFactory(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int energy) {
         super(category, item, recipeType, recipe);
         this.energy = energy;
     }
@@ -93,7 +93,7 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
     @Override
     public void onNewInstance(@Nonnull BlockMenu menu, @Nonnull Block b) {
         Location l = b.getLocation();
-        
+
         if (BlockStorage.getLocationInfo(l, "choice0") == null) {
             setChoice(l, 0, Choice.NONE);
             setChoice(l, 1, Choice.NONE);
@@ -103,7 +103,7 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
         for (int i = 0 ; i < CHOICE_SLOTS.length ; i++) {
             menu.replaceExistingItem(CHOICE_SLOTS[i], getChoice(l, i).item);
         }
-        
+
         for (int i = 0 ; i < 3 ; i++) {
             int finalI = i;
             menu.addMenuClickHandler(CHOICE_SLOTS[i], (p, slot, item, action) -> {
@@ -112,13 +112,16 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
                 if (action.isRightClicked()) {
                     if (current > 0) {
                         next = Choice.values()[current - 1];
-                    } else {
+                    }
+                    else {
                         next = Choice.values()[Choice.values().length - 1];
                     }
-                } else {
+                }
+                else {
                     if (current < Choice.values().length - 1) {
                         next = Choice.values()[current + 1];
-                    } else {
+                    }
+                    else {
                         next = Choice.values()[0];
                     }
                 }
@@ -128,21 +131,23 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
             });
         }
     }
-    
+
     private static void process(int i, BlockMenu inv, Location l) {
         int slot = PROCESS_SLOTS[i];
 
         ItemStack item = inv.getItemInSlot(slot);
-        
-        if (item == null) return;
-        
+
+        if (item == null) {
+            return;
+        }
+
         Choice c = getChoice(l, i);
         int nextSlot = i < 2 ? PROCESS_SLOTS[i + 1] : OUTPUT_SLOTS[0];
 
         if (c == Choice.NONE) {
             item = item.clone();
             item.setAmount(1);
-            
+
             if (inv.fits(item, nextSlot)) {
                 inv.consumeItem(slot, 1);
                 inv.pushItem(item, nextSlot);
@@ -176,10 +181,10 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
                 items.add(new ItemStack(option.outputs[i]));
             }
         }
-        
+
         return items;
     }
-    
+
     @Nonnull
     private static Choice getChoice(Location l, int i) {
         try {
@@ -189,7 +194,7 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
             return Choice.NONE;
         }
     }
-    
+
     private static void setChoice(Location l, int i, Choice o) {
         BlockStorage.addBlockInfo(l, "choice" + i, o.toString());
     }
@@ -206,7 +211,8 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
             if (inv.fits(cobble, PROCESS_SLOTS[0])) {
                 inv.pushItem(cobble, PROCESS_SLOTS[0]);
             }
-        } else {
+        }
+        else {
             process(tick, inv, b.getLocation());
         }
 
@@ -219,13 +225,13 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
                 new Material[0],
                 new Material[0]
         ),
-        FURNACE(new CustomItem(Material.FURNACE, "&8冶炼中", "", "&7 > 点击开始"),
-                new Material[]{Material.COBBLESTONE, Material.SAND},
-                new Material[]{Material.STONE, Material.GLASS}
+        FURNACE(new CustomItem(Material.FURNACE, "&8Smelting", "", "&7 > Click to cycle"),
+                new Material[] { Material.COBBLESTONE, Material.SAND },
+                new Material[] { Material.STONE, Material.GLASS }
         ),
-        CRUSH(new CustomItem(Material.DIAMOND_PICKAXE, "&8粉碎中", "", "&7 > 点击开始"),
-                new Material[]{Material.COBBLESTONE, Material.GRAVEL},
-                new Material[]{Material.GRAVEL, Material.SAND}
+        CRUSH(new CustomItem(Material.DIAMOND_PICKAXE, "&8Crushing", "", "&7 > Click to cycle"),
+                new Material[] { Material.COBBLESTONE, Material.GRAVEL },
+                new Material[] { Material.GRAVEL, Material.SAND }
         ),
         COMPACT(new CustomItem(Material.PISTON, "&8压缩中", "", "&7 > 点击开始"),
                 new Material[]{Material.STONE, Material.GRANITE, Material.DIORITE, Material.ANDESITE},
@@ -240,4 +246,5 @@ public final class StoneworksFactory extends AbstractMachine implements RecipeDi
         private final Material[] inputs;
         private final Material[] outputs;
     }
+
 }
