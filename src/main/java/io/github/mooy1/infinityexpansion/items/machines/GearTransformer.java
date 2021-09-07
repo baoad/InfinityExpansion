@@ -210,7 +210,7 @@ public final class GearTransformer extends AbstractEnergyCrafter implements Reci
 
         }
 
-        if (!SF && StackUtils.getID(inputItem) != null) {
+        if (!SF && StackUtils.getId(inputItem) != null) {
             inv.replaceExistingItem(STATUS_SLOT, new CustomItemStack(Material.RED_STAINED_GLASS_PANE, "&cSlimefun的物品不能进行转换!"));
             return;
         }
