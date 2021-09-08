@@ -174,8 +174,8 @@ public final class SlimefunExtension {
             Material.FURNACE,
             "&8混凝土成型机",
             "&7全自动给混凝土成型",
-            LorePreset.speed(SlimefunExtension.CMM_SPEED),
-            LorePreset.energyPerSecond(SlimefunExtension.CMM_ENERGY)
+            MachineLore.speed(SlimefunExtension.CMM_SPEED),
+            MachineLore.energyPerSecond(SlimefunExtension.CMM_ENERGY)
     );
 
 
@@ -206,7 +206,7 @@ public final class SlimefunExtension {
         AMachine.registerRecipe(16, new ItemStack(Material.BLACK_CONCRETE_POWDER, 8),  new ItemStack(Material.BLACK_CONCRETE, 8));
         AMachine.register(plugin);
 
-        new Capacitor(Categories.INFINITY_CHEAT, INFINITY_CAPACITY, INFINITY_CAPACITOR,
+        new Capacitor(Groups.INFINITY_CHEAT, INFINITY_CAPACITY, INFINITY_CAPACITOR,
                 InfinityWorkbench.TYPE, new ItemStack[] {
                 null, Materials.INFINITE_INGOT, Materials.VOID_INGOT, Materials.VOID_INGOT, Materials.INFINITE_INGOT, null,
                 null, Materials.INFINITE_INGOT, Materials.INFINITE_CIRCUIT, Materials.INFINITE_CIRCUIT, Materials.INFINITE_INGOT, null,
