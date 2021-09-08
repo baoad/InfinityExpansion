@@ -19,13 +19,13 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 public final class SetData extends SubCommand {
 
     public SetData() {
-        super("setdata", "正在设置并查看Slimefun方块数据", true);
+        super("setdata", "Set slimefun block data of the block you are looking at", true);
     }
 
     @Override
     protected void execute(@Nonnull CommandSender commandSender, @Nonnull String[] strings) {
         if (!(commandSender instanceof Player)) {
-            commandSender.sendMessage("只有玩家才能使用这个!");
+            commandSender.sendMessage("Only players can use this!");
             return;
         }
 
@@ -46,7 +46,7 @@ public final class SetData extends SubCommand {
         String id = BlockStorage.getLocationInfo(target.getLocation(), "id");
 
         if (id == null) {
-            p.sendMessage(ChatColor.RED + "你不能更改这个SF方块ID 他可能会导致出现问题!");
+            p.sendMessage(ChatColor.RED + "You need to target a slimefun block to use this command!");
             return;
         }
 
@@ -64,14 +64,14 @@ public final class SetData extends SubCommand {
             BlockStorage.addBlockInfo(target, strings[0], strings[1]);
         }
 
-        SlimefunItem unit = SlimefunItem.getByID(id);
+        SlimefunItem unit = SlimefunItem.getById(id);
         if (unit instanceof StorageUnit) {
             ((StorageUnit) unit).reloadCache(target);
         }
     }
 
     @Override
-    public void onTab(@Nonnull CommandSender commandSender, @Nonnull String[] strings, @Nonnull List<String> list) {
+    protected void complete(@Nonnull CommandSender commandSender, @Nonnull String[] strings, @Nonnull List<String> list) {
         if (!(commandSender instanceof Player)) {
             return;
         }
