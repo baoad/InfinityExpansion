@@ -8,14 +8,14 @@ import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.mooy1.infinityexpansion.InfinityExpansion;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.EnergyNetComponent;
 import io.github.thebusybiscuit.slimefun4.core.networks.energy.EnergyNetComponentType;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 
 /**
  * A block that becomes bedrock when powered, for decoration of course
@@ -26,7 +26,7 @@ public final class PoweredBedrock extends SlimefunItem implements EnergyNetCompo
 
     private final int energy;
 
-    public PoweredBedrock(Category category, SlimefunItemStack item, RecipeType type, ItemStack[] recipe, int energy) {
+    public PoweredBedrock(ItemGroup category, SlimefunItemStack item, RecipeType type, ItemStack[] recipe, int energy) {
         super(category, item, type, recipe);
         this.energy = energy;
 
@@ -38,7 +38,7 @@ public final class PoweredBedrock extends SlimefunItem implements EnergyNetCompo
 
             @Override
             public void tick(Block b, SlimefunItem item, Config data) {
-                if ((InfinityExpansion.inst().getGlobalTick() & 3) == 0) {
+                if (InfinityExpansion.slimefunTickCount() % 8 == 0) {
                     return;
                 }
                 Location l = b.getLocation();
@@ -46,7 +46,8 @@ public final class PoweredBedrock extends SlimefunItem implements EnergyNetCompo
                     if (b.getType() != Material.NETHERITE_BLOCK) {
                         b.setType(Material.NETHERITE_BLOCK);
                     }
-                } else if (b.getType() != Material.BEDROCK) {
+                }
+                else if (b.getType() != Material.BEDROCK) {
                     b.setType(Material.BEDROCK);
                     removeCharge(l, energy);
                 }

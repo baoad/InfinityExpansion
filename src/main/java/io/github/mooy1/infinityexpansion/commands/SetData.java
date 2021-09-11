@@ -12,25 +12,25 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import io.github.mooy1.infinityexpansion.items.storage.StorageUnit;
-import io.github.mooy1.infinitylib.commands.AbstractCommand;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
+import io.github.mooy1.infinitylib.commands.SubCommand;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 
-public final class SetData extends AbstractCommand {
+public final class SetData extends SubCommand {
 
     public SetData() {
-        super("setdata", "正在设置并查看Slimefun方块数据", true);
+        super("setdata", "Set slimefun block data of the block you are looking at", true);
     }
 
     @Override
-    public void onExecute(@Nonnull CommandSender commandSender, @Nonnull String[] strings) {
+    protected void execute(@Nonnull CommandSender commandSender, @Nonnull String[] strings) {
         if (!(commandSender instanceof Player)) {
-            commandSender.sendMessage("只有玩家才能使用这个!");
+            commandSender.sendMessage("Only players can use this!");
             return;
         }
 
-        if (strings.length != 3) {
-            commandSender.sendMessage(ChatColor.RED + "你必须设置值!");
+        if (strings.length != 2) {
+            commandSender.sendMessage(ChatColor.RED + "You must specify a key and value to set!");
             return;
         }
 
@@ -39,38 +39,39 @@ public final class SetData extends AbstractCommand {
         Block target = p.getTargetBlockExact(8, FluidCollisionMode.NEVER);
 
         if (target == null || target.getType() == Material.AIR) {
-            p.sendMessage(ChatColor.RED + "你需要瞄准物品来使用此命令!");
+            p.sendMessage(ChatColor.RED + "You need to target a block to use this command!");
             return;
         }
 
         String id = BlockStorage.getLocationInfo(target.getLocation(), "id");
 
         if (id == null) {
-            p.sendMessage(ChatColor.RED + "你不能更改这个SF方块ID 他可能会导致出现问题!");
+            p.sendMessage(ChatColor.RED + "You need to target a slimefun block to use this command!");
             return;
         }
 
-        if (strings[1].equals("id")) {
-            p.sendMessage(ChatColor.RED + "你需要瞄准物品来使用此命令!");
+        if (strings[0].equals("id")) {
+            p.sendMessage(ChatColor.RED + "You cannot change the id of this block, it could cause internal issues!");
             return;
         }
 
-        if (strings[2].equals("\\remove")) {
-            p.sendMessage(ChatColor.GREEN + "成功删除 '" + strings[1] + "' in " + id);
-            BlockStorage.addBlockInfo(target, strings[1], null);
-        } else {
-            p.sendMessage(ChatColor.GREEN + "成功设置 '" + strings[1] + "' to value '" + strings[2] + "' in " + id);
-            BlockStorage.addBlockInfo(target, strings[1], strings[2]);
+        if (strings[1].equals("\\remove")) {
+            p.sendMessage(ChatColor.GREEN + "Successfully removed value of key '" + strings[0] + "' in " + id);
+            BlockStorage.addBlockInfo(target, strings[0], null);
+        }
+        else {
+            p.sendMessage(ChatColor.GREEN + "Successfully set key '" + strings[0] + "' to value '" + strings[1] + "' in " + id);
+            BlockStorage.addBlockInfo(target, strings[0], strings[1]);
         }
 
-        SlimefunItem unit = SlimefunItem.getByID(id);
+        SlimefunItem unit = SlimefunItem.getById(id);
         if (unit instanceof StorageUnit) {
             ((StorageUnit) unit).reloadCache(target);
         }
     }
 
     @Override
-    public void onTab(@Nonnull CommandSender commandSender, @Nonnull String[] strings, @Nonnull List<String> list) {
+    protected void complete(@Nonnull CommandSender commandSender, @Nonnull String[] strings, @Nonnull List<String> list) {
         if (!(commandSender instanceof Player)) {
             return;
         }
@@ -83,12 +84,13 @@ public final class SetData extends AbstractCommand {
             return;
         }
 
-        if (strings.length == 2) {
+        if (strings.length == 1) {
             if (BlockStorage.hasBlockInfo(target)) {
                 list.addAll(BlockStorage.getLocationInfo(target.getLocation()).getKeys());
                 list.remove("id");
             }
-        } else if (strings.length == 3 && !strings[1].equals("id")) {
+        }
+        else if (strings.length == 2 && !strings[1].equals("id")) {
             String current = BlockStorage.getLocationInfo(target.getLocation(), strings[1]);
             if (current != null) {
                 list.add(current);

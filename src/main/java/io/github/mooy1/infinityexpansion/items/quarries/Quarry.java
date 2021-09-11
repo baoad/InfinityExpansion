@@ -5,40 +5,40 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.mooy1.infinityexpansion.InfinityExpansion;
-import io.github.mooy1.infinityexpansion.items.abstracts.AbstractMachine;
-import io.github.mooy1.infinitylib.presets.MenuPreset;
+import io.github.mooy1.infinitylib.machines.AbstractMachineBlock;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.RecipeDisplayItem;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu;
-import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 
 /**
  * Mines stuff
  *
  * @author Mooy1
  */
-public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
+@ParametersAreNonnullByDefault
+public final class Quarry extends AbstractMachineBlock implements RecipeDisplayItem {
 
-    private static final boolean ALLOW_NETHER_IN_OVERWORLD = InfinityExpansion.inst().getConfig().getBoolean("quarry-options.output-nether-materials-in-overworld");
-    private static final int INTERVAL = InfinityExpansion.inst().getConfig().getInt("quarry-options.ticks-per-output", 1, 100);
-
-    private static final ItemStack OSCILLATOR_INFO = new CustomItem(
+    private static final boolean ALLOW_NETHER_IN_OVERWORLD =
+            InfinityExpansion.config().getBoolean("quarry-options.output-nether-materials-in-overworld");
+    private static final int INTERVAL =
+            InfinityExpansion.config().getInt("quarry-options.ticks-per-output", 1, 100);
+    private static final ItemStack MINING = new CustomItemStack(Material.LIME_STAINED_GLASS_PANE, "&aMining...");
+    private static final ItemStack OSCILLATOR_INFO = new CustomItemStack(
             Material.CYAN_STAINED_GLASS_PANE,
             "&b提取物槽",
             "&7把提取物放进这里",
@@ -55,61 +55,39 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
 
     private final int speed;
     private final int chance;
-    private final int energy;
     private final Material[] outputs;
 
-    public Quarry(Category category, SlimefunItemStack item, RecipeType type, ItemStack[] recipe,
-                  int energy, int speed, int chance, Material... outputs) {
+    public Quarry(ItemGroup category, SlimefunItemStack item, RecipeType type, ItemStack[] recipe,
+                  int speed, int chance, Material... outputs) {
         super(category, item, type, recipe);
 
         this.speed = speed;
         this.chance = chance;
         this.outputs = outputs;
-        this.energy = energy;
     }
 
     @Override
-    protected void onBreak(@Nonnull BlockBreakEvent e, @Nonnull BlockMenu menu, @Nonnull Location l) {
-        menu.dropItems(l, OUTPUT_SLOTS);
-        menu.dropItems(l, OSCILLATOR_SLOT);
+    protected void setup(@Nonnull BlockMenuPreset blockMenuPreset) {
+        blockMenuPreset.drawBackground(new int[] {
+                0, 1, 2, 3, 4, 5, 6, 7, 8, 45, 46, 47, 51, 52, 53
+        });
+        blockMenuPreset.addItem(48, OSCILLATOR_INFO, ChestMenuUtils.getEmptyClickHandler());
+        blockMenuPreset.addItem(50, OSCILLATOR_INFO, ChestMenuUtils.getEmptyClickHandler());
     }
 
     @Override
-    protected void setupMenu(@Nonnull BlockMenuPreset blockMenuPreset) {
-        super.setupMenu(blockMenuPreset);
-        for (int i = 0 ; i < 4 ; i++) {
-            blockMenuPreset.addItem(i, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler());
-        }
-        for (int i = 5 ; i < 9 ; i++) {
-            blockMenuPreset.addItem(i, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler());
-        }
-        for (int i = 45 ; i < 54 ; i++) {
-            if (i == OSCILLATOR_SLOT - 1) {
-                blockMenuPreset.addItem(i, OSCILLATOR_INFO, ChestMenuUtils.getEmptyClickHandler());
-                blockMenuPreset.addItem(i + 2, OSCILLATOR_INFO, ChestMenuUtils.getEmptyClickHandler());
-                i += 3;
-            }
-            blockMenuPreset.addItem(i, ChestMenuUtils.getBackground(), ChestMenuUtils.getEmptyClickHandler());
-        }
-    }
-
-    @Override
-    protected int getStatusSlot() {
-        return STATUS_SLOT;
-    }
-
-    @Override
-    protected int getEnergyConsumption() {
-        return this.energy;
-    }
-
-    @Nonnull
-    @Override
-    protected int[] getTransportSlots(@Nonnull DirtyChestMenu menu, @Nonnull ItemTransportFlow flow, ItemStack item) {
-        if (flow == ItemTransportFlow.WITHDRAW) {
-            return OUTPUT_SLOTS;
-        }
+    protected int[] getInputSlots(DirtyChestMenu menu, ItemStack item) {
         return new int[0];
+    }
+
+    @Override
+    protected int[] getInputSlots() {
+        return new int[] { OSCILLATOR_SLOT };
+    }
+
+    @Override
+    protected int[] getOutputSlots() {
+        return OUTPUT_SLOTS;
     }
 
     @Override
@@ -118,8 +96,45 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
     }
 
     @Override
-    public int getCapacity() {
-        return this.energy * 2;
+    protected boolean process(Block b, BlockMenu inv) {
+        if (inv.hasViewer()) {
+            inv.replaceExistingItem(STATUS_SLOT, MINING);
+        }
+
+        if (InfinityExpansion.slimefunTickCount() % INTERVAL != 0) {
+            return true;
+        }
+
+        ItemStack outputItem;
+
+        if (ThreadLocalRandom.current().nextInt(this.chance) == 0) {
+            Material oscillator = Oscillator.getOscillator(inv.getItemInSlot(OSCILLATOR_SLOT));
+            if (oscillator == null || ThreadLocalRandom.current().nextBoolean()) {
+                Material outputType = this.outputs[ThreadLocalRandom.current().nextInt(this.outputs.length)];
+                if (!ALLOW_NETHER_IN_OVERWORLD && b.getWorld().getEnvironment() != World.Environment.NETHER &&
+                        (outputType == Material.QUARTZ || outputType == Material.NETHERITE_INGOT || outputType == Material.NETHERRACK)
+                ) {
+                    outputItem = new ItemStack(Material.COBBLESTONE, this.speed);
+                }
+                else {
+                    outputItem = new ItemStack(outputType, this.speed);
+                }
+            }
+            else {
+                outputItem = new ItemStack(oscillator, this.speed);
+            }
+        }
+        else {
+            outputItem = new ItemStack(Material.COBBLESTONE, this.speed);
+        }
+
+        inv.pushItem(outputItem, OUTPUT_SLOTS);
+        return true;
+    }
+
+    @Override
+    protected int getStatusSlot() {
+        return STATUS_SLOT;
     }
 
     @Nonnull
@@ -138,50 +153,7 @@ public final class Quarry extends AbstractMachine implements RecipeDisplayItem {
     @Nonnull
     @Override
     public String getRecipeSectionLabel(@Nonnull Player p) {
-        return "&7采矿:";
-    }
-
-    private static final ItemStack MINING = new CustomItem(Material.LIME_STAINED_GLASS_PANE, "&a采矿中...");
-
-    @Override
-    protected boolean process(@Nonnull BlockMenu inv, @Nonnull Block b) {
-        if (inv.hasViewer()) {
-            inv.replaceExistingItem(STATUS_SLOT, MINING);
-        }
-
-        if ((InfinityExpansion.inst().getGlobalTick() % INTERVAL) != 0) {
-            return true;
-        }
-
-        ItemStack outputItem;
-
-        if (ThreadLocalRandom.current().nextInt(this.chance) == 0) {
-            Material oscillator = Oscillator.getOscillator(inv.getItemInSlot(OSCILLATOR_SLOT));
-            if (oscillator == null || ThreadLocalRandom.current().nextBoolean()) {
-                Material outputType = this.outputs[ThreadLocalRandom.current().nextInt(this.outputs.length)];
-                if (!ALLOW_NETHER_IN_OVERWORLD && b.getWorld().getEnvironment() != World.Environment.NETHER &&
-                        (outputType == Material.QUARTZ || outputType == Material.NETHERITE_INGOT || outputType == Material.NETHERRACK)
-                ) {
-                    outputItem = new ItemStack(Material.COBBLESTONE, this.speed);
-                } else {
-                    outputItem = new ItemStack(outputType, this.speed);
-                }
-            } else {
-                outputItem = new ItemStack(oscillator, this.speed);
-            }
-        } else {
-            outputItem = new ItemStack(Material.COBBLESTONE, this.speed);
-        }
-
-        if (!inv.fits(outputItem, OUTPUT_SLOTS)) {
-            if (inv.hasViewer()) {
-                inv.replaceExistingItem(STATUS_SLOT, MenuPreset.NO_ROOM);
-            }
-            return false;
-        }
-
-        inv.pushItem(outputItem, OUTPUT_SLOTS);
-        return true;
+        return "&7Mines:";
     }
 
 }

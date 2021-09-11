@@ -11,20 +11,20 @@ import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import io.github.mooy1.infinityexpansion.InfinityExpansion;
+import io.github.mooy1.infinitylib.common.Events;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.NotPlaceable;
 import io.github.thebusybiscuit.slimefun4.core.attributes.Soulbound;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.items.SimpleSlimefunItem;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 
 public final class InfinityMatrix extends SimpleSlimefunItem<ItemUseHandler> implements Listener, Soulbound, NotPlaceable {
 
-    public InfinityMatrix(Category category, SlimefunItemStack item, RecipeType type, ItemStack[] recipe) {
+    public InfinityMatrix(ItemGroup category, SlimefunItemStack item, RecipeType type, ItemStack[] recipe) {
         super(category, item, type, recipe);
-        InfinityExpansion.inst().registerListener(this);
+        Events.registerListener(this);
     }
 
     private static void disableFlight(Player p) {
@@ -73,9 +73,11 @@ public final class InfinityMatrix extends SimpleSlimefunItem<ItemUseHandler> imp
                         p.sendMessage(ChatColor.GOLD + "取消绑定!");
                         disableFlight(p);
 
-                    } else if (p.getAllowFlight()) {
+                    }
+                    else if (p.getAllowFlight()) {
                         disableFlight(p);
-                    } else {
+                    }
+                    else {
                         enableFlight(p);
                     }
 

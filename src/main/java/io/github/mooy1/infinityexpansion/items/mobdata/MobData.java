@@ -1,4 +1,4 @@
-package io.github.mooy1.infinityexpansion.items;
+package io.github.mooy1.infinityexpansion.items.mobdata;
 
 import lombok.experimental.UtilityClass;
 
@@ -6,21 +6,20 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.mooy1.infinityexpansion.InfinityExpansion;
-import io.github.mooy1.infinityexpansion.categories.Categories;
-import io.github.mooy1.infinityexpansion.items.mobdata.MobDataCard;
-import io.github.mooy1.infinityexpansion.items.mobdata.MobDataInfuser;
-import io.github.mooy1.infinityexpansion.items.mobdata.MobDataTier;
-import io.github.mooy1.infinityexpansion.items.mobdata.MobSimulationChamber;
-import io.github.mooy1.infinitylib.presets.LorePreset;
+import io.github.mooy1.infinityexpansion.categories.Groups;
+import io.github.mooy1.infinityexpansion.items.materials.Materials;
+import io.github.mooy1.infinitylib.core.Environment;
+import io.github.mooy1.infinitylib.machines.MachineLore;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 
 @UtilityClass
 public final class MobData {
 
-    private static final int CHAMBER_INTERVAL = InfinityExpansion.inst().getConfig().getInt("mob-simulation-options.ticks-per-output", 1, 1000);
+    private static final int CHAMBER_INTERVAL =
+            InfinityExpansion.config().getInt("mob-simulation-options.ticks-per-output", 1, 1000);
     private static final int CHAMBER_BUFFER = 15000;
     private static final int CHAMBER_ENERGY = 150;
     private static final int INFUSER_ENERGY = 20000;
@@ -37,7 +36,7 @@ public final class MobData {
             "&8模拟器合成机",
             "&7可以让模拟器和生物物品融合",
             "",
-            LorePreset.energy(INFUSER_ENERGY) + "每次使用"
+            MachineLore.energy(INFUSER_ENERGY) + "per use"
     );
     public static final SlimefunItemStack CHAMBER = new SlimefunItemStack(
             "MOB_SIMULATION_CHAMBER",
@@ -45,8 +44,8 @@ public final class MobData {
             "&8模拟空间",
             "&7让模拟器可运行",
             "&7会产出对应物品",
-            LorePreset.energyBuffer(CHAMBER_BUFFER),
-            LorePreset.energyPerSecond(CHAMBER_ENERGY)
+            MachineLore.energyBuffer(CHAMBER_BUFFER),
+            MachineLore.energyPerSecond(CHAMBER_ENERGY)
     );
 
     public static final SlimefunItemStack COW = MobDataCard.create("牛", MobDataTier.PASSIVE);
@@ -75,23 +74,28 @@ public final class MobData {
 
     public static void setup(InfinityExpansion plugin) {
 
-        new MobSimulationChamber(Categories.MOB_SIMULATION, CHAMBER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+        new MobSimulationChamber(Groups.MOB_SIMULATION, CHAMBER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 Materials.MAGSTEEL_PLATE, Materials.MACHINE_PLATE, Materials.MAGSTEEL_PLATE,
                 Materials.MACHINE_CIRCUIT, SlimefunItems.PROGRAMMABLE_ANDROID_BUTCHER, Materials.MACHINE_CIRCUIT,
                 Materials.MAGSTEEL_PLATE, Materials.MACHINE_PLATE, Materials.MAGSTEEL_PLATE,
         }, CHAMBER_ENERGY, CHAMBER_INTERVAL).register(plugin);
 
-        new MobDataInfuser(Categories.MOB_SIMULATION, INFUSER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+        new MobDataInfuser(Groups.MOB_SIMULATION, INFUSER, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 Materials.MACHINE_CIRCUIT, SlimefunItems.REINFORCED_ALLOY_INGOT, Materials.MACHINE_CIRCUIT,
                 SlimefunItems.REINFORCED_ALLOY_INGOT, Materials.MACHINE_CORE, SlimefunItems.REINFORCED_ALLOY_INGOT,
                 Materials.MACHINE_CIRCUIT, SlimefunItems.REINFORCED_ALLOY_INGOT, Materials.MACHINE_CIRCUIT
         }, INFUSER_ENERGY).register(plugin);
 
-        new SlimefunItem(Categories.MOB_SIMULATION, EMPTY_DATA_CARD, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
+        new SlimefunItem(Groups.MOB_SIMULATION, EMPTY_DATA_CARD, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
                 SlimefunItems.MAGNESIUM_INGOT, Materials.MACHINE_CIRCUIT, SlimefunItems.MAGNESIUM_INGOT,
                 SlimefunItems.SYNTHETIC_SAPPHIRE, SlimefunItems.SYNTHETIC_DIAMOND, SlimefunItems.SYNTHETIC_EMERALD,
                 SlimefunItems.MAGNESIUM_INGOT, Materials.MACHINE_CIRCUIT, SlimefunItems.MAGNESIUM_INGOT
         }).register(plugin);
+
+        if (InfinityExpansion.environment() == Environment.TESTING) {
+            // There is some issues with player skull items in randomized sets when testing
+            return;
+        }
 
         new MobDataCard(ZOMBIE, MobDataTier.HOSTILE, new ItemStack[] {
                 new ItemStack(Material.IRON_SWORD, 1), new ItemStack(Material.ROTTEN_FLESH, 16), new ItemStack(Material.IRON_SHOVEL, 1),

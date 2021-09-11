@@ -21,14 +21,15 @@ import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataType;
 
 import io.github.mooy1.infinityexpansion.InfinityExpansion;
-import io.github.mooy1.infinitylib.items.StackUtils;
-import io.github.mooy1.infinitylib.presets.LorePreset;
+import io.github.mooy1.infinitylib.common.Scheduler;
+import io.github.mooy1.infinitylib.machines.MachineLore;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.common.ChatColors;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
 import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import me.mrCookieSlime.Slimefun.cscorelib2.chat.ChatColors;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 
 import static io.github.mooy1.infinityexpansion.items.storage.StorageUnit.DISPLAY_KEY;
 import static io.github.mooy1.infinityexpansion.items.storage.StorageUnit.DISPLAY_SLOT;
@@ -55,8 +56,8 @@ final class StorageCache {
     private static final String VOID_EXCESS = "void_excess"; // void excess true or null key
 
     /* Menu Items */
-    private static final ItemStack EMPTY_ITEM = new CustomItem(Material.BARRIER, meta -> {
-        meta.setDisplayName(ChatColor.WHITE + "无物品");
+    private static final ItemStack EMPTY_ITEM = new CustomItemStack(Material.BARRIER, meta -> {
+        meta.setDisplayName(ChatColor.WHITE + "Empty");
         meta.getPersistentDataContainer().set(EMPTY_KEY, PersistentDataType.BYTE, (byte) 1);
     });
 
@@ -87,7 +88,8 @@ final class StorageCache {
             // empty
             setEmptyDisplayName();
             menu.replaceExistingItem(DISPLAY_SLOT, EMPTY_ITEM);
-        } else {
+        }
+        else {
             // something is stored
             ItemStack display = menu.getItemInSlot(DISPLAY_SLOT);
             if (display != null) {
@@ -99,13 +101,15 @@ final class StorageCache {
                     if (output != null) {
                         setStored(output);
                         menu.replaceExistingItem(OUTPUT_SLOT, null);
-                    } else {
+                    }
+                    else {
                         // no output to recover
                         menu.replaceExistingItem(DISPLAY_SLOT, EMPTY_ITEM);
                         setEmptyDisplayName();
                         this.amount = 0;
                     }
-                } else {
+                }
+                else {
                     // load the item in menu
                     load(display, copy);
                 }
@@ -129,20 +133,25 @@ final class StorageCache {
             if (this.amount == 1) {
                 if (action.isShiftClicked() && !action.isRightClicked()) {
                     depositAll(p);
-                } else {
+                }
+                else {
                     withdrawLast(p);
                 }
-            } else if (!isEmpty()) {
+            }
+            else if (!isEmpty()) {
                 if (action.isRightClicked()) {
                     if (action.isShiftClicked()) {
                         withdraw(p, this.amount - 1);
-                    } else {
+                    }
+                    else {
                         withdraw(p, Math.min(this.material.getMaxStackSize(), this.amount - 1));
                     }
-                } else {
+                }
+                else {
                     if (action.isShiftClicked()) {
                         depositAll(p);
-                    } else {
+                    }
+                    else {
                         withdraw(p, 1);
                     }
                 }
@@ -169,12 +178,14 @@ final class StorageCache {
             char second = name.charAt(1);
             if (len >= 14 && second == 'x') {
                 color = name.substring(0, 14);
-            } else {
+            }
+            else {
                 color = new String(new char[] {
                         ChatColor.COLOR_CHAR, second
                 });
             }
-        } else {
+        }
+        else {
             color = null;
         }
 
@@ -202,7 +213,8 @@ final class StorageCache {
             if (first.length() <= 1 || first.charAt(0) != ChatColor.COLOR_CHAR) {
                 if (color == null) {
                     secondLine.append(ChatColor.WHITE);
-                } else {
+                }
+                else {
                     secondLine.append(color);
                 }
             }
@@ -211,7 +223,8 @@ final class StorageCache {
                 secondLine.append(' ').append(words[i++]);
             }
             this.signDisplay[1] = secondLine.toString();
-        } else {
+        }
+        else {
             this.signDisplay[1] = "";
         }
     }
@@ -224,12 +237,9 @@ final class StorageCache {
 
     void destroy(Location l, BlockBreakEvent e) {
         if (isEmpty()) {
+            e.getBlock().getWorld().dropItemNaturally(l, this.storageUnit.getItem().clone());
             return;
         }
-
-        e.setCancelled(true);
-        e.getBlock().setType(Material.AIR);
-        BlockStorage.clearBlockInfo(e.getBlock());
 
         // add output slot
         ItemStack output = this.menu.getItemInSlot(OUTPUT_SLOT);
@@ -252,8 +262,9 @@ final class StorageCache {
         String amt = config.getString(STORED_AMOUNT);
         if (amt == null) {
             this.amount = 0;
-            InfinityExpansion.inst().runSync(() -> BlockStorage.addBlockInfo(this.menu.getLocation(), STORED_AMOUNT, "0"));
-        } else {
+            Scheduler.run(() -> BlockStorage.addBlockInfo(this.menu.getLocation(), STORED_AMOUNT, "0"));
+        }
+        else {
             this.amount = Integer.parseInt(amt);
         }
         this.voidExcess = "true".equals(config.getString(VOID_EXCESS));
@@ -268,11 +279,11 @@ final class StorageCache {
         // check if the copy has anything besides the display key
         if (copy.equals(Bukkit.getItemFactory().getItemMeta(stored.getType()))) {
             this.meta = null;
-            setDisplayName(StackUtils.getDisplayName(stored));
-        } else {
-            this.meta = copy;
-            setDisplayName(StackUtils.getDisplayName(stored, copy));
         }
+        else {
+            this.meta = copy;
+        }
+        setDisplayName(ItemUtils.getItemName(stored));
         this.material = stored.getType();
     }
 
@@ -286,20 +297,23 @@ final class StorageCache {
             this.amount = input.getAmount();
             setStored(input);
             this.menu.replaceExistingItem(INPUT_SLOT, null, false);
-        } else if (matches(input)) {
+        }
+        else if (matches(input)) {
             if (this.voidExcess) {
                 // input and void excess
                 if (this.amount < this.storageUnit.max) {
                     this.amount = Math.min(this.amount + input.getAmount(), this.storageUnit.max);
                 }
                 input.setAmount(0);
-            } else if (this.amount < this.storageUnit.max) {
+            }
+            else if (this.amount < this.storageUnit.max) {
                 // input as much as possible
                 if (input.getAmount() + this.amount >= this.storageUnit.max) {
                     // last item
                     input.setAmount(input.getAmount() - (this.storageUnit.max - this.amount));
                     this.amount = this.storageUnit.max;
-                } else {
+                }
+                else {
                     this.amount += input.getAmount();
                     input.setAmount(0);
                 }
@@ -316,12 +330,14 @@ final class StorageCache {
             if (this.amount == 1) {
                 this.menu.replaceExistingItem(OUTPUT_SLOT, createItem(1), false);
                 setEmpty();
-            } else {
+            }
+            else {
                 int amt = Math.min(this.material.getMaxStackSize(), this.amount - 1);
                 this.menu.replaceExistingItem(OUTPUT_SLOT, createItem(amt), false);
                 this.amount -= amt;
             }
-        } else if (this.amount > 1) {
+        }
+        else if (this.amount > 1) {
             int amt = Math.min(this.material.getMaxStackSize() - outputSlot.getAmount(), this.amount - 1);
             if (amt != 0 && matches(outputSlot)) {
                 outputSlot.setAmount(outputSlot.getAmount() + amt);
@@ -344,7 +360,7 @@ final class StorageCache {
         }
 
         // sings
-        if ((InfinityExpansion.inst().getGlobalTick() % 20) == 0) {
+        if (InfinityExpansion.slimefunTickCount() % 20 == 0) {
             Block check = block.getRelative(0, 1, 0);
             if (SlimefunTag.SIGNS.isTagged(check.getType())
                     || checkWallSign(check = block.getRelative(1, 0, 0), block)
@@ -363,15 +379,16 @@ final class StorageCache {
     }
 
     private void updateStatus() {
-        this.menu.replaceExistingItem(STATUS_SLOT, new CustomItem(Material.CYAN_STAINED_GLASS_PANE, meta -> {
-            meta.setDisplayName(ChatColor.AQUA + "储存列表");
+        this.menu.replaceExistingItem(STATUS_SLOT, new CustomItemStack(Material.CYAN_STAINED_GLASS_PANE, meta -> {
+            meta.setDisplayName(ChatColor.AQUA + "Status");
             List<String> lore = new ArrayList<>();
             if (this.amount == 0) {
-                lore.add(ChatColors.color("&6已储存: &e0 / " + LorePreset.format(this.storageUnit.max) + " &7(0%)"));
-            } else {
-                lore.add(ChatColors.color("&6已储存: &e" + LorePreset.format(this.amount)
-                        + " / " + LorePreset.format(this.storageUnit.max)
-                        + " &7(" + LorePreset.format((double) this.amount * 100.D / this.storageUnit.max) + "%)"
+                lore.add(ChatColors.color("&6Stored: &e0 / " + MachineLore.format(this.storageUnit.max) + " &7(0%)"));
+            }
+            else {
+                lore.add(ChatColors.color("&6Stored: &e" + MachineLore.format(this.amount)
+                        + " / " + MachineLore.format(this.storageUnit.max)
+                        + " &7(" + MachineLore.format((double) this.amount * 100.D / this.storageUnit.max) + "%)"
                 ));
             }
             lore.add(this.voidExcess ? VOID_EXCESS_TRUE : VOID_EXCESS_FALSE);
@@ -386,13 +403,8 @@ final class StorageCache {
     }
 
     private void setStored(ItemStack input) {
-        if (input.hasItemMeta()) {
-            this.meta = input.getItemMeta();
-            setDisplayName(StackUtils.getDisplayName(input, this.meta));
-        } else {
-            this.meta = null;
-            setDisplayName(StackUtils.getDisplayName(input));
-        }
+        this.meta = input.hasItemMeta() ? input.getItemMeta() : null;
+        setDisplayName(ItemUtils.getItemName(input));
         this.material = input.getType();
 
         // add the display key to the display input and set amount 1
@@ -437,7 +449,8 @@ final class StorageCache {
                 if (remaining.getAmount() != withdraw) {
                     this.amount += remaining.getAmount() - withdraw;
                 }
-            } else {
+            }
+            else {
                 this.amount -= withdraw;
             }
             return;
@@ -451,10 +464,12 @@ final class StorageCache {
             if (remaining != null) {
                 toWithdraw -= amt - remaining.getAmount();
                 break;
-            } else {
+            }
+            else {
                 toWithdraw -= amt;
             }
-        } while (toWithdraw > 0);
+        }
+        while (toWithdraw > 0);
         if (toWithdraw != withdraw) {
             this.amount += toWithdraw - withdraw;
         }
@@ -475,7 +490,8 @@ final class StorageCache {
                         item.setAmount(item.getAmount() - (this.storageUnit.max - this.amount));
                         this.amount = this.storageUnit.max;
                         break;
-                    } else {
+                    }
+                    else {
                         this.amount += item.getAmount();
                         item.setAmount(0);
                     }
