@@ -20,7 +20,7 @@ public final class Storage {
             Material.BEEHIVE,
             "&6储存单元制造机",
             "&7提高储存单元等级",
-            "&7或者物品"
+            "&7或者制造储存单元"
     );
 
     private static final int BASIC_AMOUNT = 6400;
