@@ -3,7 +3,7 @@ name: Java CI
 on:
   push:
     branches:
-    - Mooy1-master
+    - master
   pull_request:
     branches:
     - master
