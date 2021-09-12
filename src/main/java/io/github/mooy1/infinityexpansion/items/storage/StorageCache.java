@@ -380,13 +380,13 @@ final class StorageCache {
 
     private void updateStatus() {
         this.menu.replaceExistingItem(STATUS_SLOT, new CustomItemStack(Material.CYAN_STAINED_GLASS_PANE, meta -> {
-            meta.setDisplayName(ChatColor.AQUA + "Status");
+            meta.setDisplayName(ChatColor.AQUA + "储存列表");
             List<String> lore = new ArrayList<>();
             if (this.amount == 0) {
-                lore.add(ChatColors.color("&6Stored: &e0 / " + MachineLore.format(this.storageUnit.max) + " &7(0%)"));
+                lore.add(ChatColors.color("&6已储存: &e0 / " + MachineLore.format(this.storageUnit.max) + " &7(0%)"));
             }
             else {
-                lore.add(ChatColors.color("&6Stored: &e" + MachineLore.format(this.amount)
+                lore.add(ChatColors.color("&6已储存: &e" + MachineLore.format(this.amount)
                         + " / " + MachineLore.format(this.storageUnit.max)
                         + " &7(" + MachineLore.format((double) this.amount * 100.D / this.storageUnit.max) + "%)"
                 ));

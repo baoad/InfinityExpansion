@@ -40,8 +40,8 @@ public final class StoneworksFactory extends AbstractMachineBlock implements Rec
     private static final int STATUS_SLOT = 9;
     private static final int[] CHOICE_SLOTS = { 11, 13, 15 };
     private static final int[] PROCESS_SLOTS = { 10, 12, 14 };
-    private static final ItemStack COBBLE_GEN = new CustomItemStack(Material.GRAY_CONCRETE, "&8Cobblegen");
-    private static final ItemStack PROCESSING = new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, "&7Processing");
+    private static final ItemStack COBBLE_GEN = new CustomItemStack(Material.GRAY_CONCRETE, "&8圆石");
+    private static final ItemStack PROCESSING = new CustomItemStack(Material.GRAY_STAINED_GLASS_PANE, "&7处理中");
 
     public StoneworksFactory(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);

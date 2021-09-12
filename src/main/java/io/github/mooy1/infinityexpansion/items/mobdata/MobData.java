@@ -36,7 +36,7 @@ public final class MobData {
             "&8模拟器合成机",
             "&7可以让模拟器和生物物品融合",
             "",
-            MachineLore.energy(INFUSER_ENERGY) + "per use"
+            MachineLore.energy(INFUSER_ENERGY) + "每次使用"
     );
     public static final SlimefunItemStack CHAMBER = new SlimefunItemStack(
             "MOB_SIMULATION_CHAMBER",

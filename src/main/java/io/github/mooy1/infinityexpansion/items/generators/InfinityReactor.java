@@ -57,7 +57,7 @@ public final class InfinityReactor extends MenuBlock implements EnergyNetProvide
     @Override
     protected void setup(@Nonnull BlockMenuPreset blockMenuPreset) {
         blockMenuPreset.drawBackground(new CustomItemStack(Material.WHITE_STAINED_GLASS_PANE,
-                "&fInfinity Ingot Input"), new int[] {
+                "&f放入无尽锭"), new int[] {
                 0, 1, 2,
                 9, 11,
                 18, 19, 20
@@ -68,7 +68,7 @@ public final class InfinityReactor extends MenuBlock implements EnergyNetProvide
                 21, 22, 23
         });
         blockMenuPreset.drawBackground(new CustomItemStack(Material.BLACK_STAINED_GLASS_PANE,
-                "&8Void Ingot Input"), new int[] {
+                "&8放入虚空锭"), new int[] {
                 6, 7, 8,
                 15, 17,
                 24, 25, 26

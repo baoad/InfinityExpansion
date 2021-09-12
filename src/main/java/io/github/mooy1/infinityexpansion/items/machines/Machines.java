@@ -39,7 +39,7 @@ public final class Machines {
             "&6物品转换器(粘液)",
             "&7结合2个奇点来创造资源",
             "",
-            MachineLore.energy(1_000_000) + "per use"
+            MachineLore.energy(1_000_000) + "每次使用"
     );
     public static final SlimefunItemStack BASIC_GROWER = new SlimefunItemStack(
             "BASIC_VIRTUAL_FARM",
@@ -215,42 +215,6 @@ public final class Machines {
             "",
             MachineLore.speed(1),
             MachineLore.energyPerSecond(240)
-    );
-    public static final SlimefunItemStack BASIC_QUARRY = new SlimefunItemStack(
-            "BASIC_QUARRY",
-            Material.CHISELED_SANDSTONE,
-            "&9基础矿机",
-            "&7自动挖矿",
-            "",
-            MachineLore.speed(1),
-            MachineLore.energyPerSecond(300)
-    );
-    public static final SlimefunItemStack ADVANCED_QUARRY = new SlimefunItemStack(
-            "ADVANCED_QUARRY",
-            Material.CHISELED_RED_SANDSTONE,
-            "&c高级矿机",
-            "&7自动挖矿",
-            "",
-            MachineLore.speed(2),
-            MachineLore.energyPerSecond(900)
-    );
-    public static final SlimefunItemStack VOID_QUARRY = new SlimefunItemStack(
-            "VOID_QUARRY",
-            Material.CHISELED_NETHER_BRICKS,
-            "&8虚空矿机",
-            "&7自动挖矿",
-            "",
-            MachineLore.speed(6),
-            MachineLore.energyPerSecond(3600)
-    );
-    public static final SlimefunItemStack INFINITY_QUARRY = new SlimefunItemStack(
-            "INFINITY_QUARRY",
-            Material.CHISELED_POLISHED_BLACKSTONE,
-            "&b无尽矿机",
-            "&7自动挖矿",
-            "",
-            MachineLore.speed(64),
-            MachineLore.energyPerSecond(36000)
     );
     public static final SlimefunItemStack SINGULARITY_CONSTRUCTOR = new SlimefunItemStack(
             "SINGULARITY_CONSTRUCTOR",

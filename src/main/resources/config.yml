@@ -11,8 +11,8 @@ balance-options:
   # but some addon developers do not want there gear to be transformable so change this at your own risk.
   allow-sf-item-transform: false
 
-  # Enables/Disables Researches which requires players to spend xp to unlock items
-  enable-researches: false
+  # 启用/禁用需要玩家花费经验解锁物品的研究
+  enable-researches: true
   
 mob-simulation-options:
 

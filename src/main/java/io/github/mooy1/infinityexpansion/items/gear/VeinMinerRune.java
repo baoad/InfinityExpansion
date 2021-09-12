@@ -61,7 +61,7 @@ public final class VeinMinerRune extends SlimefunItem implements Listener, NotPl
     };
     private static final double RANGE = 1.5;
     private static final int MAX = 64;
-    private static final String LORE = ChatColor.AQUA + "Veinminer - Crouch to use";
+    private static final String LORE = ChatColor.AQUA + "矿脉矿工符文 - 蹲下使用";
     private static final NamespacedKey key = InfinityExpansion.createKey("vein_miner");
 
     private final CoolDowns cooldowns = new CoolDowns(1000);
@@ -111,16 +111,16 @@ public final class VeinMinerRune extends SlimefunItem implements Listener, NotPl
                         setVeinMiner(itemStack, true);
                         l.getWorld().dropItemNaturally(l, itemStack);
 
-                        p.sendMessage(ChatColor.GREEN + "Added Vein Miner to tool!");
+                        p.sendMessage(ChatColor.GREEN + "给工具添加了矿脉矿工符文!");
                     }
                     else {
-                        p.sendMessage(ChatColor.RED + "Failed to add vein miner!");
+                        p.sendMessage(ChatColor.RED + "添加矿脉矿工符文失败!");
                     }
                 });
 
             }
             else {
-                p.sendMessage(ChatColor.RED + "Failed to add vein miner!");
+                p.sendMessage(ChatColor.RED + "添加矿脉矿工符文失败!");
             }
         }
     }
