@@ -28,8 +28,24 @@ Slimefun版本: DEV 950+
 
 https://github.com/Mooy1/InfinityExpansion/releases/tag/v1
 
-## 版本列表
-#### V.119
+## Stats
+
+Some stats about the addon including current server count and player count are available here:
+
+https://bstats.org/plugin/bukkit/InfinityExpansion/8991
+
+## Changelog
+### Version 123
+- Fix Storage unit drops
+### Version 122
+- Update to RC-28
+- Fix dust extractors
+- Small menu fixes
+### Version 121
+- Update to RC-27
+#### Version 120
+- Won't warn about LiteXpansion nerfs if they are disabled
+#### Version 119
 - Fixed void harvester speed issue
 - infinity harvester will be about 6% faster
 - fixed display issue with rgb names on storage signs
