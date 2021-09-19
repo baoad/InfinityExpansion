@@ -1,6 +1,6 @@
 
-# You should enable this to get bug fixes and receive support asap!
-auto-update: true
+# 自动更新 请不要开启 否则将会变成英文
+auto-update: false
 
 balance-options:
   

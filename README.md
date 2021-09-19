@@ -1,6 +1,7 @@
 # Infinity Expansion
 
 此插件需要Slimefun
+
 通过添加“无尽锭”以及其他的机器来增加游戏的乐趣
 
 ## 中文版下载
@@ -8,11 +9,9 @@
 https://github.com/baoad/InfinityExpansion/Actions
 
 
-
 ## 错误/建议
 
-请到issus板块来发问错误/建议
-
+请到MCBBS的帖子回复来提供错误/建议
 
 ## 需求
 
@@ -22,30 +21,39 @@ Slimefun版本: DEV 950+
 
 推荐您用StarWishsama汉化的最新的Slimefun插件
 
+https://github.com/StarWishsama/Slimefun4/actions
+
 ## 材质包
 
-材质包多数在这个项目内，需要optifine:
+附属的材质多数在这个项目内，需要optifine来支持(客户端):
 
 https://github.com/Mooy1/InfinityExpansion/releases/tag/v1
 
-## Stats
+此链接仅英文版才可使用
 
-Some stats about the addon including current server count and player count are available here:
+https://ybw0014.net/post/guizhancraft-resource-pack
+
+此链接为改item-models来进行修改材质,使用于任何版本
+修改作者:ybw0014
+
+## IE使用状况统计列表
+
+你可以在这里查看到不同地区,MC版本,IE版本的调查统计表:
 
 https://bstats.org/plugin/bukkit/InfinityExpansion/8991
 
-## Changelog
-### Version 123
+## 更新日志
+### V.123
 - Fix Storage unit drops
-### Version 122
+### V.122
 - Update to RC-28
 - Fix dust extractors
 - Small menu fixes
-### Version 121
+### V.121
 - Update to RC-27
-#### Version 120
+#### V.120
 - Won't warn about LiteXpansion nerfs if they are disabled
-#### Version 119
+#### V.119
 - Fixed void harvester speed issue
 - infinity harvester will be about 6% faster
 - fixed display issue with rgb names on storage signs
