@@ -33,7 +33,7 @@ public final class Groups {
             new CustomItemStack(Material.NETHER_STAR, "&b无尽&7科技"), 3,
             MAIN_MATERIALS, BASIC_MACHINES, ADVANCED_MACHINES, STORAGE, MOB_SIMULATION, INFINITY_MATERIALS, INFINITY);
     public static final ItemGroup INFINITY_CHEAT = new SubGroup("infinity_cheat",
-            new CustomItemStack(Material.RESPAWN_ANCHOR, "&b无尽&7配方 &c- 管理员模式"));
+            new CustomItemStack(Material.RESPAWN_ANCHOR, "&b无尽&7配方 &7- &c错误的配方"));
 
     public static void setup(InfinityExpansion inst) {
         INFINITY.register(inst);
