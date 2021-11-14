@@ -26,5 +26,5 @@ jobs:
       if: success()
       with:
         name: InfinityExpansion zh-CN
-        path: target/InfinityExpansion v123 zh-CN.jar
+        path: target/InfinityExpansion v124 zh-CN.jar
 # 注意要和打包出来的一致
