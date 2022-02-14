@@ -63,7 +63,7 @@ public final class InfinityWorkbench extends CraftingBlock implements EnergyNetC
     @Override
     protected void setup(BlockMenuPreset preset) {
         super.setup(preset);
-        preset.addItem(RECIPE_SLOT, new CustomItemStack(Material.BOOK, "&6Recipes"), ChestMenuUtils.getEmptyClickHandler());
+        preset.addItem(RECIPE_SLOT, new CustomItemStack(Material.BOOK, "&6查看所有无尽配方"), ChestMenuUtils.getEmptyClickHandler());
     }
 
     @Override
