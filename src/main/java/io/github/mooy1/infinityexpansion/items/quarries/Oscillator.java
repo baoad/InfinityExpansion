@@ -16,7 +16,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
+
+import net.guizhanss.guizhanlib.minecraft.helper.MaterialHelper;
 
 public final class Oscillator extends SlimefunItem {
 
@@ -35,7 +36,7 @@ public final class Oscillator extends SlimefunItem {
         return new SlimefunItemStack(
                 "QUARRY_OSCILLATOR_" + material.name(),
                 material,
-                "&b" + ItemUtils.getItemName(new ItemStack(material)) + "提取物",
+                "&b" + MaterialHelper.getName(material) + "提取物",
                 "&7此物品需要放到矿机内",
                 "&750%的几率会挖出这种材料"
         );

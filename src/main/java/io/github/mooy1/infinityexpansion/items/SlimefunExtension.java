@@ -156,7 +156,7 @@ public final class SlimefunExtension {
     public static final SlimefunItemStack INFINITY_CAPACITOR = new SlimefunItemStack(
             "INFINITY_CAPACITOR",
             HeadTexture.CAPACITOR_25,
-            "&b无尽电容器",
+            "&b无尽电容",
             "&c&o储存无尽的电量",
             "&c&o需要连接能源网络",
             "",
