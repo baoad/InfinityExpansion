@@ -23,11 +23,12 @@ import io.github.mooy1.infinityexpansion.InfinityExpansion;
 import io.github.mooy1.infinitylib.machines.MachineLore;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.common.ChatColors;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.ItemUtils;
 import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+
+import net.guizhanss.guizhanlib.minecraft.helper.inventory.ItemStackHelper;
 
 import static io.github.mooy1.infinityexpansion.items.storage.StorageUnit.DISPLAY_KEY;
 import static io.github.mooy1.infinityexpansion.items.storage.StorageUnit.DISPLAY_SLOT;
@@ -46,8 +47,8 @@ public final class StorageCache {
 
     /* Menu strings */
     private static final String EMPTY_DISPLAY_NAME = ChatColor.WHITE + "无物品";
-    private static final String VOID_EXCESS_TRUE = ChatColors.color("&7展示物品:&e 开启");
-    private static final String VOID_EXCESS_FALSE = ChatColors.color("&7展示物品:&e 关闭");
+    private static final String VOID_EXCESS_TRUE = ChatColors.color("&7存储满时清空输入:&e 开启");
+    private static final String VOID_EXCESS_FALSE = ChatColors.color("&7存储满时清空输入:&e 关闭");
 
     /* BlockStorage keys */
     private static final String STORED_AMOUNT = "stored"; // amount key in block data
@@ -55,7 +56,7 @@ public final class StorageCache {
 
     /* Menu Items */
     private static final ItemStack EMPTY_ITEM = new CustomItemStack(Material.BARRIER, meta -> {
-        meta.setDisplayName(ChatColor.WHITE + "Empty");
+        meta.setDisplayName(ChatColor.WHITE + "空");
         meta.getPersistentDataContainer().set(EMPTY_KEY, PersistentDataType.BYTE, (byte) 1);
     });
 
@@ -271,7 +272,7 @@ public final class StorageCache {
         else {
             this.meta = copy;
         }
-        setDisplayName(ItemUtils.getItemName(stored));
+        setDisplayName(ItemStackHelper.getDisplayName(stored));
         this.material = stored.getType();
     }
 
@@ -392,7 +393,7 @@ public final class StorageCache {
 
     private void setStored(ItemStack input) {
         this.meta = input.hasItemMeta() ? input.getItemMeta() : null;
-        setDisplayName(ItemUtils.getItemName(input));
+        setDisplayName(ItemStackHelper.getDisplayName(input));
         this.material = input.getType();
 
         // add the display key to the display input and set amount 1

@@ -9,7 +9,10 @@ import java.util.Map;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
+import net.guizhanss.guizhanlib.minecraft.helper.entity.EntityTypeHelper;
+import net.guizhanss.guizhanlib.utils.StringUtil;
 import org.bukkit.Material;
+import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
 import io.github.mooy1.infinityexpansion.categories.Groups;
@@ -29,9 +32,15 @@ public final class MobDataCard extends SlimefunItem implements RecipeDisplayItem
 
     static final Map<String, MobDataCard> CARDS = new HashMap<>();
 
-    public static SlimefunItemStack create(String name, MobDataTier tier) {
+    public static SlimefunItemStack create(String id, MobDataTier tier) {
+        // 血压起来了
+        String name;
+        if (id.equals("Endermen"))
+            name = EntityTypeHelper.getName(EntityType.ENDERMAN);
+        else
+            name = EntityTypeHelper.getNameByString(StringUtil.dehumanize(id));
         return new SlimefunItemStack(
-                name.toUpperCase(Locale.ROOT).replace(" ", "_") + "_DATA_CARD",
+                StringUtil.dehumanize(id) + "_DATA_CARD",
                 tier.material,
                 "&b" + name + "模拟器",
                 "&7需要放置在模拟空间运行",

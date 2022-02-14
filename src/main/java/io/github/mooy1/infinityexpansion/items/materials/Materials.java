@@ -144,22 +144,22 @@ public final class Materials {
     public static final SlimefunItemStack FORTUNE_SINGULARITY = new SlimefunItemStack(
             "FORTUNE_SINGULARITY",
             Material.NETHER_STAR,
-            "&6奇点(F)"
+            "&6时运奇点"
     );
     public static final SlimefunItemStack EARTH_SINGULARITY = new SlimefunItemStack(
             "EARTH_SINGULARITY",
             Material.NETHER_STAR,
-            "&a奇点(E)"
+            "&a地球奇点"
     );
     public static final SlimefunItemStack METAL_SINGULARITY = new SlimefunItemStack(
             "METAL_SINGULARITY",
             Material.NETHER_STAR,
-            "&8奇点(M)"
+            "&8金属奇点"
     );
     public static final SlimefunItemStack MAGIC_SINGULARITY = new SlimefunItemStack(
             "MAGIC_SINGULARITY",
             Material.NETHER_STAR,
-            "&d奇点(MS)"
+            "&d魔法奇点"
     );
     public static final SlimefunItemStack ENDER_ESSENCE = new SlimefunItemStack(
             "END_ESSENCE",

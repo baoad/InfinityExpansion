@@ -129,7 +129,7 @@ public final class VoidHarvester extends AbstractMachineBlock implements RecipeD
     @Nonnull
     @Override
     public String getRecipeSectionLabel(@Nonnull Player p) {
-        return "&7已获取:";
+        return "&7可获取:";
     }
 
 }
