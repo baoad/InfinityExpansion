@@ -6,8 +6,7 @@
 
 ## 中文版下载
 
-https://github.com/baoad/InfinityExpansion/Actions
-
+https://builds.guizhanss.net/baoad/InfinityExpansion/master
 
 ## 错误/建议
 
