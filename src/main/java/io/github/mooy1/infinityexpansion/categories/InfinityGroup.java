@@ -83,7 +83,7 @@ public final class InfinityGroup extends FlexItemGroup {
             7, 16, 17
     };
     private static final ItemStack BENCH = new CustomItemStack(Material.NETHER_STAR,
-            "&bCreate the recipe from items in your inventory: ",
+            "&b从库存中的项目创建配方: ",
             "&a左键单击 > 移动一个",
             "&a右键单击 > 移动一组"
     );
@@ -177,9 +177,9 @@ public final class InfinityGroup extends FlexItemGroup {
                         ChatColor.WHITE + ItemUtils.getItemName(sfItem.getItem()),
                         "&4&l" + Slimefun.getLocalization().getMessage(player, "guide.locked"),
                         "",
-                        "&a> 点击解锁",
+                        "&a> 单击解锁",
                         "",
-                        "&7所需: &b" + research.getCost() + "经验(s)"
+                        "&7需要 &b" + research.getCost() + " 级经验"
                 );
                 menu.addItem(i, resItem, (p, slot, item1, action) -> {
                     research.unlockFromGuide(GUIDE, p, entry.profile, sfItem, Groups.INFINITY, 0);
