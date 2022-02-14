@@ -3,6 +3,7 @@ package io.github.mooy1.infinityexpansion;
 import java.io.File;
 import java.util.logging.Level;
 
+import net.guizhanss.guizhanlib.updater.GuizhanBuildsUpdater;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginDescriptionFile;
 import org.bukkit.plugin.java.JavaPluginLoader;
@@ -44,6 +45,11 @@ public final class InfinityExpansion extends AbstractAddon {
         Metrics metrics = new Metrics(this, 8991);
         String autoUpdates = String.valueOf(autoUpdatesEnabled());
         metrics.addCustomChart(new SimplePie("auto_updates", () -> autoUpdates));
+
+        if (getConfig().getBoolean("auto-update") &&
+            getDescription().getVersion().startsWith("Build")) {
+            new GuizhanBuildsUpdater(this, getFile(), "baoad", "InfinityExpansion", "master", false).start();
+        }
 
         Plugin lx = getServer().getPluginManager().getPlugin("LiteXpansion");
         if (lx != null && lx.getConfig().getBoolean("options.nerf-other-addons")) {

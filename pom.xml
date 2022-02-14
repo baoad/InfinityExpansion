@@ -6,7 +6,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.github.mooy1</groupId>
     <artifactId>InfinityExpansion</artifactId>
-    <version>126 zh-CN</version>
+    <version>zh-CN(baoad)</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -58,7 +58,7 @@
         </dependency>
 
         <dependency>
-            <groupId>io.github.mooy1</groupId>
+            <groupId>net.guizhanss</groupId>
             <artifactId>InfinityLib</artifactId>
             <version>1.3.4</version>
             <scope>compile</scope>
@@ -76,6 +76,13 @@
             <artifactId>MockBukkit-v1.16</artifactId>
             <version>1.5.0</version>
             <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.guizhanss</groupId>
+            <artifactId>GuizhanLib</artifactId>
+            <version>0.5.3</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
@@ -119,6 +126,10 @@
                         <relocation>
                             <pattern>io.github.mooy1.infinitylib</pattern>
                             <shadedPattern>io.github.mooy1.infinityexpansion.infinitylib</shadedPattern>
+                        </relocation>
+                        <relocation>
+                            <pattern>net.guizhanss.guizhanlib</pattern>
+                            <shadedPattern>io.github.mooy1.infinityexpansion.guizhanlib</shadedPattern>
                         </relocation>
                     </relocations>
                     <filters>
