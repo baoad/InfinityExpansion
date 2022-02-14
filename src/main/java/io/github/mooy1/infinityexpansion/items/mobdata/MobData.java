@@ -48,29 +48,29 @@ public final class MobData {
             MachineLore.energyPerSecond(CHAMBER_ENERGY)
     );
 
-    public static final SlimefunItemStack COW = MobDataCard.create("牛", MobDataTier.PASSIVE);
-    public static final SlimefunItemStack SHEEP = MobDataCard.create("羊", MobDataTier.PASSIVE);
-    public static final SlimefunItemStack CHICKEN = MobDataCard.create("鸡", MobDataTier.PASSIVE);
-    public static final SlimefunItemStack VILLAGER = MobDataCard.create("村民", MobDataTier.PASSIVE);
+    public static final SlimefunItemStack COW = MobDataCard.create("Cow", MobDataTier.PASSIVE);
+    public static final SlimefunItemStack SHEEP = MobDataCard.create("Sheep", MobDataTier.PASSIVE);
+    public static final SlimefunItemStack CHICKEN = MobDataCard.create("Chicken", MobDataTier.PASSIVE);
+    public static final SlimefunItemStack VILLAGER = MobDataCard.create("Villager", MobDataTier.NEUTRAL);
 
-    public static final SlimefunItemStack BEE = MobDataCard.create("蜜蜂", MobDataTier.NEUTRAL);
-    public static final SlimefunItemStack SLIME = MobDataCard.create("史莱姆", MobDataTier.NEUTRAL);
-    public static final SlimefunItemStack MAGMA_CUBE = MobDataCard.create("岩浆怪", MobDataTier.NEUTRAL);
+    public static final SlimefunItemStack BEE = MobDataCard.create("Bee", MobDataTier.NEUTRAL);
+    public static final SlimefunItemStack SLIME = MobDataCard.create("Slime", MobDataTier.NEUTRAL);
+    public static final SlimefunItemStack MAGMA_CUBE = MobDataCard.create("Magma Cube", MobDataTier.NEUTRAL);
 
-    public static final SlimefunItemStack WITCH = MobDataCard.create("女巫", MobDataTier.HOSTILE);
-    public static final SlimefunItemStack ZOMBIE = MobDataCard.create("僵尸", MobDataTier.HOSTILE);
-    public static final SlimefunItemStack SPIDER = MobDataCard.create("蜘蛛", MobDataTier.HOSTILE);
-    public static final SlimefunItemStack SKELETON = MobDataCard.create("骷髅", MobDataTier.HOSTILE);
-    public static final SlimefunItemStack CREEPER = MobDataCard.create("苦力怕", MobDataTier.HOSTILE);
+    public static final SlimefunItemStack WITCH = MobDataCard.create("Witch", MobDataTier.ADVANCED);
+    public static final SlimefunItemStack ZOMBIE = MobDataCard.create("Zombie", MobDataTier.HOSTILE);
+    public static final SlimefunItemStack SPIDER = MobDataCard.create("Spider", MobDataTier.HOSTILE);
+    public static final SlimefunItemStack SKELETON = MobDataCard.create("Skeleton", MobDataTier.HOSTILE);
+    public static final SlimefunItemStack CREEPER = MobDataCard.create("Creeper", MobDataTier.HOSTILE);
 
-    public static final SlimefunItemStack WITHER_SKELETON = MobDataCard.create("凋零骷髅", MobDataTier.ADVANCED);
-    public static final SlimefunItemStack ENDERMEN = MobDataCard.create("末影人", MobDataTier.ADVANCED);
-    public static final SlimefunItemStack GUARDIAN = MobDataCard.create("守卫者", MobDataTier.ADVANCED);
-    public static final SlimefunItemStack IRON_GOLEM = MobDataCard.create("铁傀儡", MobDataTier.ADVANCED);
-    public static final SlimefunItemStack BLAZE = MobDataCard.create("烈焰人", MobDataTier.ADVANCED);
+    public static final SlimefunItemStack WITHER_SKELETON = MobDataCard.create("Wither Skeleton", MobDataTier.ADVANCED);
+    public static final SlimefunItemStack ENDERMEN = MobDataCard.create("Endermen", MobDataTier.ADVANCED);
+    public static final SlimefunItemStack GUARDIAN = MobDataCard.create("Guardian", MobDataTier.HOSTILE);
+    public static final SlimefunItemStack IRON_GOLEM = MobDataCard.create("Iron Golem", MobDataTier.ADVANCED);
+    public static final SlimefunItemStack BLAZE = MobDataCard.create("Blaze", MobDataTier.ADVANCED);
 
-    public static final SlimefunItemStack WITHER = MobDataCard.create("凋零", MobDataTier.BOSS);
-    public static final SlimefunItemStack ENDER_DRAGON = MobDataCard.create("末影龙", MobDataTier.BOSS);
+    public static final SlimefunItemStack WITHER = MobDataCard.create("Wither", MobDataTier.MINI_BOSS);
+    public static final SlimefunItemStack ENDER_DRAGON = MobDataCard.create("Ender Dragon", MobDataTier.BOSS);
 
     public static void setup(InfinityExpansion plugin) {
 
@@ -183,7 +183,7 @@ public final class MobData {
                 new ItemStack(Material.HONEY_BLOCK, 16), EMPTY_DATA_CARD, new ItemStack(Material.HONEY_BLOCK, 16),
                 new ItemStack(Material.HONEYCOMB_BLOCK, 16), new ItemStack(Material.HONEY_BLOCK, 16), new ItemStack(Material.HONEYCOMB_BLOCK, 16)
         }).addDrop(Material.HONEYCOMB, 1).register(plugin);
-        new MobDataCard(VILLAGER, MobDataTier.ADVANCED, new ItemStack[] {
+        new MobDataCard(VILLAGER, MobDataTier.NEUTRAL, new ItemStack[] {
                 new ItemStack(Material.EMERALD, 64), new ItemStack(Material.POTATO, 64), new ItemStack(Material.EMERALD, 64),
                 new ItemStack(Material.CARROT, 64), EMPTY_DATA_CARD, new ItemStack(Material.WHEAT, 64),
                 new ItemStack(Material.EMERALD, 64), new ItemStack(Material.PUMPKIN, 64), new ItemStack(Material.EMERALD, 64)

@@ -127,7 +127,7 @@ public final class MobSimulationChamber extends TickingMenuBlock implements Ener
     }
 
     private static ItemStack makeXpItem(int stored) {
-        return new CustomItemStack(Material.LIME_STAINED_GLASS_PANE, "&a死亡经验值: " + stored, "", "&a> 点击获取");
+        return new CustomItemStack(Material.LIME_STAINED_GLASS_PANE, "&a已储存经验值: " + stored, "", "&a> 点击获取");
     }
 
     @Override
