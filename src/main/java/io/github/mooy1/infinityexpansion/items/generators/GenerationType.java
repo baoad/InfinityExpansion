@@ -32,7 +32,7 @@ public enum GenerationType {
             }
         }
     },
-    SOLAR("白天") {
+    SOLAR("太阳能") {
         @Override
         protected int generate(@Nonnull World world, @Nonnull Block block, int def) {
             if (world.getEnvironment() == World.Environment.NORMAL
@@ -43,7 +43,7 @@ public enum GenerationType {
             return 0;
         }
     },
-    LUNAR("晚上") {
+    LUNAR("虚空") {
         @Override
         protected int generate(@Nonnull World world, @Nonnull Block block, int def) {
             switch (world.getEnvironment()) {

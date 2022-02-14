@@ -134,7 +134,7 @@ public final class StrainerBase extends TickingMenuBlock implements RecipeDispla
     @Nonnull
     @Override
     public String getRecipeSectionLabel(@Nonnull Player p) {
-        return "&7收集:";
+        return "&7可收集物品:";
     }
 
     @Override

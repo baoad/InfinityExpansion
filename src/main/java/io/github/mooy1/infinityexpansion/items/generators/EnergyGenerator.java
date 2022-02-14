@@ -83,7 +83,7 @@ public final class EnergyGenerator extends MenuBlock implements EnergyNetProvide
             else {
                 inv.replaceExistingItem(4, new CustomItemStack(
                         Material.GREEN_STAINED_GLASS_PANE,
-                        "&a发电列表",
+                        "&a发电中",
                         "&7类型: &6" + this.type.toString(),
                         "&7发电中: &6" + MachineLore.formatEnergy(gen) + " J/s ",
                         "&7电量储存: &6" + MachineLore.format(getCharge(l)) + " J"
