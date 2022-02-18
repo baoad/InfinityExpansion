@@ -28,4 +28,11 @@ jobs:
       with:
         name: InfinityExpansion zh-CN
         path: target/InfinityExpansion v126 zh-CN.jar
+    - name: Archive artifacts (artifacts)
+      uses: actions/upload-artifact@v2
+      if: success()
+      with:
+        name: InfinityExpansion zh-CN
+        path: target/InfinityExpansion vzh-CN(baoad).jar
+
 # 注意要和打包出来的一致
