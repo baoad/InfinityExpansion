@@ -19,7 +19,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 public final class GiveRecipe extends SubCommand {
 
     public GiveRecipe() {
-        super("giverecipe", "给予 Slimefun 配方中的物品", true);
+        super("giverecipe", "给予 Slimefun 配方中的物品", "infinityexpansion.giverecipe");
     }
 
     @Override
