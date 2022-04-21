@@ -27,12 +27,12 @@ jobs:
       if: success()
       with:
         name: InfinityExpansion zh-CN
-        path: target/InfinityExpansion v137 zh-CN.jar
+        path: target/InfinityExpansion v138 zh-CN.jar
     - name: Archive artifacts (artifacts)
       uses: actions/upload-artifact@v2
       if: success()
       with:
         name: InfinityExpansion zh-CN
-        path: target/InfinityExpansion v137 zh-CN(baoad).jar
+        path: target/InfinityExpansion v138 zh-CN(baoad).jar
 
 # 注意要和打包出来的一致
