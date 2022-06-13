@@ -33,6 +33,6 @@ jobs:
       if: success()
       with:
         name: InfinityExpansion zh-CN
-        path: target/InfinityExpansion v138 zh-CN(baoad).jar
+        path: target/InfinityExpansion v140 zh-CN(baoad).jar
 
 # 注意要和打包出来的一致

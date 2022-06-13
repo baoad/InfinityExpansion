@@ -41,8 +41,10 @@ https://ybw0014.net/post/guizhancraft-resource-pack
 
 https://bstats.org/plugin/bukkit/InfinityExpansion/8991
 
-## 更新日志
-### V.123
+## Changelog
+### Version 140
+- Fix Powered Bedrock not taking the correct charge and getting stuck in a powered state
+### Version 123
 - Fix Storage unit drops
 ### V.122
 - Update to RC-28
